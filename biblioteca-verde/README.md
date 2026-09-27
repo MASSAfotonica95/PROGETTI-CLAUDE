@@ -138,22 +138,22 @@ Alcune schede hanno livelli diversi per parti diverse (es. «V1/V3»): nell'indi
 
 | ID | Fonte | Verifica | Link ufficiale |
 |---|---|---|---|
-| IT-V-01 | Legge 10/2013 "Norme per lo sviluppo degli spazi verdi urbani" (testo vigente) | V2 | [link](https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:legge:2013-01-14) |
-| IT-V-02 | Legge 113/1992 "Un albero per ogni neonato" (come modificata dalla L. 10/2013) | V2 | [link](https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:legge:1992-01-29) |
+| IT-V-01 | Legge 10/2013 "Norme per lo sviluppo degli spazi verdi urbani" (testo vigente) | V2 | [link](https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:legge:2013-01-14;10) |
+| IT-V-02 | Legge 113/1992 "Un albero per ogni neonato" (come modificata dalla L. 10/2013) | V2 | [link](https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:legge:1992-01-29;113) |
 | IT-V-03 | DM 23/10/2014 – Elenco degli alberi monumentali d'Italia e criteri per il censimento | V1 | [link](https://www.masaf.gov.it/flex/cm/pages/ServeBLOB.php/L/IT/IDPagina/11270) |
 | IT-V-04 | Linee guida MASAF per gli interventi di cura e salvaguardia degli alberi monumentali (DD n. 1104/2020) e circolari | V1 | [link](https://www.masaf.gov.it/flex/cm/pages/ServeBLOB.php/L/IT/IDPagina/13732) |
 | IT-V-05 | Elenco nazionale degli alberi monumentali d'Italia (MASAF) | V1 | [link](https://www.masaf.gov.it/flex/cm/pages/ServeBLOB.php/L/IT/IDPagina/11260) |
-| IT-V-06 | D.Lgs. 34/2018 (Testo unico foreste e filiere forestali): definizione di bosco, aree assimilate, aree escluse | V2 | [link](https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:decreto.legislativo:2018-04-03) |
-| IT-V-07 | D.Lgs. 42/2004 (Codice dei beni culturali e del paesaggio): artt. 10, 136, 142, 146, 149 | V2 | [link](https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:decreto.legislativo:2004-01-22) |
-| IT-V-08 | DPR 31/2017 (interventi esclusi o in procedura semplificata), come modificato dal DPR 73/2026: voci su verde e alberi | V2 | [link](https://www.normattiva.it/uri-res/N2Ls?urn:nir:presidente.repubblica:decreto:2017-02-13) |
+| IT-V-06 | D.Lgs. 34/2018 (Testo unico foreste e filiere forestali): definizione di bosco, aree assimilate, aree escluse | V2 | [link](https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:decreto.legislativo:2018-04-03;34) |
+| IT-V-07 | D.Lgs. 42/2004 (Codice dei beni culturali e del paesaggio): artt. 10, 136, 142, 146, 149 | V2 | [link](https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:decreto.legislativo:2004-01-22;42) |
+| IT-V-08 | DPR 31/2017 (interventi esclusi o in procedura semplificata), come modificato dal DPR 73/2026: voci su verde e alberi | V2 | [link](https://www.normattiva.it/uri-res/N2Ls?urn:nir:presidente.repubblica:decreto:2017-02-13;31) |
 | IT-V-09 | DM 1444/1968: standard urbanistici (dotazioni minime di spazi pubblici e verde) | V2 | [link](https://www.camera.it/temiap/2014/12/09/OCD177-705.pdf) |
 | IT-V-10 | Intesa 20/10/2016: Regolamento edilizio tipo e definizioni uniformi | V2 | [link](https://www.gazzettaufficiale.it/eli/id/2016/11/16/16A08003/sg) |
 | IT-V-11 | Strategia forestale nazionale (SFN): alberi e foreste urbane e periurbane | V1 | [link](https://www.masaf.gov.it/flex/cm/pages/ServeBLOB.php/L/IT/IDPagina/17813) |
 | IT-V-12 | Strategia nazionale per la biodiversità al 2030 (SNB 2030): verde urbano | V1 | [link](https://www.mase.gov.it/portale/strategia-nazionale-per-la-biodiversit%C3%A0-al-2030) |
-| IT-V-13 | D.L. 111/2019 ("decreto clima") art. 4 e DM 9 ottobre 2020 (forestazione urbana nelle città metropolitane) | V2 | [link](https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:decreto.legge:2019-10-14) |
+| IT-V-13 | D.L. 111/2019 ("decreto clima") art. 4 e DM 9 ottobre 2020 (forestazione urbana nelle città metropolitane) | V2 | [link](https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:decreto.legge:2019-10-14;111) |
 | IT-V-14 | PNRR M2C4 Investimento 3.1 "Tutela e valorizzazione del verde urbano ed extraurbano" e Piano di forestazione urbana ed extraurbana | V1 | [link](https://www.mase.gov.it/portale/m2c4-tutela-del-territorio-e-della-risorsa-idrica) |
-| IT-V-15 | D.Lgs. 230/2017: specie esotiche invasive (adeguamento al Reg. UE 1143/2014) | V1 | [link](https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:decreto.legislativo:2017-12-15) |
-| IT-V-16 | DPR 357/1997 art. 5 (valutazione di incidenza) e Linee guida nazionali VIncA (Intesa 28/11/2019) | V1 | [link](https://www.normattiva.it/uri-res/N2Ls?urn:nir:presidente.repubblica:decreto:1997-09-08) |
+| IT-V-15 | D.Lgs. 230/2017: specie esotiche invasive (adeguamento al Reg. UE 1143/2014) | V1 | [link](https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:decreto.legislativo:2017-12-15;230) |
+| IT-V-16 | DPR 357/1997 art. 5 (valutazione di incidenza) e Linee guida nazionali VIncA (Intesa 28/11/2019) | V1 | [link](https://www.normattiva.it/uri-res/N2Ls?urn:nir:presidente.repubblica:decreto:1997-09-08;357) |
 | IT-V-17 | Costituzione artt. 9 e 41 (riforma L. cost. 1/2022) | V2 | [link](https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:costituzione:1947-12-27) |
 | IT-V-18 | Strategia nazionale del verde urbano (2018) – voce aggiuntiva | V1 | [link](https://www.mase.gov.it/portale/documents/d/guest/strategia_verde_urbano-pdf) |
 
@@ -161,28 +161,28 @@ Alcune schede hanno livelli diversi per parti diverse (es. «V1/V3»): nell'indi
 
 | ID | Fonte | Verifica | Link ufficiale |
 |---|---|---|---|
-| IT-D-01 | Codice civile, artt. 892-896: distanze degli alberi dal confine, rami e radici | V2 | [link](https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:regio.decreto:1942-03-16) |
-| IT-D-02 | Codice della strada (D.Lgs. 285/1992), artt. 16, 18 e 29 (con le definizioni degli artt. 2 e 3) | V2 | [link](https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:decreto.legislativo:1992-04-30) |
-| IT-D-03 | Regolamento del Codice della strada (DPR 495/1992), artt. 26, 27 e 28: distanze di alberi, siepi e recinzioni | V2 | [link](https://www.normattiva.it/uri-res/N2Ls?urn:nir:presidente.repubblica:decreto:1992-12-16) |
-| IT-D-04 | DPR 753/1980 (ferrovie), artt. 49-63: distanze di piante, siepi e boschi dalla rotaia | V2 | [link](https://www.normattiva.it/uri-res/N2Ls?urn:nir:presidente.repubblica:decreto:1980-07-11) |
-| IT-D-05 | DPR 380/2001, art. 6: attività edilizia libera | V2 | [link](https://www.normattiva.it/uri-res/N2Ls?urn:nir:presidente.repubblica:decreto:2001-06-06) |
+| IT-D-01 | Codice civile, artt. 892-896: distanze degli alberi dal confine, rami e radici | V2 | [link](https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:regio.decreto:1942-03-16;262) |
+| IT-D-02 | Codice della strada (D.Lgs. 285/1992), artt. 16, 18 e 29 (con le definizioni degli artt. 2 e 3) | V2 | [link](https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:decreto.legislativo:1992-04-30;285) |
+| IT-D-03 | Regolamento del Codice della strada (DPR 495/1992), artt. 26, 27 e 28: distanze di alberi, siepi e recinzioni | V2 | [link](https://www.normattiva.it/uri-res/N2Ls?urn:nir:presidente.repubblica:decreto:1992-12-16;495) |
+| IT-D-04 | DPR 753/1980 (ferrovie), artt. 49-63: distanze di piante, siepi e boschi dalla rotaia | V2 | [link](https://www.normattiva.it/uri-res/N2Ls?urn:nir:presidente.repubblica:decreto:1980-07-11;753) |
+| IT-D-05 | DPR 380/2001, art. 6: attività edilizia libera | V2 | [link](https://www.normattiva.it/uri-res/N2Ls?urn:nir:presidente.repubblica:decreto:2001-06-06;380) |
 | IT-D-06 | DM 2 marzo 2018: Glossario unico dell'edilizia libera (voci su verde, arredi e pavimentazioni) | V2 | [link](https://www.gazzettaufficiale.it/eli/id/2018/04/07/18A02406/sg) |
 | IT-D-07 | DM 236/1989: accessibilità degli spazi esterni (punti 4.2.x, 8.2.x e 8.1.11) | V2 | [link](https://www.bosettiegatti.eu/info/norme/statali/1989_0236.htm) |
-| IT-D-08 | DPR 503/1996: barriere architettoniche negli spazi pubblici | V2 | [link](https://www.normattiva.it/uri-res/N2Ls?urn:nir:presidente.repubblica:decreto:1996-07-24) |
-| IT-D-09 | L. 13/1989: barriere architettoniche negli edifici privati (sintesi) | V2 | [link](https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:legge:1989-01-09) |
-| IT-D-10 | D.Lgs. 36/2023, art. 41 e Allegato I.7: livelli di progettazione e piano di manutenzione (con richiamo all'art. 57 c. 2 sui CAM) | V2 | [link](https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:decreto.legislativo:2023-03-31) |
-| IT-D-11 | D.Lgs. 36/2023, Allegato II.12: qualificazione degli esecutori (OS 24, OG 13, lavori ≤ 150.000 €) e Allegato II.18 (parchi e giardini storici) | V2 | [link](https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:decreto.legislativo:2023-03-31) |
-| IT-D-12 | L. 154/2016, art. 12: chi può esercitare l'attività di manutentore del verde | V2 | [link](https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:legge:2016-07-28) |
+| IT-D-08 | DPR 503/1996: barriere architettoniche negli spazi pubblici | V2 | [link](https://www.normattiva.it/uri-res/N2Ls?urn:nir:presidente.repubblica:decreto:1996-07-24;503) |
+| IT-D-09 | L. 13/1989: barriere architettoniche negli edifici privati (sintesi) | V2 | [link](https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:legge:1989-01-09;13) |
+| IT-D-10 | D.Lgs. 36/2023, art. 41 e Allegato I.7: livelli di progettazione e piano di manutenzione (con richiamo all'art. 57 c. 2 sui CAM) | V2 | [link](https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:decreto.legislativo:2023-03-31;36) |
+| IT-D-11 | D.Lgs. 36/2023, Allegato II.12: qualificazione degli esecutori (OS 24, OG 13, lavori ≤ 150.000 €) e Allegato II.18 (parchi e giardini storici) | V2 | [link](https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:decreto.legislativo:2023-03-31;36) |
+| IT-D-12 | L. 154/2016, art. 12: chi può esercitare l'attività di manutentore del verde | V2 | [link](https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:legge:2016-07-28;154) |
 | IT-D-13 | Accordo Stato-Regioni 22/02/2018: standard professionale e formativo del manutentore del verde | V2 | [link](https://www.to.camcom.it/sites/default/files/imprese-artigiane/CONF.pdf) |
-| IT-D-14 | D.Lgs. 150/2012, art. 15: prodotti fitosanitari nelle aree frequentate dalla popolazione o da gruppi vulnerabili | V1 | [link](https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:decreto.legislativo:2012-08-14) |
+| IT-D-14 | D.Lgs. 150/2012, art. 15: prodotti fitosanitari nelle aree frequentate dalla popolazione o da gruppi vulnerabili | V1 | [link](https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:decreto.legislativo:2012-08-14;150) |
 | IT-D-15 | PAN fitosanitari (DM 22/01/2014), par. A.5.6, e stato della revisione del Piano | V1 | [link](https://www.mase.gov.it/portale/documents/d/guest/dim_22_01_2014-pdf) |
-| IT-D-16 | D.Lgs. 19/2021 (protezione delle piante): RUOP, passaporto delle piante, obbligo di segnalazione, sanzioni | V1 | [link](https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:decreto.legislativo:2021-02-02) |
-| IT-D-17 | Materiali di moltiplicazione delle piante ornamentali: D.Lgs. 151/2000 (e ambito reale del D.Lgs. 18/2021) | V2 | [link](https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:decreto.legislativo:2000-05-19) |
-| IT-D-18 | D.Lgs. 75/2010 (fertilizzanti): ammendante compostato verde (All. 2) e substrati di coltivazione (All. 4); rapporto con il Reg. (UE) 2019/1009 | V1 | [link](https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:decreto.legislativo:2010-04-29) |
-| IT-D-19 | DPR 120/2017 (terre e rocce da scavo), art. 24: utilizzo nel sito di produzione, e nuovo regolamento in corso di adozione | V2 | [link](https://www.normattiva.it/uri-res/N2Ls?urn:nir:presidente.repubblica:decreto:2017-06-13) |
-| IT-D-20 | D.Lgs. 152/2006, art. 185 c. 1 lett. c) ed f): suolo non contaminato riutilizzato in sito; sfalci e potature | V2 | [link](https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:decreto.legislativo:2006-04-03) |
-| IT-D-21 | D.Lgs. 81/2008, artt. 111, 115, 116 e Allegato XXI: lavori in quota e accesso su funi (tree climbing), con la Circolare MLPS 2/2025 | V2 | [link](https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:decreto.legislativo:2008-04-09) |
-| IT-D-22 | D.Lgs. 81/2008, artt. 83, 117 e Allegato IX: distanze di sicurezza dalle linee elettriche per lavori non elettrici (es. potature) | V2 | [link](https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:decreto.legislativo:2008-04-09) |
+| IT-D-16 | D.Lgs. 19/2021 (protezione delle piante): RUOP, passaporto delle piante, obbligo di segnalazione, sanzioni | V1 | [link](https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:decreto.legislativo:2021-02-02;19) |
+| IT-D-17 | Materiali di moltiplicazione delle piante ornamentali: D.Lgs. 151/2000 (e ambito reale del D.Lgs. 18/2021) | V2 | [link](https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:decreto.legislativo:2000-05-19;151) |
+| IT-D-18 | D.Lgs. 75/2010 (fertilizzanti): ammendante compostato verde (All. 2) e substrati di coltivazione (All. 4); rapporto con il Reg. (UE) 2019/1009 | V1 | [link](https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:decreto.legislativo:2010-04-29;75) |
+| IT-D-19 | DPR 120/2017 (terre e rocce da scavo), art. 24: utilizzo nel sito di produzione, e nuovo regolamento in corso di adozione | V2 | [link](https://www.normattiva.it/uri-res/N2Ls?urn:nir:presidente.repubblica:decreto:2017-06-13;120) |
+| IT-D-20 | D.Lgs. 152/2006, art. 185 c. 1 lett. c) ed f): suolo non contaminato riutilizzato in sito; sfalci e potature | V2 | [link](https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:decreto.legislativo:2006-04-03;152) |
+| IT-D-21 | D.Lgs. 81/2008, artt. 111, 115, 116 e Allegato XXI: lavori in quota e accesso su funi (tree climbing), con la Circolare MLPS 2/2025 | V2 | [link](https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:decreto.legislativo:2008-04-09;81) |
+| IT-D-22 | D.Lgs. 81/2008, artt. 83, 117 e Allegato IX: distanze di sicurezza dalle linee elettriche per lavori non elettrici (es. potature) | V2 | [link](https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:decreto.legislativo:2008-04-09;81) |
 
 **Parte 1D — Criteri ambientali minimi (CAM) e acquisti pubblici verdi** — [1D-cam-e-acquisti-verdi.md](parte-1-normativa/1D-cam-e-acquisti-verdi.md)
 
@@ -197,7 +197,7 @@ Alcune schede hanno livelli diversi per parti diverse (es. «V1/V3»): nell'indi
 | CAM-07 | DM 23 giugno 2022 n. 256 (+ correttivo 5 agosto 2024): CAM Edilizia 2022 — solo regime transitorio | V1 | [link](https://www.mase.gov.it/portale/documents/d/guest/dm_23_06_2022_cam_edilizia-pdf) |
 | CAM-08 | DM 7 febbraio 2023: CAM Arredo urbano, parchi giochi e arredi per esterni | V1 | [link](https://www.mase.gov.it/portale/documents/d/guest/dm_07_02_2023_cam_arredo_urbano-pdf) |
 | CAM-09 | DM 5 agosto 2024 (+ correttivo DM 11 settembre 2025): CAM Infrastrutture stradali | V1 | [link](https://www.mase.gov.it/portale/documents/d/guest/cam-strade-gu-05-08-2024-pdf) |
-| CAM-10 | D.Lgs. 31 marzo 2023 n. 36, art. 57 comma 2: obbligo di inserire i CAM nei documenti di gara | V2 | [link](https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:decreto.legislativo:2023-03-31) |
+| CAM-10 | D.Lgs. 31 marzo 2023 n. 36, art. 57 comma 2: obbligo di inserire i CAM nei documenti di gara | V2 | [link](https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:decreto.legislativo:2023-03-31;36~art57) |
 | CAM-11 | Bozza di Comunicato congiunto ANAC–MASE "Indicazioni sull'applicazione dei criteri ambientali minimi" (in consultazione) | V1 | [link](https://www.anticorruzione.it/-/applicazione-criteri-ambientali-minimi-anac-mase.31.08.2026) |
 | CAM-12 | PAN GPP 2023: Piano d'azione per la sostenibilità ambientale dei consumi nel settore della PA | V1 | [link](https://www.mase.gov.it/portale/documents/d/guest/2025_02_10_pan_gpp-pdf) |
 | CAM-13 | Decreto direttoriale MASE n. 13 del 12 febbraio 2026: programmazione CAM 2026 | V1 | [link](https://www.mase.gov.it/portale/documents/d/guest/m_amte-mase-spc_registro_decreti_r_-0000013-12-02-2026-pdf) |
