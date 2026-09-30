@@ -1,0 +1,343 @@
+{
+ "sources": [
+  {
+   "id": "lombardia_siba_paesaggio",
+   "name": "Regione Lombardia – Vincoli paesaggistici (SIBA)",
+   "type": "arcgis",
+   "provider": "Regione Lombardia",
+   "url": "https://www.cartografia.servizirl.it/arcgis2/rest/services/sistemiverdi/vincoli_paesaggistici/MapServer",
+   "bbox": [
+    8.4,
+    44.6,
+    11.5,
+    46.7
+   ],
+   "value_note": "Ricognitivo, non certificativo: verificare l'atto istitutivo (decreto/GU) e la cartografia originale.",
+   "layers": [
+    {
+     "id": 14,
+     "name": "Aree di notevole interesse pubblico (poligoni)",
+     "theme": "paesaggistico",
+     "legal_ref": "D.Lgs. 42/2004 art. 136",
+     "display_fields": [
+      "DATA_DEC",
+      "DESC_DECR2",
+      "DORIG_DEC",
+      "ART136_C1_LETT",
+      "COMREG_PAE"
+     ],
+     "link_fields": [
+      "DECRETI_IMMAGINI",
+      "GAZZETTA_UFF"
+     ]
+    },
+    {
+     "id": 3,
+     "name": "Perimetro aree di notevole interesse pubblico",
+     "theme": "paesaggistico",
+     "legal_ref": "D.Lgs. 42/2004 art. 136",
+     "display_fields": [
+      "DATA_DEC",
+      "DESC_DECR2",
+      "DORIG_DEC",
+      "ART136_C1_LETT",
+      "COMREG_PAE"
+     ],
+     "link_fields": [
+      "DECRETI_IMMAGINI",
+      "GAZZETTA_UFF"
+     ]
+    },
+    {
+     "id": 0,
+     "name": "Beni e immobili di notevole interesse pubblico",
+     "theme": "paesaggistico",
+     "legal_ref": "D.Lgs. 42/2004 art. 136 lett. a-b",
+     "display_fields": [
+      "DATA_DEC",
+      "DESC_DECR2",
+      "DESCR_DEC",
+      "NOME_COM"
+     ],
+     "link_fields": [
+      "DECRETI_IMMAGINI"
+     ]
+    },
+    {
+     "id": 2,
+     "name": "Fiumi, torrenti e corsi d'acqua pubblici e relative sponde",
+     "theme": "paesaggistico",
+     "legal_ref": "D.Lgs. 42/2004 art. 142 c.1 lett. c"
+    },
+    {
+     "id": 6,
+     "name": "Aree di rispetto corsi d'acqua tutelati (150 m)",
+     "theme": "paesaggistico",
+     "legal_ref": "D.Lgs. 42/2004 art. 142 c.1 lett. c",
+     "display_fields": [
+      "DEN_FI",
+      "NOME_PRO",
+      "TR_VINC"
+     ]
+    },
+    {
+     "id": 1,
+     "name": "Zone umide",
+     "theme": "paesaggistico",
+     "legal_ref": "D.Lgs. 42/2004 art. 142 c.1 lett. i"
+    },
+    {
+     "id": 7,
+     "name": "Territori contermini ai laghi",
+     "theme": "paesaggistico",
+     "legal_ref": "D.Lgs. 42/2004 art. 142 c.1 lett. b"
+    },
+    {
+     "id": 10,
+     "name": "Terreni alpini e appenninici",
+     "theme": "paesaggistico",
+     "legal_ref": "D.Lgs. 42/2004 art. 142 c.1 lett. d"
+    },
+    {
+     "id": 8,
+     "name": "Parchi nazionali e regionali",
+     "theme": "ambientale",
+     "legal_ref": "D.Lgs. 42/2004 art. 142 c.1 lett. f",
+     "display_fields": [
+      "NOME_PA",
+      "DTIPO_IDE",
+      "NOME_ENTE"
+     ]
+    },
+    {
+     "id": 9,
+     "name": "Riserve nazionali e regionali",
+     "theme": "ambientale",
+     "legal_ref": "D.Lgs. 42/2004 art. 142 c.1 lett. f",
+     "display_fields": [
+      "NOME_RS",
+      "DTIPO_RS",
+      "NOME_ENTE"
+     ]
+    },
+    {
+     "id": 12,
+     "name": "Territori coperti da foreste e da boschi",
+     "theme": "paesaggistico",
+     "legal_ref": "D.Lgs. 42/2004 art. 142 c.1 lett. g",
+     "display_fields": [
+      "CODICE",
+      "DESCRIZIONE"
+     ]
+    },
+    {
+     "id": 13,
+     "name": "Aree di interesse pubblico di difficile cartografazione (linee)",
+     "theme": "paesaggistico",
+     "legal_ref": "D.Lgs. 42/2004 art. 136",
+     "display_fields": [
+      "DATA_DEC",
+      "DESC_DECR2",
+      "DORIG_DEC",
+      "ART136_C1_LETT",
+      "COMREG_PAE"
+     ],
+     "link_fields": [
+      "DECRETI_IMMAGINI",
+      "GAZZETTA_UFF"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "eea_natura2000",
+   "name": "EEA – Rete Natura 2000",
+   "type": "arcgis",
+   "provider": "European Environment Agency",
+   "url": "https://bio.discomap.eea.europa.eu/arcgis/rest/services/ProtectedSites/Natura2000Sites/MapServer",
+   "bbox": [
+    -32,
+    27,
+    45,
+    72
+   ],
+   "value_note": "Dato europeo aggregato (release annuale): per valore legale vedere gli atti nazionali/regionali di designazione.",
+   "layers": [
+    {
+     "id": 0,
+     "name": "Siti Direttiva Habitat (pSCI/SCI/ZSC)",
+     "theme": "ambientale",
+     "legal_ref": "Dir. 92/43/CEE; DPR 357/1997",
+     "display_fields": [
+      "SITECODE",
+      "SITENAME",
+      "MS",
+      "RELEASE_DATE"
+     ]
+    },
+    {
+     "id": 1,
+     "name": "Siti Direttiva Uccelli (ZPS)",
+     "theme": "ambientale",
+     "legal_ref": "Dir. 2009/147/CE; DPR 357/1997",
+     "display_fields": [
+      "SITECODE",
+      "SITENAME",
+      "MS",
+      "RELEASE_DATE"
+     ]
+    },
+    {
+     "id": 2,
+     "name": "Siti Habitat e Uccelli",
+     "theme": "ambientale",
+     "legal_ref": "Dir. 92/43/CEE; Dir. 2009/147/CE",
+     "display_fields": [
+      "SITECODE",
+      "SITENAME",
+      "MS",
+      "RELEASE_DATE"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "eea_cdda",
+   "name": "EEA – Aree protette nazionali (CDDA v21)",
+   "type": "arcgis",
+   "provider": "European Environment Agency",
+   "url": "https://bio.discomap.eea.europa.eu/arcgis/rest/services/ProtectedSites/CDDAv21_Dyna_WM/MapServer",
+   "bbox": [
+    -32,
+    27,
+    45,
+    72
+   ],
+   "value_note": "Dato europeo aggregato: verificare l'atto istitutivo nazionale (L. 394/1991 e norme regionali).",
+   "layers": [
+    {
+     "id": 4,
+     "name": "Aree designate a livello nazionale (CDDA)",
+     "theme": "ambientale",
+     "legal_ref": "L. 394/1991 e norme regionali",
+     "display_fields": [
+      "siteName",
+      "designatedAreaType",
+      "cddaCountryCode",
+      "legalFoundationDate",
+      "iucncat"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "ispra_pai_frane",
+   "name": "ISPRA – Mosaicatura PAI pericolosità da frana",
+   "type": "wfs",
+   "provider": "ISPRA",
+   "url": "https://sdi.isprambiente.it/geoserver/nz2/wfs",
+   "bbox": [
+    6.6,
+    35.4,
+    18.6,
+    47.2
+   ],
+   "wfs_version": "2.0.0",
+   "value_note": "Mosaicatura ISPRA armonizzata (P4-P1, AA): non sostituisce i PAI vigenti delle Autorità di bacino. Licenza CC-BY-SA 4.0.",
+   "layers": [
+    {
+     "typename": "nz2:aree_peric_frana_pai",
+     "geometry_field": "geom",
+     "name": "Aree a pericolosità da frana PAI (mosaicatura)",
+     "theme": "idrogeologico",
+     "legal_ref": "PAI – L. 183/1989, D.L. 180/1998; D.Lgs. 152/2006",
+     "display_fields": [
+      "peric_ita"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "doc_nazionale",
+   "name": "Fonti documentali nazionali",
+   "type": "manual",
+   "provider": "vari",
+   "bbox": [
+    6.6,
+    35.4,
+    18.6,
+    47.2
+   ],
+   "value_note": "Consultazione a scopo conoscitivo.",
+   "items": [
+    {
+     "name": "Vincoli in Rete (beni culturali vincolati)",
+     "theme": "culturale",
+     "legal_ref": "D.Lgs. 42/2004 Parte II",
+     "url": "https://www.vincoliinrete.beniculturali.it/VincoliInRete/vir/bene/ricercabeni",
+     "how": "Ricerca per comune/indirizzo; per un vincolo diretto serve identificare foglio e mappale catastale."
+    },
+    {
+     "name": "Certificato di Destinazione Urbanistica (CDU)",
+     "theme": "urbanistico",
+     "legal_ref": "DPR 380/2001 art. 30",
+     "how": "Unico documento con valore certificativo sulle prescrizioni urbanistiche; si richiede al Comune indicando foglio e mappale.",
+     "value_note": "Valore certificativo."
+    }
+   ]
+  },
+  {
+   "id": "doc_lombardia",
+   "name": "Fonti documentali Regione Lombardia",
+   "type": "manual",
+   "provider": "Regione Lombardia",
+   "bbox": [
+    8.4,
+    44.6,
+    11.5,
+    46.7
+   ],
+   "items": [
+    {
+     "name": "Interroga il territorio e il Paesaggio (report PDF multilivello)",
+     "theme": "multi-tema",
+     "url": "https://www.geoportale.regione.lombardia.it/news/-/asset_publisher/80SRILUddraK/content/interroga-il-territorio",
+     "how": "Interrogazione puntuale con report PDF; dichiaratamente ricognitivo e non certificativo."
+    }
+   ]
+  },
+  {
+   "id": "doc_brescia",
+   "name": "Fonti documentali Comune di Brescia",
+   "type": "manual",
+   "provider": "Comune di Brescia",
+   "applies_if": {
+    "comune": [
+     "Brescia"
+    ]
+   },
+   "items": [
+    {
+     "name": "PGT vigente (Piano delle Regole, Documento di Piano, Piano dei Servizi, NTA)",
+     "theme": "urbanistico",
+     "url": "https://www.comune.brescia.it/aree-tematiche/urbanistica/piano-di-governo-del-territorio/pgt-vigente",
+     "how": "Consultare le tavole dei vincoli, della fattibilità geologica e del reticolo idrico; non certificativo."
+    },
+    {
+     "name": "Certificazioni urbanistiche (CDU) del Comune",
+     "theme": "urbanistico",
+     "legal_ref": "DPR 380/2001 art. 30",
+     "url": "https://www.comune.brescia.it/it/servizi/certificazioni-urbanistiche",
+     "how": "Richiesta online del CDU; requisiti, costi e tempi vanno verificati sulla pagina ufficiale (possono variare).",
+     "value_note": "Valore certificativo."
+    },
+    {
+     "name": "Tavola PGT vincoli paesaggistici (SIT Provincia di Brescia)",
+     "theme": "paesaggistico",
+     "url": "https://sit.provincia.brescia.it/tavola/pgt-vincoli-paesaggistici",
+     "how": "Cartografia di consultazione."
+    }
+   ]
+  }
+ ]
+}
