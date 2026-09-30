@@ -255,7 +255,8 @@
       "peric_ita"
      ]
     }
-   ]
+   ],
+   "browser_proxy": true
   },
   {
    "id": "doc_nazionale",

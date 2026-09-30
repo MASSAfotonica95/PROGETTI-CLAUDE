@@ -5,7 +5,8 @@ import requests
 from requests.adapters import HTTPAdapter
 from urllib3.util.retry import Retry
 
-USER_AGENT = "vincoli-territoriali/0.1 (verifica vincoli su coordinata; uso tecnico)"
+from . import USER_AGENT
+
 DEFAULT_TIMEOUT = 30
 
 

@@ -105,3 +105,35 @@ class Engine(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
+
+
+class Web(unittest.TestCase):
+    def test_html_embeds_registry_and_is_stdlib_only(self):
+        import subprocess, sys
+        code = "import sys; sys.modules['requests']=None; from vincoli import webapp; h=webapp.render_html(); print('lombardia_siba_paesaggio' in h, '/*REGISTRY*/' in h)"
+        out = subprocess.run([sys.executable, "-c", code], capture_output=True, text=True)
+        self.assertEqual(out.stdout.split(), ["True", "False"], out.stderr)
+
+    def test_proxy_allowlist_and_host_checks(self):
+        import threading, urllib.request, urllib.error
+        from http.server import ThreadingHTTPServer
+        from vincoli import webapp
+        srv = ThreadingHTTPServer(("127.0.0.1", 0), None)
+        port = srv.server_address[1]
+        srv.RequestHandlerClass = webapp.make_handler("<html>", {"sdi.isprambiente.it"}, port)
+        threading.Thread(target=srv.serve_forever, daemon=True).start()
+        opener = urllib.request.build_opener(urllib.request.ProxyHandler({}))
+
+        def code(path, headers=None):
+            try:
+                return opener.open(urllib.request.Request(f"http://127.0.0.1:{port}{path}", headers=headers or {})).status
+            except urllib.error.HTTPError as e:
+                return e.code
+        try:
+            self.assertEqual(code("/__proxy_ok"), 200)
+            self.assertEqual(code("/proxy?url=https://example.com/"), 403)                 # host non in lista
+            self.assertEqual(code("/proxy?url=http://sdi.isprambiente.it/x"), 403)         # solo https
+            self.assertEqual(code("/__proxy_ok", {"Host": "evil.test"}), 403)              # DNS rebinding
+            self.assertEqual(code("/__proxy_ok", {"Origin": "https://evil.test"}), 403)    # altro sito
+        finally:
+            srv.shutdown()

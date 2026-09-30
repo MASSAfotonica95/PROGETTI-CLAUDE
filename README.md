@@ -28,3 +28,11 @@ Crea un `.json` in `vincoli/sources/` o in una cartella passata con `--sources-d
 Regione Lombardia SIBA (art. 136/142 D.Lgs. 42/2004), EEA Natura 2000 e CDDA, ISPRA mosaicatura PAI frane.
 Non raggiungibili dall'ambiente di sviluppo (quindi non integrate): Geoportale Nazionale/PCN, Vincoli in Rete (solo link manuale).
 Copertura per altre regioni, PAI idraulico/PGRA, vincolo idrogeologico RDL 3267/1923, PGT comunali: **da aggiungere**.
+
+## Versione web (HTML)
+- **`vincoli-web.html`** (27 KB, nessuna installazione): aprilo con doppio clic. Interroga direttamente Regione Lombardia (SIBA), EEA e Nominatim.
+- **Modalità completa**: `python -m vincoli.webapp` (o `avvia.bat` / `avvia.sh`), solo libreria standard di Python. Serve la stessa pagina su `http://127.0.0.1:8765/` e aggiunge un proxy locale per le fonti che bloccano le richieste dal browser (oggi **ISPRA**: risponde 403 a ogni richiesta con header `Origin`, e non invia CORS). Il proxy accetta solo HTTPS verso host elencati nel registro (`"browser_proxy": true`), non segue redirect e rifiuta Host/Origin non locali.
+- Senza proxy le fonti non raggiungibili risultano **NON VERIFICATO** con la spiegazione, mai "nessun vincolo".
+- Rigenerare l'HTML dopo aver modificato il registro: `python -m vincoli.webapp --export vincoli-web.html`.
+- `.exe` (non costruito né testato qui): `pip install pyinstaller && pyinstaller --onefile --add-data "vincoli/web;vincoli/web" --add-data "vincoli/sources;vincoli/sources" -n vincoli-web vincoli/webapp.py` (su Linux/macOS il separatore di `--add-data` è `:`).
+- Il registro delle fonti è lo stesso del CLI; la versione web supporta i tipi `arcgis`, `wfs`, `manual` (non `wms`).

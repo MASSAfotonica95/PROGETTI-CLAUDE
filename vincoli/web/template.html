@@ -1,0 +1,310 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Vincoli su coordinata</title>
+<link rel="icon" href="data:,">
+<style>
+:root{--bg:#f6f7f9;--card:#fff;--ink:#1c2230;--mut:#5b6472;--line:#dde1e8;--acc:#1b5fb4;
+--hit:#b3261e;--near:#a35200;--warn:#7a5d00;--man:#3b4a66;--ok:#1d6b3a;--hitbg:#fdecea;--nearbg:#fff1e0;--warnbg:#fff6d6;--manbg:#eaeef6;--okbg:#e6f4ea}
+@media (prefers-color-scheme:dark){:root:not([data-theme=light]){--bg:#12151b;--card:#1b2029;--ink:#e6e9ef;--mut:#9aa4b2;--line:#2c3340;--acc:#6aa7f5;
+--hit:#ff8a80;--near:#ffb366;--warn:#e6c65c;--man:#a9b8d6;--ok:#7fd49a;--hitbg:#3a1d1b;--nearbg:#3a2a16;--warnbg:#36300f;--manbg:#222a3a;--okbg:#16301f}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.5 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+main{max-width:920px;margin:0 auto;padding:16px}
+h1{font-size:1.35rem;margin:.2rem 0 .1rem}
+.sub{color:var(--mut);margin:0 0 14px;font-size:.9rem}
+.panel{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:14px;margin-bottom:14px}
+.row{display:flex;flex-wrap:wrap;gap:10px;align-items:flex-end}
+label{display:flex;flex-direction:column;font-size:.8rem;color:var(--mut);gap:3px}
+input,select,button{font:inherit;padding:8px 10px;border:1px solid var(--line);border-radius:8px;background:var(--card);color:var(--ink)}
+input{min-width:0}
+#coord{width:min(330px,100%)}#radius{width:110px}
+button{cursor:pointer}button.primary{background:var(--acc);color:#fff;border-color:var(--acc);font-weight:600}
+button:disabled{opacity:.55;cursor:wait}
+button:focus-visible,input:focus-visible,select:focus-visible,a:focus-visible,summary:focus-visible{outline:3px solid var(--acc);outline-offset:2px}
+.hint{font-size:.8rem;color:var(--mut);margin-top:8px}
+.badge{display:inline-block;padding:1px 8px;border-radius:99px;font-size:.75rem;font-weight:600;border:1px solid currentColor;white-space:nowrap}
+.s-HIT{color:var(--hit)}.s-NEARBY{color:var(--near)}.s-UNVERIFIED{color:var(--warn)}.s-MANUAL{color:var(--man)}.s-NO_HIT{color:var(--ok)}
+.sum{display:flex;flex-wrap:wrap;gap:8px;margin:6px 0}
+.note{border-left:4px solid var(--warn);background:var(--warnbg);padding:8px 12px;border-radius:6px;font-size:.85rem;margin:10px 0}
+.card{border:1px solid var(--line);border-left-width:5px;border-radius:8px;padding:10px 12px;margin:8px 0;background:var(--card)}
+.card.HIT{border-left-color:var(--hit);background:var(--hitbg)}.card.NEARBY{border-left-color:var(--near);background:var(--nearbg)}
+.card.UNVERIFIED{border-left-color:var(--warn);background:var(--warnbg)}.card.MANUAL{border-left-color:var(--man);background:var(--manbg)}
+.card h3{font-size:1rem;margin:0 0 4px;display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+.meta{color:var(--mut);font-size:.8rem}
+.card ul{margin:6px 0;padding-left:20px}.card li{overflow-wrap:anywhere}
+.card a{color:var(--acc)}
+details summary{cursor:pointer;color:var(--mut);font-size:.8rem}
+code,.mono{font-family:ui-monospace,Menlo,Consolas,monospace;font-size:.8rem;overflow-wrap:anywhere}
+h2{font-size:1.05rem;margin:18px 0 4px}
+.clear li{margin:2px 0}
+.tools{display:flex;gap:8px;flex-wrap:wrap;margin:8px 0}
+.hide{display:none}
+@media print{.panel.form,.tools{display:none}body{background:#fff}}
+</style>
+</head>
+<body>
+<main>
+<h1>Vincoli su coordinata</h1>
+<p class="sub">Interroga direttamente servizi pubblici (paesaggistici, ambientali, idrogeologici) per un punto. Esito ricognitivo, non certificativo.</p>
+
+<form class="panel form" id="f">
+  <div class="row">
+    <label>Formato
+      <select id="fmt"><option value="wgs">WGS84 lat, lon</option><option value="utm">UTM ETRS89 (E, N, zona)</option></select></label>
+    <label>Coordinata <input id="coord" autocomplete="off" inputmode="decimal" placeholder="45.54667794588481, 10.227873542813938" required></label>
+    <label>Raggio extra (m) <input id="radius" type="number" min="0" max="5000" step="50" value="0"></label>
+    <button class="primary" id="go" type="submit">Verifica</button>
+    <button type="button" id="ex">Esempio</button>
+    <button type="button" id="geo">Usa la mia posizione</button>
+  </div>
+  <div class="hint" id="mode"></div>
+</form>
+
+<div id="out" aria-live="polite"></div>
+</main>
+
+<script>
+"use strict";
+const REG = /*REGISTRY*/null;
+const EXAMPLE = "45.54667794588481, 10.227873542813938";
+const ST = {
+  HIT:{t:"INTERCETTATO",i:"🔴"}, NEARBY:{t:"ENTRO RAGGIO",i:"🟠"}, UNVERIFIED:{t:"NON VERIFICATO",i:"⚠️"},
+  MANUAL:{t:"VERIFICA MANUALE",i:"📄"}, NO_HIT:{t:"NESSUN ELEMENTO",i:"🟢"}
+};
+const ORDER = ["HIT","NEARBY","UNVERIFIED","MANUAL","NO_HIT"];
+const CAVEAT = "Esito ricognitivo a scopo conoscitivo: NON ha valore certificativo. «Nessun elemento» vale solo per il livello interrogato e solo se il servizio ha risposto. Per valore probatorio: Certificato di Destinazione Urbanistica (art. 30 DPR 380/2001) e atti originari.";
+let proxyOk = false, last = null;
+
+/* ---------- geodesia (UTM <-> WGS84, senza librerie) ---------- */
+const A=6378137, FL=1/298.257222101, K0=0.9996, E2=FL*(2-FL), EP2=E2/(1-E2), rad=Math.PI/180;
+function toUTM(lat,lon,zone){
+  const p=lat*rad,l=lon*rad,l0=(zone*6-183)*rad,s=Math.sin(p),c0=Math.cos(p);
+  const n=A/Math.sqrt(1-E2*s*s),t=Math.tan(p)**2,c=EP2*c0*c0,a=c0*(l-l0),e4=E2*E2,e6=E2**3;
+  const m=A*((1-E2/4-3*e4/64-5*e6/256)*p-(3*E2/8+3*e4/32+45*e6/1024)*Math.sin(2*p)+(15*e4/256+45*e6/1024)*Math.sin(4*p)-(35*e6/3072)*Math.sin(6*p));
+  const x=K0*n*(a+(1-t+c)*a**3/6+(5-18*t+t*t+72*c-58*EP2)*a**5/120)+5e5;
+  const y=K0*(m+n*Math.tan(p)*(a*a/2+(5-t+9*c+4*c*c)*a**4/24+(61-58*t+t*t+600*c-330*EP2)*a**6/720));
+  return [x,y];
+}
+function fromUTM(E,N,zone){
+  const x=E-5e5,y=N,e1=(1-Math.sqrt(1-E2))/(1+Math.sqrt(1-E2)),e4=E2*E2,e6=E2**3;
+  const mu=(y/K0)/(A*(1-E2/4-3*e4/64-5*e6/256));
+  const p1=mu+(3*e1/2-27*e1**3/32)*Math.sin(2*mu)+(21*e1**2/16-55*e1**4/32)*Math.sin(4*mu)+(151*e1**3/96)*Math.sin(6*mu)+(1097*e1**4/512)*Math.sin(8*mu);
+  const s=Math.sin(p1),n1=A/Math.sqrt(1-E2*s*s),t1=Math.tan(p1)**2,c1=EP2*Math.cos(p1)**2,r1=A*(1-E2)/(1-E2*s*s)**1.5,d=x/(n1*K0);
+  const lat=p1-(n1*Math.tan(p1)/r1)*(d*d/2-(5+3*t1+10*c1-4*c1*c1-9*EP2)*d**4/24+(61+90*t1+298*c1+45*t1*t1-252*EP2-3*c1*c1)*d**6/720);
+  const lon=(zone*6-183)*rad+(d-(1+2*t1+c1)*d**3/6+(5-2*c1+28*t1-3*c1*c1+8*EP2+24*t1*t1)*d**5/120)/Math.cos(p1);
+  return [lat/rad,lon/rad];
+}
+function parseInput(fmt,text){
+  const nums=text.replace(/[;\s]+/g,",").split(",").filter(Boolean).map(Number);
+  if(nums.some(Number.isNaN)) throw new Error("Valori non numerici");
+  if(fmt==="utm"){
+    if(nums.length!==3) throw new Error("Formato UTM: Est, Nord, zona (32 o 33)");
+    if(![32,33].includes(nums[2])) throw new Error("Zona UTM supportata: 32 o 33 (ETRS89)");
+    const [lat,lon]=fromUTM(nums[0],nums[1],nums[2]); return {lat,lon};
+  }
+  if(nums.length!==2) throw new Error("Formato atteso: lat, lon (gradi decimali WGS84)");
+  const [lat,lon]=nums;
+  if(Math.abs(lat)>90||Math.abs(lon)>180) throw new Error("Coordinate fuori range (forse lat/lon invertite?)");
+  return {lat,lon};
+}
+
+/* ---------- rete ---------- */
+async function getJson(url,opts={}){
+  try{ return await getJson1(url,opts); }
+  catch(e){ if(/^HTTP 4/.test(e.message)) throw e; return await getJson1(url,opts); }  // un solo nuovo tentativo (timeout/rete/5xx)
+}
+async function getJson1(url,{timeout=30000,proxy=false}={}){
+  const ctl=new AbortController(), tm=setTimeout(()=>ctl.abort(),timeout);
+  try{
+    const r=await fetch(proxy?"/proxy?url="+encodeURIComponent(url):url,{signal:ctl.signal});
+    if(!r.ok) throw new Error("HTTP "+r.status);
+    return await r.json();
+  }catch(e){ throw new Error(e.name==="AbortError"?"timeout":String(e.message||e)); }
+  finally{clearTimeout(tm);}
+}
+const now=()=>new Date().toISOString().slice(0,19)+"Z";
+const qs=o=>Object.entries(o).map(([k,v])=>encodeURIComponent(k)+"="+encodeURIComponent(v)).join("&");
+
+function mkFinding(src,layer,status){
+  return {source_id:src.id,source_name:src.name,layer:layer.name,theme:layer.theme||src.theme||"",status,
+    legal_ref:layer.legal_ref||src.legal_ref||"",attributes:[],summary:[],links:[],query_url:"",detail:"",
+    queried_at:now(),provider:src.provider||"",value_note:src.value_note||""};
+}
+function fill(f,rows,layer,hitStatus){
+  f.status=rows.length?hitStatus:"NO_HIT"; f.attributes=rows;
+  const keys=layer.display_fields;
+  f.summary=rows.map(r=>(keys||Object.keys(r).slice(0,6)).filter(k=>r[k]!=null&&String(r[k]).trim()!=="").map(k=>k+"="+r[k]).join("; "));
+  rows.forEach(r=>(layer.link_fields||[]).forEach(k=>{ if(typeof r[k]==="string"&&/^https?:\/\//.test(r[k])) f.links.push(r[k]); }));
+  return f;
+}
+async function qArcgis(src,layer,pt,radius){
+  const f=mkFinding(src,layer,"UNVERIFIED");
+  const p={geometry:pt.lon+","+pt.lat,geometryType:"esriGeometryPoint",inSR:4326,spatialRel:"esriSpatialRelIntersects",
+    outFields:layer.out_fields||"*",returnGeometry:"false",f:"json"};
+  if(radius>0){p.distance=radius;p.units="esriSRUnit_Meter";}
+  const url=src.url.replace(/\/$/,"")+"/"+layer.id+"/query?"+qs(p); f.query_url=url;
+  try{
+    const d=await getJson(url);
+    if(d.error) throw new Error("errore servizio: "+JSON.stringify(d.error));
+    return fill(f,(d.features||[]).map(x=>x.attributes||{}),layer,radius>0?"NEARBY":"HIT");
+  }catch(e){f.status="UNVERIFIED";f.detail=e.message;return f;}
+}
+async function qWfs(src,layer,pt,radius){
+  const f=mkFinding(src,layer,"UNVERIFIED"), g=layer.geometry_field||"geom";
+  const wkt="SRID=4326;POINT("+pt.lon+" "+pt.lat+")";
+  const p={service:"WFS",version:src.wfs_version||"2.0.0",request:"GetFeature",typeNames:layer.typename,outputFormat:"application/json",
+    count:layer.max_features||20,CQL_FILTER:radius>0?`DWITHIN(${g},${wkt},${radius},meters)`:`INTERSECTS(${g},${wkt})`};
+  const url=src.url+"?"+qs(p); f.query_url=url;
+  if(src.browser_proxy&&!proxyOk){
+    f.detail="Servizio che blocca le richieste dirette da pagine web (nessun CORS). Avviare «python -m vincoli.webapp» e usare l'indirizzo locale per includerlo.";
+    return f;
+  }
+  try{
+    const d=await getJson(url,{proxy:!!src.browser_proxy});
+    return fill(f,(d.features||[]).map(x=>x.properties||{}),layer,radius>0?"NEARBY":"HIT");
+  }catch(e){f.status="UNVERIFIED";f.detail=e.message;return f;}
+}
+const CONN={arcgis:qArcgis,wfs:qWfs};
+
+async function geocode(pt){
+  try{
+    const d=await getJson("https://nominatim.openstreetmap.org/reverse?"+qs({format:"jsonv2",lat:pt.lat,lon:pt.lon,zoom:16,addressdetails:1,"accept-language":"it"}));
+    const a=d.address||{};
+    return {ok:true,comune:a.city||a.town||a.village||a.municipality,provincia:a.county||a.state_district,regione:a.state,strada:a.road,fonte:"OpenStreetMap Nominatim (ODbL)"};
+  }catch(e){return {ok:false,detail:e.message};}
+}
+function applies(src,pt,ctx){
+  const b=src.bbox; if(b&&!(pt.lon>=b[0]&&pt.lon<=b[2]&&pt.lat>=b[1]&&pt.lat<=b[3])) return false;
+  const c=src.applies_if||{};
+  if(c.comune){ if(!ctx.comune) return !b;   /* comune ignoto: si propone comunque la fonte manuale */
+    if(!c.comune.map(x=>x.toLowerCase()).includes(ctx.comune.toLowerCase())) return false; }
+  return true;
+}
+function manualFinding(src,it){
+  return {source_id:src.id,source_name:src.name,layer:it.name,theme:it.theme||src.theme||"",status:"MANUAL",legal_ref:it.legal_ref||"",
+    attributes:[],summary:[],links:it.url?[it.url]:[],query_url:"",detail:it.how||"",queried_at:now(),provider:src.provider||"",
+    value_note:it.value_note||src.value_note||""};
+}
+const key=o=>JSON.stringify(Object.entries(o).sort());
+
+async function runAll(pt,radius,onProgress){
+  const ctx=await geocode(pt), tasks=[], out=[];
+  for(const s of REG.sources){
+    if(!applies(s,pt,ctx)) continue;
+    if(s.type==="manual"){ s.items.forEach(it=>out.push(manualFinding(s,it))); continue; }
+    const fn=CONN[s.type];
+    for(const l of s.layers) tasks.push(async()=>{
+      if(!fn){const f=mkFinding(s,l,"UNVERIFIED");f.detail="Tipo di servizio «"+s.type+"» non supportato dalla versione web.";return [f];}
+      const f=await fn(s,l,pt,0);
+      if(radius>0&&(f.status==="NO_HIT"||f.status==="HIT")){
+        const g=await fn(s,l,pt,radius);
+        if(g.status==="UNVERIFIED") f.detail=((f.detail?f.detail+" ":"")+"Ricerca nel raggio di "+radius+" m non riuscita: "+g.detail);
+        else{
+          const seen=new Set(f.attributes.map(key)), idx=g.attributes.map((a,i)=>i).filter(i=>!seen.has(key(g.attributes[i])));
+          if(idx.length){
+            const n={...f,status:"NEARBY",attributes:idx.map(i=>g.attributes[i]),summary:idx.map(i=>g.summary[i]),links:g.links,query_url:g.query_url,detail:"Non sul punto ma entro "+radius+" m."};
+            return [f,n];
+          }
+        }
+      }
+      return [f];
+    });
+  }
+  let done=0, i=0; const total=tasks.length;
+  const worker=async()=>{ while(i<tasks.length){ const t=tasks[i++]; out.push(...await t()); onProgress(++done,total);} };
+  await Promise.all(Array.from({length:Math.min(6,total||1)},worker));
+  out.sort((a,b)=>ORDER.indexOf(a.status)-ORDER.indexOf(b.status)||a.theme.localeCompare(b.theme)||a.layer.localeCompare(b.layer));
+  return {point:pt,radius,context:ctx,findings:out};
+}
+
+/* ---------- interfaccia ---------- */
+function h(tag,attrs,...kids){
+  const e=document.createElement(tag);
+  for(const [k,v] of Object.entries(attrs||{})){ if(k==="class")e.className=v; else if(k==="href"){ if(/^https?:\/\//.test(v)){e.href=v;e.target="_blank";e.rel="noopener noreferrer";} } else e.setAttribute(k,v); }
+  kids.flat().forEach(k=>e.append(k instanceof Node?k:document.createTextNode(k)));
+  return e;
+}
+function badge(st){ return h("span",{class:"badge s-"+st},ST[st].i+" "+ST[st].t); }
+function card(f){
+  const c=h("div",{class:"card "+f.status});
+  c.append(h("h3",{},badge(f.status),f.layer));
+  c.append(h("div",{class:"meta"},[f.theme&&("Tema: "+f.theme),f.legal_ref&&("Norma: "+f.legal_ref),f.source_name+(f.provider?" ("+f.provider+")":"")].filter(Boolean).join(" · ")));
+  if(f.summary.length) c.append(h("ul",{},f.summary.map(s=>h("li",{},s))));
+  const links=[...new Set(f.links)];
+  if(links.length) c.append(h("ul",{},links.map(l=>h("li",{},f.status==="MANUAL"?"Link: ":"Documento: ",h("a",{href:l},l)))));
+  if(f.detail) c.append(h("div",{class:"meta"},"Nota: "+f.detail));
+  if(f.value_note) c.append(h("div",{class:"meta"},"Valore del dato: "+f.value_note));
+  if(f.query_url&&f.status!=="MANUAL"){ const d=h("details",{},h("summary",{},"Query riproducibile ("+f.queried_at+")"),h("div",{class:"mono"},f.query_url)); c.append(d); }
+  return c;
+}
+function toMarkdown(r){
+  const p=r.point,u32=toUTM(p.lat,p.lon,32),u33=toUTM(p.lat,p.lon,33),L=[];
+  L.push(`# Verifica vincoli – ${p.lat.toFixed(6)}, ${p.lon.toFixed(6)}`,"",
+    `- WGS84: ${p.lat.toFixed(9)}, ${p.lon.toFixed(9)}`,
+    `- UTM 32N (EPSG:25832): E ${u32[0].toFixed(3)} N ${u32[1].toFixed(3)} · UTM 33N (EPSG:25833): E ${u33[0].toFixed(3)} N ${u33[1].toFixed(3)}`);
+  const c=r.context;
+  L.push(c.ok?`- Località (${c.fonte}, indicativa): ${c.strada||"-"}, ${c.comune||"-"} (${c.provincia||"-"}), ${c.regione||"-"}`:`- Località: non determinata (${c.detail})`);
+  if(r.radius) L.push(`- Raggio aggiuntivo: ${r.radius} m`);
+  L.push("",`> ${CAVEAT}`,"");
+  for(const st of ORDER){
+    const rows=r.findings.filter(f=>f.status===st); if(!rows.length) continue;
+    L.push(`## ${ST[st].i} ${ST[st].t}`);
+    for(const f of rows){
+      L.push(`### ${f.layer}`,`- Tema: ${f.theme}${f.legal_ref?" · Norma: "+f.legal_ref:""} · Fonte: ${f.source_name}`);
+      f.summary.forEach(s=>L.push(`  - ${s}`)); [...new Set(f.links)].forEach(l=>L.push(`  - ${l}`));
+      if(f.detail) L.push(`- Nota: ${f.detail}`); if(f.query_url&&st!=="MANUAL") L.push(`- Query (${f.queried_at}): <${f.query_url}>`);
+    } L.push("");
+  }
+  return L.join("\n");
+}
+function download(name,text,type){ const a=h("a",{}); a.href=URL.createObjectURL(new Blob([text],{type})); a.download=name; document.body.append(a); a.click(); a.remove(); }
+
+function render(r){
+  const out=document.getElementById("out"); out.replaceChildren(); last=r;
+  const p=r.point,u32=toUTM(p.lat,p.lon,32),c=r.context;
+  out.append(h("div",{class:"panel"},
+    h("strong",{},p.lat.toFixed(6)+", "+p.lon.toFixed(6)),
+    h("div",{class:"meta"},`UTM 32N (EPSG:25832): E ${u32[0].toFixed(1)} N ${u32[1].toFixed(1)}`),
+    h("div",{class:"meta"},c.ok?`Località (indicativa, ${c.fonte}): ${c.strada||"-"}, ${c.comune||"-"}, ${c.regione||"-"}`:"Località non determinata: "+c.detail),
+    h("div",{class:"sum"},ORDER.map(s=>{const n=r.findings.filter(f=>f.status===s).length;return n?h("span",{class:"badge s-"+s},`${ST[s].i} ${ST[s].t}: ${n}`):"";})),
+    h("div",{class:"note"},CAVEAT),
+    h("div",{class:"tools"},
+      h("button",{type:"button",id:"cpy"},"Copia Markdown"),h("button",{type:"button",id:"dj"},"Scarica JSON"),h("button",{type:"button",id:"pr"},"Stampa / PDF"))));
+  const titles={HIT:"Vincoli intercettati sul punto",NEARBY:"Elementi entro il raggio",UNVERIFIED:"Non verificati (servizio non disponibile)",MANUAL:"Da verificare manualmente (nessuna API)"};
+  for(const st of ["HIT","NEARBY","UNVERIFIED","MANUAL"]){
+    const rows=r.findings.filter(f=>f.status===st); if(!rows.length) continue;
+    out.append(h("h2",{},titles[st]),...rows.map(card));
+  }
+  const clear=r.findings.filter(f=>f.status==="NO_HIT");
+  if(clear.length) out.append(h("h2",{},"Livelli interrogati senza elementi sul punto"),h("ul",{class:"clear"},clear.map(f=>h("li",{},f.layer+" — "+f.source_name))));
+  document.getElementById("cpy").onclick=async e=>{ try{await navigator.clipboard.writeText(toMarkdown(r));e.target.textContent="Copiato ✓";}catch{ download("vincoli.md",toMarkdown(r),"text/markdown"); } };
+  document.getElementById("dj").onclick=()=>download("vincoli.json",JSON.stringify({...r,avvertenza:CAVEAT},null,2),"application/json");
+  document.getElementById("pr").onclick=()=>print();
+}
+
+const $=id=>document.getElementById(id);
+function setFmt(){ const u=$("fmt").value==="utm"; $("coord").placeholder=u?"595850.405, 5044415.501, 32":EXAMPLE; }
+$("fmt").onchange=setFmt; setFmt();
+$("ex").onclick=()=>{ $("fmt").value="wgs"; setFmt(); $("coord").value=EXAMPLE; };
+$("geo").onclick=()=>{ if(!navigator.geolocation){alert("Geolocalizzazione non disponibile");return;}
+  navigator.geolocation.getCurrentPosition(p=>{$("fmt").value="wgs";$("coord").value=p.coords.latitude.toFixed(7)+", "+p.coords.longitude.toFixed(7);},e=>alert("Posizione negata: "+e.message)); };
+$("f").onsubmit=async ev=>{
+  ev.preventDefault(); const out=$("out"), btn=$("go");
+  let pt; try{ pt=parseInput($("fmt").value,$("coord").value); }catch(e){ out.replaceChildren(h("div",{class:"note"},e.message)); return; }
+  const radius=Math.max(0,Math.min(5000,Number($("radius").value)||0));
+  btn.disabled=true; out.replaceChildren(h("div",{class:"panel",id:"prog"},"Interrogazione in corso…"));
+  try{ render(await runAll(pt,radius,(d,t)=>{const e=$("prog"); if(e) e.textContent=`Interrogazione in corso… ${d}/${t} livelli`;})); }
+  catch(e){ out.replaceChildren(h("div",{class:"note"},"Errore imprevisto: "+e.message)); }
+  finally{ btn.disabled=false; }
+};
+(async()=>{
+  if(location.protocol.startsWith("http")){ try{ const r=await fetch("/__proxy_ok",{signal:AbortSignal.timeout(1500)}); proxyOk=r.ok&&(await r.text())==="ok"; }catch{} }
+  $("mode").textContent=proxyOk?"Modalità completa: proxy locale attivo (incluso ISPRA – frane PAI).":
+    "Modalità file: fonti con CORS (Regione Lombardia, EEA). ISPRA richiede l'avvio di «python -m vincoli.webapp».";
+})();
+</script>
+</body>
+</html>
