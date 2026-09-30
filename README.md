@@ -32,7 +32,7 @@ Crea un `.json` in `vincoli/sources/` o in una cartella passata con `--sources-d
 - Non trovati servizi interrogabili del Comune di Brescia (PGT vigente) né ENAC; il Geoportale Nazionale/Vincoli in Rete non sono raggiungibili da script.
 
 ## Qualità dei dati: autotest e rigenerazione
-- `python -m vincoli --selftest` – per ogni livello prende un elemento reale e verifica che il servizio lo restituisca sul suo stesso punto (controllo positivo). Senza, un «nessun elemento» non prova nulla. Ultimo esito: 372/372 livelli OK (durata ~5 min).
+- `python -m vincoli --selftest` – per ogni livello prende un elemento reale e verifica che il servizio lo restituisca sul suo stesso punto (controllo positivo). Senza, un «nessun elemento» non prova nulla. Ultimo esito (2026-09-30): 372/372 livelli ArcGIS OK (1–5 min a seconda del carico dei server); il livello WFS ISPRA non è coperto dall'autotest.
 - `python tools/build_registry.py` – rigenera `vincoli/sources/lombardia.json` e `brescia.json` dai metadati live dei servizi (scarta i gruppi, sceglie i campi, riconosce date e link). Il giudizio umano (tema, norma, livelli «informativi», difetti noti in `LAYER_OVERRIDES`) sta in `tools/build_registry.py`.
 - I livelli «informativi» (contesto, non vincoli) si interrogano con `--all` (web: casella «livelli informativi»).
 - Livelli lineari/puntuali: si cerca entro una distanza fissa (`proximity_m`) e l'esito è `ENTRO_RAGGIO`, mai «sul punto».
