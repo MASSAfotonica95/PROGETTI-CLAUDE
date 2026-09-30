@@ -13,6 +13,7 @@ from urllib.parse import urlencode
 
 import requests
 
+from .geo import latlon_to_utm
 from .models import Finding, Point, Status
 
 
@@ -29,9 +30,20 @@ def _base(source: dict, layer: dict) -> Finding:
         queried_at=_now())
 
 
-def _summarize(attrs: dict, fields: list[str] | None) -> str:
-    keys = fields or list(attrs)[:6]
-    return "; ".join(f"{k}={attrs[k]}" for k in keys if attrs.get(k) not in (None, "", " "))
+def _fmt(value, is_date: bool):
+    if is_date and isinstance(value, (int, float)) and value:
+        return datetime.fromtimestamp(value / 1000, tz=timezone.utc).strftime("%Y-%m-%d")
+    return value.strip() if isinstance(value, str) else value
+
+
+def _summarize(attrs: dict, fields: list[str] | None, date_fields=()) -> str:
+    keys = fields if fields is not None else list(attrs)[:6]
+    out = []
+    for k in keys:
+        v = _fmt(attrs.get(k), k in date_fields)
+        if v not in (None, "", " ", "Nessuna descrizione"):
+            out.append(f"{k}={v}")
+    return "; ".join(out)
 
 
 def _links(attrs: dict, link_fields: list[str] | None) -> list[str]:
@@ -41,7 +53,8 @@ def _links(attrs: dict, link_fields: list[str] | None) -> list[str]:
 def _fill(f: Finding, rows: list[dict], layer: dict, status: Status) -> Finding:
     f.status = status if rows else Status.NO_HIT
     f.attributes = rows
-    f.summary = [_summarize(r, layer.get("display_fields")) for r in rows]
+    f.summary = [_summarize(r, layer.get("display_fields"), layer.get("date_fields", ())) or "(nessun attributo descrittivo)"
+                 for r in rows]
     for r in rows:
         f.links += _links(r, layer.get("link_fields"))
     return f
@@ -56,9 +69,16 @@ def _fail(f: Finding, exc: Exception | str) -> Finding:
 # --------------------------------------------------------------------------- ArcGIS REST
 def query_arcgis(session, source: dict, layer: dict, pt: Point, radius_m: float = 0, timeout=30) -> Finding:
     f = _base(source, layer)
+    prox = layer.get("proximity_m", 0)   # livelli lineari/puntuali: si cerca entro una distanza fissa
+    if prox and not radius_m:
+        radius_m = prox
     url = f"{source['url'].rstrip('/')}/{layer['id']}/query"
+    geom, in_sr = f"{pt.lon},{pt.lat}", 4326
+    if layer.get("native_sr") == 32632:   # livelli con riproiezione difettosa lato server: si interroga nel SR nativo
+        x, y = latlon_to_utm(pt.lat, pt.lon, 32)
+        geom, in_sr = f"{x:.3f},{y:.3f}", 32632
     params = {
-        "geometry": f"{pt.lon},{pt.lat}", "geometryType": "esriGeometryPoint", "inSR": 4326,
+        "geometry": geom, "geometryType": "esriGeometryPoint", "inSR": in_sr,
         "spatialRel": "esriSpatialRelIntersects", "outFields": layer.get("out_fields", "*"),
         "returnGeometry": "false", "f": "json",
     }
@@ -72,7 +92,11 @@ def query_arcgis(session, source: dict, layer: dict, pt: Point, radius_m: float 
         if "error" in data:
             return _fail(f, f"errore servizio: {data['error']}")
         rows = [ft.get("attributes", {}) for ft in data.get("features", [])]
-        return _fill(f, rows, layer, Status.NEARBY if radius_m > 0 else Status.HIT)
+        f = _fill(f, rows, layer, Status.NEARBY if radius_m > 0 else Status.HIT)
+        if prox and rows:
+            f.detail = (f"Elemento lineare/puntuale entro {prox:g} m dal punto (non 'sul' punto): "
+                        "le fasce/distanze di rispetto si misurano secondo la norma specifica.")
+        return f
     except (requests.RequestException, ValueError) as e:
         return _fail(f, e)
 

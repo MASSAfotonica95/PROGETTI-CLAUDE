@@ -25,8 +25,13 @@ def applies(source: dict, lat: float, lon: float, context: dict) -> bool:
         c = (context.get("comune") or "").lower()
         if c not in [x.lower() for x in cond["comune"]]:
             return False
-    if "regione" in cond:
-        r = (context.get("regione") or "").lower()
+    if "provincia" in cond:
+        if context.get("provincia"):
+            prov = context["provincia"].lower().replace("provincia di ", "").replace("provincia autonoma di ", "")
+            if prov not in [x.lower() for x in cond["provincia"]]:
+                return False
+    if "regione" in cond and context.get("regione"):
+        r = context["regione"].lower()
         if r not in [x.lower() for x in cond["regione"]]:
             return False
     return True

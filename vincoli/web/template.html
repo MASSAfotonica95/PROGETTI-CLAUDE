@@ -56,6 +56,7 @@ h2{font-size:1.05rem;margin:18px 0 4px}
       <select id="fmt"><option value="wgs">WGS84 lat, lon</option><option value="utm">UTM ETRS89 (E, N, zona)</option></select></label>
     <label>Coordinata <input id="coord" autocomplete="off" inputmode="decimal" placeholder="45.54667794588481, 10.227873542813938" required></label>
     <label>Raggio extra (m) <input id="radius" type="number" min="0" max="5000" step="50" value="0"></label>
+    <label style="flex-direction:row;align-items:center;gap:6px"><input type="checkbox" id="info" style="min-width:auto"> livelli informativi</label>
     <button class="primary" id="go" type="submit">Verifica</button>
     <button type="button" id="ex">Esempio</button>
     <button type="button" id="geo">Usa la mia posizione</button>
@@ -133,23 +134,36 @@ function mkFinding(src,layer,status){
     legal_ref:layer.legal_ref||src.legal_ref||"",attributes:[],summary:[],links:[],query_url:"",detail:"",
     queried_at:now(),provider:src.provider||"",value_note:src.value_note||""};
 }
+function fmtVal(v,isDate){
+  if(isDate&&typeof v==="number"&&v) return new Date(v).toISOString().slice(0,10);
+  return typeof v==="string"?v.trim():v;
+}
 function fill(f,rows,layer,hitStatus){
   f.status=rows.length?hitStatus:"NO_HIT"; f.attributes=rows;
-  const keys=layer.display_fields;
-  f.summary=rows.map(r=>(keys||Object.keys(r).slice(0,6)).filter(k=>r[k]!=null&&String(r[k]).trim()!=="").map(k=>k+"="+r[k]).join("; "));
+  const keys=layer.display_fields, dates=layer.date_fields||[];
+  f.summary=rows.map(r=>{
+    const ks=keys!==undefined?keys:Object.keys(r).slice(0,6);
+    const t=ks.map(k=>[k,fmtVal(r[k],dates.includes(k))]).filter(([k,v])=>v!=null&&v!==""&&v!=="Nessuna descrizione").map(([k,v])=>k+"="+v).join("; ");
+    return t||"(nessun attributo descrittivo)";
+  });
   rows.forEach(r=>(layer.link_fields||[]).forEach(k=>{ if(typeof r[k]==="string"&&/^https?:\/\//.test(r[k])) f.links.push(r[k]); }));
   return f;
 }
 async function qArcgis(src,layer,pt,radius){
   const f=mkFinding(src,layer,"UNVERIFIED");
-  const p={geometry:pt.lon+","+pt.lat,geometryType:"esriGeometryPoint",inSR:4326,spatialRel:"esriSpatialRelIntersects",
+  const prox=layer.proximity_m||0; if(prox&&!radius) radius=prox;   // livelli lineari/puntuali: ricerca entro una distanza
+  let geom=pt.lon+","+pt.lat, inSR=4326;
+  if(layer.native_sr===32632){ const [x,y]=toUTM(pt.lat,pt.lon,32); geom=x.toFixed(3)+","+y.toFixed(3); inSR=32632; }
+  const p={geometry:geom,geometryType:"esriGeometryPoint",inSR:inSR,spatialRel:"esriSpatialRelIntersects",
     outFields:layer.out_fields||"*",returnGeometry:"false",f:"json"};
   if(radius>0){p.distance=radius;p.units="esriSRUnit_Meter";}
   const url=src.url.replace(/\/$/,"")+"/"+layer.id+"/query?"+qs(p); f.query_url=url;
   try{
     const d=await getJson(url);
     if(d.error) throw new Error("errore servizio: "+JSON.stringify(d.error));
-    return fill(f,(d.features||[]).map(x=>x.attributes||{}),layer,radius>0?"NEARBY":"HIT");
+    fill(f,(d.features||[]).map(x=>x.attributes||{}),layer,radius>0?"NEARBY":"HIT");
+    if(prox&&f.attributes.length) f.detail="Elemento lineare/puntuale entro "+prox+" m dal punto (non «sul» punto): le fasce/distanze di rispetto si misurano secondo la norma specifica.";
+    return f;
   }catch(e){f.status="UNVERIFIED";f.detail=e.message;return f;}
 }
 async function qWfs(src,layer,pt,radius){
@@ -179,6 +193,9 @@ async function geocode(pt){
 function applies(src,pt,ctx){
   const b=src.bbox; if(b&&!(pt.lon>=b[0]&&pt.lon<=b[2]&&pt.lat>=b[1]&&pt.lat<=b[3])) return false;
   const c=src.applies_if||{};
+  const low=a=>a.map(x=>x.toLowerCase());
+  if(c.provincia&&ctx.provincia){ const pv=ctx.provincia.toLowerCase().replace(/^provincia (autonoma )?di /,""); if(!low(c.provincia).includes(pv)) return false; }
+  if(c.regione&&ctx.regione){ if(!low(c.regione).includes(ctx.regione.toLowerCase())) return false; }
   if(c.comune){ if(!ctx.comune) return !b;   /* comune ignoto: si propone comunque la fonte manuale */
     if(!c.comune.map(x=>x.toLowerCase()).includes(ctx.comune.toLowerCase())) return false; }
   return true;
@@ -190,13 +207,13 @@ function manualFinding(src,it){
 }
 const key=o=>JSON.stringify(Object.entries(o).sort());
 
-async function runAll(pt,radius,onProgress){
-  const ctx=await geocode(pt), tasks=[], out=[];
+async function runAll(pt,radius,onProgress,includeInfo){
+  const ctx=await geocode(pt), tasks=[], out=[]; let skipped=0;
   for(const s of REG.sources){
     if(!applies(s,pt,ctx)) continue;
     if(s.type==="manual"){ s.items.forEach(it=>out.push(manualFinding(s,it))); continue; }
     const fn=CONN[s.type];
-    for(const l of s.layers) tasks.push(async()=>{
+    for(const l of s.layers){ if(l.info&&!includeInfo){skipped++;continue;} tasks.push(async()=>{
       if(!fn){const f=mkFinding(s,l,"UNVERIFIED");f.detail="Tipo di servizio «"+s.type+"» non supportato dalla versione web.";return [f];}
       const f=await fn(s,l,pt,0);
       if(radius>0&&(f.status==="NO_HIT"||f.status==="HIT")){
@@ -211,13 +228,13 @@ async function runAll(pt,radius,onProgress){
         }
       }
       return [f];
-    });
+    }); }
   }
   let done=0, i=0; const total=tasks.length;
   const worker=async()=>{ while(i<tasks.length){ const t=tasks[i++]; out.push(...await t()); onProgress(++done,total);} };
-  await Promise.all(Array.from({length:Math.min(6,total||1)},worker));
+  await Promise.all(Array.from({length:Math.min(8,total||1)},worker));
   out.sort((a,b)=>ORDER.indexOf(a.status)-ORDER.indexOf(b.status)||a.theme.localeCompare(b.theme)||a.layer.localeCompare(b.layer));
-  return {point:pt,radius,context:ctx,findings:out};
+  return {point:pt,radius,context:ctx,findings:out,queried_layers:total,skipped_info_layers:skipped};
 }
 
 /* ---------- interfaccia ---------- */
@@ -248,6 +265,7 @@ function toMarkdown(r){
   const c=r.context;
   L.push(c.ok?`- Località (${c.fonte}, indicativa): ${c.strada||"-"}, ${c.comune||"-"} (${c.provincia||"-"}), ${c.regione||"-"}`:`- Località: non determinata (${c.detail})`);
   if(r.radius) L.push(`- Raggio aggiuntivo: ${r.radius} m`);
+  L.push(`- Livelli interrogati: ${r.queried_layers}`+(r.skipped_info_layers?` (+${r.skipped_info_layers} informativi non interrogati)`:""));
   L.push("",`> ${CAVEAT}`,"");
   for(const st of ORDER){
     const rows=r.findings.filter(f=>f.status===st); if(!rows.length) continue;
@@ -269,6 +287,7 @@ function render(r){
     h("strong",{},p.lat.toFixed(6)+", "+p.lon.toFixed(6)),
     h("div",{class:"meta"},`UTM 32N (EPSG:25832): E ${u32[0].toFixed(1)} N ${u32[1].toFixed(1)}`),
     h("div",{class:"meta"},c.ok?`Località (indicativa, ${c.fonte}): ${c.strada||"-"}, ${c.comune||"-"}, ${c.regione||"-"}`:"Località non determinata: "+c.detail),
+    h("div",{class:"meta"},`Livelli interrogati: ${r.queried_layers}`+(r.skipped_info_layers?` (+${r.skipped_info_layers} informativi non interrogati: spunta «livelli informativi»)`:"")),
     h("div",{class:"sum"},ORDER.map(s=>{const n=r.findings.filter(f=>f.status===s).length;return n?h("span",{class:"badge s-"+s},`${ST[s].i} ${ST[s].t}: ${n}`):"";})),
     h("div",{class:"note"},CAVEAT),
     h("div",{class:"tools"},
@@ -276,7 +295,10 @@ function render(r){
   const titles={HIT:"Vincoli intercettati sul punto",NEARBY:"Elementi entro il raggio",UNVERIFIED:"Non verificati (servizio non disponibile)",MANUAL:"Da verificare manualmente (nessuna API)"};
   for(const st of ["HIT","NEARBY","UNVERIFIED","MANUAL"]){
     const rows=r.findings.filter(f=>f.status===st); if(!rows.length) continue;
-    out.append(h("h2",{},titles[st]),...rows.map(card));
+    out.append(h("h2",{},titles[st]));
+    let th=null; rows.slice().sort((a,b)=>(a.theme||"").localeCompare(b.theme||"")||a.layer.localeCompare(b.layer)).forEach(f=>{
+      if(f.theme!==th){ th=f.theme; out.append(h("div",{class:"meta",style:"margin-top:10px;font-weight:600"},"Tema: "+(th||"—"))); }
+      out.append(card(f)); });
   }
   const clear=r.findings.filter(f=>f.status==="NO_HIT");
   if(clear.length) out.append(h("h2",{},"Livelli interrogati senza elementi sul punto"),h("ul",{class:"clear"},clear.map(f=>h("li",{},f.layer+" — "+f.source_name))));
@@ -296,7 +318,7 @@ $("f").onsubmit=async ev=>{
   let pt; try{ pt=parseInput($("fmt").value,$("coord").value); }catch(e){ out.replaceChildren(h("div",{class:"note"},e.message)); return; }
   const radius=Math.max(0,Math.min(5000,Number($("radius").value)||0));
   btn.disabled=true; out.replaceChildren(h("div",{class:"panel",id:"prog"},"Interrogazione in corso…"));
-  try{ render(await runAll(pt,radius,(d,t)=>{const e=$("prog"); if(e) e.textContent=`Interrogazione in corso… ${d}/${t} livelli`;})); }
+  try{ render(await runAll(pt,radius,(d,t)=>{const e=$("prog"); if(e) e.textContent=`Interrogazione in corso… ${d}/${t} livelli`;},$("info").checked)); }
   catch(e){ out.replaceChildren(h("div",{class:"note"},"Errore imprevisto: "+e.message)); }
   finally{ btn.disabled=false; }
 };

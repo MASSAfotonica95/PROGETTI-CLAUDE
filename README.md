@@ -24,15 +24,17 @@ Crea un `.json` in `vincoli/sources/` o in una cartella passata con `--sources-d
 `vincoli/sources/italia.json`: `type` (`arcgis`|`wfs`|`wms`|`manual`), `url`, `bbox` [lonmin,latmin,lonmax,latmax],
 `layers`, opzionale `applies_if: {"comune": [...]}`. Servizi privati con credenziali: estendere `http.make_session` (header/token).
 
-## Fonti incluse (verificate raggiungibili il 2026-09-30)
-Regione Lombardia SIBA (art. 136/142 D.Lgs. 42/2004), EEA Natura 2000 e CDDA, ISPRA mosaicatura PAI frane.
-Non raggiungibili dall'ambiente di sviluppo (quindi non integrate): Geoportale Nazionale/PCN, Vincoli in Rete (solo link manuale).
-Copertura per altre regioni, PAI idraulico/PGRA, vincolo idrogeologico RDL 3267/1923, PGT comunali: **da aggiungere**.
+## Fonti incluse (Lombardia e provincia di Brescia: 373 livelli, verificati)
+- **Regione Lombardia** (server ArcGIS del Geoportale): vincoli paesaggistici SIBA (artt. 136/142), Piano Paesaggistico Regionale (con siti UNESCO), aree protette/PLIS/Natura 2000/RER, PAI vigente, IFFI, PGRA, vincolo idrogeologico, classificazione sismica, pericolosità sismica locale, microzonazione, fattibilità geologica, **Mosaico PGT** (nuclei di antica formazione, sensibilità paesistica, fasce di rispetto stradali/ferroviarie/cimiteriali/pozzi/depuratori, servitù militari, limitazioni aeroportuali), azzonamenti, reticolo idrico, beni culturali vincolati, siti contaminati, nitrati.
+- **Provincia di Brescia** (SIT provinciale): PTCP 2014 (tutele, ambiente e rischi, dissesti, ambiti agricoli strategici), PGRA aggiornato 2025, difesa del suolo, D.Lgs. 42/2004, vincolo idrogeologico, aree percorse dal fuoco, PIF (trasformabilità boschi), cave.
+- **EEA** (Natura 2000, CDDA) e **ISPRA** (mosaicatura PAI frane) su tutto il territorio.
+- Le fonti senza API (PGT del Comune, CDU, Vincoli in Rete) restano `VERIFICA_MANUALE`.
+- Non trovati servizi interrogabili del Comune di Brescia (PGT vigente) né ENAC; il Geoportale Nazionale/Vincoli in Rete non sono raggiungibili da script.
 
-## Versione web (HTML)
-- **`vincoli-web.html`** (27 KB, nessuna installazione): aprilo con doppio clic. Interroga direttamente Regione Lombardia (SIBA), EEA e Nominatim.
-- **Modalità completa**: `python -m vincoli.webapp` (o `avvia.bat` / `avvia.sh`), solo libreria standard di Python. Serve la stessa pagina su `http://127.0.0.1:8765/` e aggiunge un proxy locale per le fonti che bloccano le richieste dal browser (oggi **ISPRA**: risponde 403 a ogni richiesta con header `Origin`, e non invia CORS). Il proxy accetta solo HTTPS verso host elencati nel registro (`"browser_proxy": true`), non segue redirect e rifiuta Host/Origin non locali.
-- Senza proxy le fonti non raggiungibili risultano **NON VERIFICATO** con la spiegazione, mai "nessun vincolo".
-- Rigenerare l'HTML dopo aver modificato il registro: `python -m vincoli.webapp --export vincoli-web.html`.
-- `.exe` (non costruito né testato qui): `pip install pyinstaller && pyinstaller --onefile --add-data "vincoli/web;vincoli/web" --add-data "vincoli/sources;vincoli/sources" -n vincoli-web vincoli/webapp.py` (su Linux/macOS il separatore di `--add-data` è `:`).
-- Il registro delle fonti è lo stesso del CLI; la versione web supporta i tipi `arcgis`, `wfs`, `manual` (non `wms`).
+## Qualità dei dati: autotest e rigenerazione
+- `python -m vincoli --selftest` – per ogni livello prende un elemento reale e verifica che il servizio lo restituisca sul suo stesso punto (controllo positivo). Senza, un «nessun elemento» non prova nulla. Ultimo esito: 372/372 livelli OK (durata ~5 min).
+- `python tools/build_registry.py` – rigenera `vincoli/sources/lombardia.json` e `brescia.json` dai metadati live dei servizi (scarta i gruppi, sceglie i campi, riconosce date e link). Il giudizio umano (tema, norma, livelli «informativi», difetti noti in `LAYER_OVERRIDES`) sta in `tools/build_registry.py`.
+- I livelli «informativi» (contesto, non vincoli) si interrogano con `--all` (web: casella «livelli informativi»).
+- Livelli lineari/puntuali: si cerca entro una distanza fissa (`proximity_m`) e l'esito è `ENTRO_RAGGIO`, mai «sul punto».
+- Riproiezione: il server converte WGS84→UTM32N; confronto nativo/WGS84 su particelle di 70–5000 m² → nessuna differenza (celle da 2 m). Un livello difettoso (Mosaico PGT, fasce pozzi) si interroga in UTM nativo.
+- Tutti i dati sono **ricognitivi**: per valore probatorio CDU (art. 30 DPR 380/2001) e atti originari.

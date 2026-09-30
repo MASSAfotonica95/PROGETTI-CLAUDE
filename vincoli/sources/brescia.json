@@ -1,0 +1,2688 @@
+{
+ "sources": [
+  {
+   "id": "bs_ptcp_tutele",
+   "name": "Provincia di Brescia – PTCP 2014: tutele paesaggistiche",
+   "type": "arcgis",
+   "provider": "Provincia di Brescia",
+   "url": "https://sit.provincia.brescia.it/arcgis/rest/services/ptcp_2014/tav_2_7_Tutele_paesaggistiche/MapServer",
+   "bbox": [
+    9.75,
+    45.2,
+    10.95,
+    46.4
+   ],
+   "theme": "paesaggistico",
+   "legal_ref": "PTCP Brescia (DCP 31/2014) – Tav. 2.7",
+   "value_note": "Replica provinciale di dati SIBA/PPR: utile come riscontro incrociato.",
+   "applies_if": {
+    "provincia": [
+     "Brescia"
+    ]
+   },
+   "layers": [
+    {
+     "id": 1,
+     "name": "Punti di osservazione del paesaggio lombardo (art. 27 c. 4 PPR)",
+     "geometry": "point",
+     "display_fields": [
+      "descrizion",
+      "tipologia",
+      "pro"
+     ],
+     "proximity_m": 25,
+     "info": true
+    },
+    {
+     "id": 2,
+     "name": "Belvedere del paesaggio lombardo (art. 27 c. 4 PPR)",
+     "geometry": "point",
+     "display_fields": [
+      "descrizion",
+      "tipologia"
+     ],
+     "proximity_m": 25,
+     "info": true
+    },
+    {
+     "id": 3,
+     "name": "Visuali sensibili del paesaggio lombardo (art. 27 c. 4 PPR)",
+     "geometry": "point",
+     "display_fields": [
+      "descrizion",
+      "tipologia",
+      "pro"
+     ],
+     "proximity_m": 25,
+     "info": true
+    },
+    {
+     "id": 4,
+     "name": "Siti Unesco",
+     "geometry": "multipoint",
+     "display_fields": [
+      "denominaz",
+      "normativa",
+      "ambito",
+      "comune",
+      "pro",
+      "sistema"
+     ],
+     "proximity_m": 25,
+     "info": true
+    },
+    {
+     "id": 5,
+     "name": "Bellezze individue (D.Lgs. 42/2004 art. 136, comma 1, lettere a e b, e art. 157; ex L. 1497/85)",
+     "geometry": "point",
+     "display_fields": [
+      "nome_com",
+      "descr_dec",
+      "immagini"
+     ],
+     "link_fields": [
+      "immagini"
+     ],
+     "proximity_m": 25,
+     "info": true
+    },
+    {
+     "id": 6,
+     "name": "Beni interesse archeologico (D.Lgs. 42/2004 ar. 10; ex L. 1089/39)",
+     "geometry": "point",
+     "display_fields": [
+      "ambito",
+      "comune",
+      "localita",
+      "futu_uso",
+      "attendib",
+      "mod_ritr"
+     ],
+     "proximity_m": 25,
+     "info": true
+    },
+    {
+     "id": 7,
+     "name": "Beni di interesse storico-architettonico (D.Lgs. 42/2004 art. 10 e 116; ex L. 1089/39)",
+     "geometry": "point",
+     "display_fields": [
+      "nome",
+      "comune"
+     ],
+     "proximity_m": 25,
+     "info": true
+    },
+    {
+     "id": 8,
+     "name": "Zone umide (D.Lgs. 42/2004 art. 142, comma 1, lettera i; ex L. 431/85)",
+     "geometry": "point",
+     "display_fields": [
+      "nome_zu"
+     ],
+     "proximity_m": 25,
+     "info": true
+    },
+    {
+     "id": 9,
+     "name": "Parchi archeologici (D.Lgs. 42/2004 art. 142, comma 1, lettera m; ex L. 431/85)",
+     "geometry": "multipoint",
+     "display_fields": [
+      "denominaz",
+      "normativa",
+      "ambito",
+      "comune",
+      "sistema",
+      "elemento"
+     ],
+     "proximity_m": 25,
+     "info": true
+    },
+    {
+     "id": 10,
+     "name": "Monumenti naturali",
+     "geometry": "point",
+     "display_fields": [
+      "nome_mn"
+     ],
+     "proximity_m": 25,
+     "info": true
+    },
+    {
+     "id": 11,
+     "name": "Geositi (PPR, art. 22)",
+     "geometry": "point",
+     "display_fields": [
+      "nome_min",
+      "ambito",
+      "sistema",
+      "elemento"
+     ],
+     "proximity_m": 25,
+     "info": true
+    },
+    {
+     "id": 13,
+     "name": "Ambiti di tutela dello scenario lacuale  (PPR, art. 19)",
+     "geometry": "polyline",
+     "display_fields": [
+      "nome"
+     ],
+     "proximity_m": 25,
+     "info": true
+    },
+    {
+     "id": 14,
+     "name": "Infrastruttura idrografica artificiale della pianura (PPR, art 21, cc.4-5-6)",
+     "geometry": "polyline",
+     "display_fields": [
+      "descrizion"
+     ],
+     "proximity_m": 25,
+     "info": true
+    },
+    {
+     "id": 15,
+     "name": "#_Fiumi torrenti e corsi d'acqua pubblici e relative sponde (D.Lgs. 42/2004 art. 142, comma 1, lettera c; ex L. 431/85)",
+     "geometry": "polyline",
+     "display_fields": [
+      "den_fi",
+      "tr_vinc"
+     ],
+     "proximity_m": 25,
+     "info": true
+    },
+    {
+     "id": 17,
+     "name": "Fiumi torrenti e corsi d'acqua pubblici e relative sponde (D.Lgs. 42/2004 art. 142, comma 1, lettera c; ex L. 431/85)",
+     "geometry": "polygon",
+     "display_fields": [
+      "den_fi",
+      "tr_vinc"
+     ],
+     "info": true
+    },
+    {
+     "id": 18,
+     "name": "Monumenti naturali",
+     "geometry": "polygon",
+     "display_fields": [
+      "nome_mn"
+     ],
+     "info": true
+    },
+    {
+     "id": 19,
+     "name": "Bellezze d'insieme (D.Lgs. 42/2004 art. 136, comma 1, lettere c e d, e art. 157; ex L. 1497/39)",
+     "geometry": "polygon",
+     "display_fields": [
+      "immagini",
+      "desc_decr2",
+      "conta",
+      "zz"
+     ],
+     "link_fields": [
+      "immagini"
+     ],
+     "info": true
+    },
+    {
+     "id": 20,
+     "name": "Territori contermini ai laghi (D.Lgs. 42/2004 art. 142, comma 1, lettera b; ex L. 431/85)",
+     "geometry": "polygon",
+     "display_fields": [
+      "descri"
+     ],
+     "info": true
+    },
+    {
+     "id": 21,
+     "name": "Zone di protezione speciale (ZPS - Direttiva 79/409/CEE \"Uccelli)",
+     "geometry": "polygon",
+     "display_fields": [
+      "nome_zps",
+      "cod_zps",
+      "scheda_zps"
+     ],
+     "link_fields": [
+      "scheda_zps"
+     ],
+     "info": true
+    },
+    {
+     "id": 22,
+     "name": "Siti di interesse comunitario (SIC - Direttiva 92/43/CEE \"Habitat\")",
+     "geometry": "polygon",
+     "display_fields": [
+      "nome_sic",
+      "cod_sic",
+      "scheda_sic"
+     ],
+     "link_fields": [
+      "scheda_sic"
+     ],
+     "info": true
+    },
+    {
+     "id": 23,
+     "name": "Parchi regionali ((D.Lgs. 42/2004 art. 142, comma 1 lettera f; ex L. 431/85)",
+     "geometry": "polygon",
+     "display_fields": [
+      "nome_pa"
+     ],
+     "info": true
+    },
+    {
+     "id": 24,
+     "name": "Riseve regionali (D.Lgs. 42/2004 art. 142, comma 1, lettera f; ex L. 431/85)",
+     "geometry": "polygon",
+     "display_fields": [
+      "nome_rs"
+     ],
+     "info": true
+    },
+    {
+     "id": 25,
+     "name": "Foreste e boschi (D.Lgs. 42/2004 art. 142, comma 1, lettera g; ex L. 431/85)",
+     "geometry": "polygon",
+     "display_fields": [
+      "descri",
+      "ambito",
+      "sistema",
+      "elemento"
+     ],
+     "info": true
+    },
+    {
+     "id": 26,
+     "name": "Parchi Locali di Interesse Sovracomunale riconosciuti (LR 86/83)",
+     "geometry": "polygon",
+     "display_fields": [
+      "nome_plis"
+     ],
+     "info": true
+    },
+    {
+     "id": 27,
+     "name": "Parchi naturali istituiti (L. 394/91)",
+     "geometry": "polygon",
+     "display_fields": [
+      "nome_pan"
+     ],
+     "info": true
+    },
+    {
+     "id": 28,
+     "name": "Ambiti ad elevata naturalità (PPR, art 17)",
+     "geometry": "polygon",
+     "display_fields": [
+      "nome_com",
+      "desc_tipo",
+      "descriz"
+     ],
+     "info": true
+    },
+    {
+     "id": 29,
+     "name": "Ghiacciai (D.Lgs. 42/2004 art. 142, comma 1, lettera e; ex L. 431/85)",
+     "geometry": "polygon",
+     "display_fields": [
+      "nome",
+      "ambito",
+      "sistema",
+      "elemento"
+     ],
+     "info": true
+    },
+    {
+     "id": 30,
+     "name": "Siti palafitticoli preistorici dell'arco alpino",
+     "geometry": "polygon",
+     "display_fields": [
+      "normativa",
+      "ambito",
+      "sito",
+      "cod",
+      "regione",
+      "comune"
+     ],
+     "info": true
+    },
+    {
+     "id": 31,
+     "name": "Buffer zone - Siti archeologici",
+     "geometry": "polygon",
+     "display_fields": [
+      "sito",
+      "cod",
+      "regione",
+      "comune",
+      "provincia"
+     ],
+     "info": true
+    },
+    {
+     "id": 32,
+     "name": "Buffer zone - Parchi d'arte rupestre Valle Camonica",
+     "geometry": "polygon",
+     "display_fields": [
+      "label"
+     ],
+     "info": true
+    },
+    {
+     "id": 33,
+     "name": "Parchi d'arte rupestre della Valle Camonica - SITO  UNESCO N° 94",
+     "geometry": "polygon",
+     "display_fields": [
+      "label"
+     ],
+     "info": true
+    },
+    {
+     "id": 34,
+     "name": "Territori alpini ed appenninici (D.Lgs. 42/2004 art. 142, comma 1, lettera d; ex L. 431/85)",
+     "geometry": "polygon",
+     "display_fields": [
+      "descri"
+     ],
+     "info": true
+    },
+    {
+     "id": 35,
+     "name": "Laghi (PPR, art. 19)",
+     "geometry": "polygon",
+     "display_fields": [
+      "descrizion",
+      "descri",
+      "normativa"
+     ],
+     "info": true
+    },
+    {
+     "id": 36,
+     "name": "Ambiti di criticità (PPR, Indirizzi di tutela - Parte III)",
+     "geometry": "polygon",
+     "display_fields": [
+      "nome",
+      "tip"
+     ],
+     "info": true
+    },
+    {
+     "id": 37,
+     "name": "Centri e nuclei storici (PPR, art. 25)",
+     "geometry": "polygon",
+     "display_fields": [
+      "label",
+      "ambito",
+      "sistema",
+      "elemento"
+     ],
+     "info": true
+    }
+   ]
+  },
+  {
+   "id": "bs_ptcp_rischi",
+   "name": "Provincia di Brescia – PTCP 2014: ambiente e rischi",
+   "type": "arcgis",
+   "provider": "Provincia di Brescia",
+   "url": "https://sit.provincia.brescia.it/arcgis/rest/services/ptcp_2014/tav_3_1_Ambiente_rischi/MapServer",
+   "bbox": [
+    9.75,
+    45.2,
+    10.95,
+    46.4
+   ],
+   "theme": "idrogeologico",
+   "legal_ref": "PTCP Brescia – Tav. 3.1",
+   "value_note": "Dato ricognitivo: verificare l'atto originario e lo strumento vigente.",
+   "applies_if": {
+    "provincia": [
+     "Brescia"
+    ]
+   },
+   "layers": [
+    {
+     "id": 0,
+     "name": "Geositi",
+     "geometry": "point",
+     "display_fields": [
+      "nome_min",
+      "ambito",
+      "sistema",
+      "elemento"
+     ],
+     "proximity_m": 25
+    },
+    {
+     "id": 1,
+     "name": "Fontanili",
+     "geometry": "point",
+     "display_fields": [
+      "nome",
+      "ambito",
+      "localit",
+      "comune",
+      "consorzio",
+      "sistema"
+     ],
+     "proximity_m": 25
+    },
+    {
+     "id": 2,
+     "name": "Dissesti di dimensioni non cartografabili",
+     "geometry": "point",
+     "display_fields": [
+      "nome",
+      "legenda"
+     ],
+     "proximity_m": 25
+    },
+    {
+     "id": 3,
+     "name": "Pozzi e sorgenti",
+     "geometry": "point",
+     "display_fields": [
+      "classe"
+     ],
+     "proximity_m": 25
+    },
+    {
+     "id": 4,
+     "name": "Fasce PAI (lineari)",
+     "geometry": "polyline",
+     "display_fields": [
+      "fascia",
+      "tipo",
+      "Legenda"
+     ],
+     "proximity_m": 25
+    },
+    {
+     "id": 5,
+     "name": "Fiumi afferenti ai laghi per un tratto di 10 km",
+     "geometry": "polyline",
+     "display_fields": [
+      "foce",
+      "topo_princ"
+     ],
+     "proximity_m": 25
+    },
+    {
+     "id": 6,
+     "name": "Reticolo idrografico principale",
+     "geometry": "polyline",
+     "display_fields": [
+      "legenda",
+      "acqua",
+      "acqua1",
+      "acqua0",
+      "foce"
+     ],
+     "proximity_m": 25
+    },
+    {
+     "id": 7,
+     "name": "Dissesti lineari",
+     "geometry": "polyline",
+     "display_fields": [
+      "nome",
+      "legenda"
+     ],
+     "proximity_m": 25
+    },
+    {
+     "id": 8,
+     "name": "Area di ricarica potenziale: Gruppo A",
+     "geometry": "polygon",
+     "display_fields": [
+      "descri",
+      "cap"
+     ]
+    },
+    {
+     "id": 9,
+     "name": "Area di ricarica potenziale: Gruppo B",
+     "geometry": "polygon",
+     "display_fields": [
+      "descri",
+      "cap"
+     ]
+    },
+    {
+     "id": 10,
+     "name": "Vulnerabilità alta e molto alta della falda",
+     "geometry": "polygon",
+     "display_fields": [
+      "desc_vuln_"
+     ]
+    },
+    {
+     "id": 11,
+     "name": "Aree a vulnerabilita` estremamente alta delle acque sotterranee per la presenza di circuiti idrici di tipo carsico ben sviluppati",
+     "geometry": "polygon",
+     "display_fields": [
+      "descri"
+     ]
+    },
+    {
+     "id": 12,
+     "name": "Aree di cui all'art. 9 NTA P.A.I",
+     "geometry": "polygon",
+     "display_fields": [
+      "nome",
+      "legenda",
+      "descri"
+     ]
+    },
+    {
+     "id": 13,
+     "name": "Aree a rischio idrogeologico molto elevato 267/98",
+     "geometry": "polygon",
+     "display_fields": [
+      "nome",
+      "legenda",
+      "descri"
+     ]
+    },
+    {
+     "id": 14,
+     "name": "Ghiacciai e nevai perenni",
+     "geometry": "polygon",
+     "display_fields": [
+      "nome",
+      "ambito",
+      "quotamin",
+      "quotamax",
+      "sistema",
+      "elemento"
+     ]
+    },
+    {
+     "id": 15,
+     "name": "Bacini idrici",
+     "geometry": "polygon",
+     "display_fields": [
+      "descri"
+     ]
+    },
+    {
+     "id": 16,
+     "name": "Fasce PAI",
+     "geometry": "polygon",
+     "display_fields": [
+      "fascia"
+     ]
+    },
+    {
+     "id": 17,
+     "name": "Aree Umide della pianura bresciana e degli anfiteatri morenici",
+     "geometry": "polygon",
+     "display_fields": [
+      "tipo",
+      "ambito",
+      "sistema",
+      "elemento"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "bs_ptcp_dissesti",
+   "name": "Provincia di Brescia – PTCP 2014: inventario dei dissesti",
+   "type": "arcgis",
+   "provider": "Provincia di Brescia",
+   "url": "https://sit.provincia.brescia.it/arcgis/rest/services/ptcp_2014/tav_3_2_Inventario_dei_dissesti/MapServer",
+   "bbox": [
+    9.75,
+    45.2,
+    10.95,
+    46.4
+   ],
+   "theme": "idrogeologico",
+   "legal_ref": "PTCP Brescia – Tav. 3.2",
+   "value_note": "Dato ricognitivo: verificare l'atto originario e lo strumento vigente.",
+   "applies_if": {
+    "provincia": [
+     "Brescia"
+    ]
+   },
+   "layers": [
+    {
+     "id": 0,
+     "name": "Scheda valanghe",
+     "geometry": "point",
+     "display_fields": [
+      "nome_com",
+      "denominaz"
+     ],
+     "proximity_m": 25
+    },
+    {
+     "id": 1,
+     "name": "_Punto identificativo del fenomeno franoso",
+     "geometry": "point",
+     "display_fields": [
+      "sigla",
+      "cod_tipo",
+      "cod_stato",
+      "data_oss",
+      "tipo",
+      "cod_reg"
+     ],
+     "proximity_m": 25
+    },
+    {
+     "id": 2,
+     "name": "Pericolo localizzato da rilevamento",
+     "geometry": "polyline",
+     "display_fields": [
+      "strato0"
+     ],
+     "proximity_m": 25
+    },
+    {
+     "id": 3,
+     "name": "Frane lineari",
+     "geometry": "polyline",
+     "display_fields": [
+      "nome_stato"
+     ],
+     "proximity_m": 25
+    },
+    {
+     "id": 4,
+     "name": "Siti valanghivi da rilevamento",
+     "geometry": "polygon",
+     "display_fields": [
+      "d_tipo_el"
+     ]
+    },
+    {
+     "id": 5,
+     "name": "DGPV - Deformazioni gravitative profonde",
+     "geometry": "polygon",
+     "display_fields": [
+      "descri"
+     ]
+    },
+    {
+     "id": 6,
+     "name": "Aree franose",
+     "geometry": "polygon",
+     "display_fields": [
+      "legenda"
+     ]
+    },
+    {
+     "id": 7,
+     "name": "Conoidi",
+     "geometry": "polygon",
+     "display_fields": [
+      "tipologia"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "bs_ptcp_ambiti_agricoli",
+   "name": "Provincia di Brescia – PTCP 2014: ambiti agricoli strategici",
+   "type": "arcgis",
+   "provider": "Provincia di Brescia",
+   "url": "https://sit.provincia.brescia.it/arcgis/rest/services/ptcp_2014/tav_5_Ambiti_agricoli_strategici/MapServer",
+   "bbox": [
+    9.75,
+    45.2,
+    10.95,
+    46.4
+   ],
+   "theme": "agricolo",
+   "legal_ref": "PTCP Brescia – Tav. 5; L.R. 12/2005 art. 15",
+   "value_note": "Dato ricognitivo: verificare l'atto originario e lo strumento vigente.",
+   "applies_if": {
+    "provincia": [
+     "Brescia"
+    ]
+   },
+   "layers": [
+    {
+     "id": 0,
+     "name": "Fermate metropolitana",
+     "geometry": "point",
+     "display_fields": [
+      "tipo",
+      "stato"
+     ],
+     "proximity_m": 25
+    },
+    {
+     "id": 1,
+     "name": "Stazioni ferroviarie",
+     "geometry": "point",
+     "display_fields": [
+      "tipo"
+     ],
+     "proximity_m": 25
+    },
+    {
+     "id": 2,
+     "name": "Aeroporti esistenti",
+     "geometry": "point",
+     "display_fields": [
+      "tipo"
+     ],
+     "proximity_m": 25
+    },
+    {
+     "id": 3,
+     "name": "Interscambi tra rete della viabilità e sistemi di trasporto pubblico",
+     "geometry": "point",
+     "display_fields": [
+      "tipo"
+     ],
+     "proximity_m": 25
+    },
+    {
+     "id": 4,
+     "name": "Nodi logistici di livello sovra-provinciale; Nodi logistici di livello locale",
+     "geometry": "point",
+     "display_fields": [
+      "tipo"
+     ],
+     "proximity_m": 25
+    },
+    {
+     "id": 5,
+     "name": "Nodo del trasporto pubblico",
+     "geometry": "point",
+     "display_fields": [
+      "tipo",
+      "label",
+      "classe",
+      "piano_baci",
+      "visibile",
+      "note"
+     ],
+     "proximity_m": 25
+    },
+    {
+     "id": 6,
+     "name": "Controdeduzioni osservazione n° 345/2014/140/1",
+     "geometry": "point",
+     "display_fields": [
+      "descri",
+      "normativa"
+     ],
+     "proximity_m": 25
+    },
+    {
+     "id": 7,
+     "name": "Reticolo idrico principale ai fini della polizia idraulica",
+     "geometry": "polyline",
+     "display_fields": [
+      "legenda",
+      "sibapo",
+      "acqua",
+      "acqua1",
+      "acqua0",
+      "foce"
+     ],
+     "proximity_m": 25
+    },
+    {
+     "id": 8,
+     "name": "Areale A - PTRA Montichiari",
+     "geometry": "polyline",
+     "display_fields": [],
+     "proximity_m": 25
+    },
+    {
+     "id": 9,
+     "name": "Ambiti estrattivi",
+     "geometry": "polygon",
+     "display_fields": [
+      "LEGENDA"
+     ]
+    },
+    {
+     "id": 10,
+     "name": "#Ambiti estrattivi",
+     "geometry": "polygon",
+     "display_fields": [
+      "LEGENDA"
+     ]
+    },
+    {
+     "id": 11,
+     "name": "#Ambiti estrattivi",
+     "geometry": "polygon",
+     "display_fields": [
+      "LEGENDA"
+     ]
+    },
+    {
+     "id": 15,
+     "name": "Riserve naturali",
+     "geometry": "polygon",
+     "display_fields": [
+      "nome_rs"
+     ]
+    },
+    {
+     "id": 19,
+     "name": "Ambiti ad elevata naturalità (PPR art. 17)",
+     "geometry": "polygon",
+     "display_fields": [
+      "nome_com",
+      "descriz",
+      "desc_amt"
+     ]
+    },
+    {
+     "id": 21,
+     "name": "Ambiti di valore paesistico ambientale",
+     "geometry": "polygon",
+     "display_fields": [
+      "descri",
+      "MacroAmbit"
+     ]
+    },
+    {
+     "id": 22,
+     "name": "Alpeggi",
+     "geometry": "polygon",
+     "display_fields": [
+      "denominazi",
+      "nome_malga",
+      "quota_mini",
+      "quota_mass",
+      "mandria",
+      "conduzione"
+     ]
+    },
+    {
+     "id": 23,
+     "name": "Ambiti destinati all'attività agricola di interesse strategico (AAS)",
+     "geometry": "polygon",
+     "display_fields": [
+      "descri",
+      "COMUNE"
+     ]
+    },
+    {
+     "id": 24,
+     "name": "Ecosistemi acquatici (DUSAF)",
+     "geometry": "polygon",
+     "display_fields": [
+      "descri"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "bs_ptcp_rete_ecologica",
+   "name": "Provincia di Brescia – PTCP 2014: rete ecologica",
+   "type": "arcgis",
+   "provider": "Provincia di Brescia",
+   "url": "https://sit.provincia.brescia.it/arcgis/rest/services/ptcp_2014/tav_4_Rete_ecologica/MapServer",
+   "bbox": [
+    9.75,
+    45.2,
+    10.95,
+    46.4
+   ],
+   "theme": "ambientale",
+   "legal_ref": "PTCP Brescia – Tav. 4",
+   "value_note": "Dato ricognitivo: verificare l'atto originario e lo strumento vigente.",
+   "applies_if": {
+    "provincia": [
+     "Brescia"
+    ]
+   },
+   "layers": [
+    {
+     "id": 0,
+     "name": "_#Confini comunali",
+     "geometry": "polyline",
+     "display_fields": [
+      "fonte",
+      "tipo",
+      "anno"
+     ],
+     "proximity_m": 25,
+     "info": true
+    },
+    {
+     "id": 1,
+     "name": "Aree problematiche all'interno dei corridoi ecologici",
+     "geometry": "point",
+     "display_fields": [
+      "descri",
+      "normativa"
+     ],
+     "proximity_m": 25,
+     "info": true
+    },
+    {
+     "id": 2,
+     "name": "Principali punti di conflitto della rete con le infrastrutture prioritarie",
+     "geometry": "point",
+     "display_fields": [
+      "descri",
+      "normativa"
+     ],
+     "proximity_m": 25,
+     "info": true
+    },
+    {
+     "id": 3,
+     "name": "Direttrici di collegamento esterno",
+     "geometry": "polyline",
+     "display_fields": [
+      "descri",
+      "normativa"
+     ],
+     "proximity_m": 25,
+     "info": true
+    },
+    {
+     "id": 4,
+     "name": "Fronti problematici all'interno dei corridoi ecologici",
+     "geometry": "polyline",
+     "display_fields": [
+      "descri",
+      "normativa"
+     ],
+     "proximity_m": 25,
+     "info": true
+    },
+    {
+     "id": 5,
+     "name": "Varchi REP",
+     "geometry": "polyline",
+     "display_fields": [
+      "normativa",
+      "comune",
+      "istat",
+      "specifica",
+      "des_tav4",
+      "note"
+     ],
+     "proximity_m": 25,
+     "info": true
+    },
+    {
+     "id": 6,
+     "name": "Varchi RER",
+     "geometry": "polyline",
+     "display_fields": [
+      "tipo",
+      "descri",
+      "normativa"
+     ],
+     "proximity_m": 25,
+     "info": true
+    },
+    {
+     "id": 7,
+     "name": "Corridoi ecologici",
+     "geometry": "polyline",
+     "display_fields": [
+      "descri",
+      "normativa"
+     ],
+     "proximity_m": 25,
+     "info": true
+    },
+    {
+     "id": 8,
+     "name": "Reticolo idrico principale",
+     "geometry": "polyline",
+     "display_fields": [
+      "legenda",
+      "foce"
+     ],
+     "proximity_m": 25,
+     "info": true
+    },
+    {
+     "id": 9,
+     "name": "Rete Natura 2000 (ZPS)",
+     "geometry": "polygon",
+     "display_fields": [
+      "nome_zps",
+      "cod_zps",
+      "scheda_zps"
+     ],
+     "link_fields": [
+      "scheda_zps"
+     ],
+     "info": true
+    },
+    {
+     "id": 10,
+     "name": "Rete Natura 2000 (SIC)",
+     "geometry": "polygon",
+     "display_fields": [
+      "nome_sic",
+      "cod_sic",
+      "scheda_sic"
+     ],
+     "link_fields": [
+      "scheda_sic"
+     ],
+     "info": true
+    },
+    {
+     "id": 11,
+     "name": "Elementi di primo livello della RER",
+     "geometry": "polygon",
+     "display_fields": [
+      "ecoregione"
+     ],
+     "info": true
+    },
+    {
+     "id": 12,
+     "name": "Corridoi ecologici primari",
+     "geometry": "polygon",
+     "display_fields": [
+      "descri",
+      "normativa"
+     ],
+     "info": true
+    },
+    {
+     "id": 13,
+     "name": "Parchi regionali nazionali",
+     "geometry": "polygon",
+     "display_fields": [
+      "nome_pa"
+     ],
+     "info": true
+    },
+    {
+     "id": 14,
+     "name": "Ambiti dei fontanili",
+     "geometry": "polygon",
+     "display_fields": [
+      "descri",
+      "normativa"
+     ],
+     "info": true
+    },
+    {
+     "id": 15,
+     "name": "Ambiti urbani e periurbani preferenziali per la ricostruzione ecologica diffusa",
+     "geometry": "polygon",
+     "display_fields": [
+      "descri",
+      "normativa"
+     ],
+     "info": true
+    },
+    {
+     "id": 16,
+     "name": "Aree naturali di completamento",
+     "geometry": "polygon",
+     "display_fields": [
+      "descri",
+      "normativa"
+     ],
+     "info": true
+    },
+    {
+     "id": 17,
+     "name": "Principali ecosistemi lacustri",
+     "geometry": "polygon",
+     "display_fields": [
+      "descrizion",
+      "descri",
+      "normativa"
+     ],
+     "info": true
+    },
+    {
+     "id": 18,
+     "name": "Zone umide",
+     "geometry": "polygon",
+     "display_fields": [
+      "tipo",
+      "ambito",
+      "sistema",
+      "elemento"
+     ],
+     "info": true
+    },
+    {
+     "id": 19,
+     "name": "Aree ad elevato valore naturalistico",
+     "geometry": "polygon",
+     "display_fields": [
+      "descri",
+      "normativa"
+     ],
+     "info": true
+    },
+    {
+     "id": 20,
+     "name": "Ambiti di consolidamento ecologico delle colline moreniche del Garda",
+     "geometry": "polygon",
+     "display_fields": [
+      "descri",
+      "normativa"
+     ],
+     "info": true
+    },
+    {
+     "id": 21,
+     "name": "Aree per la ricostruzione polivalente dell'agroecosistema",
+     "geometry": "polygon",
+     "display_fields": [
+      "descri",
+      "normativa"
+     ],
+     "info": true
+    }
+   ]
+  },
+  {
+   "id": "bs_carta_vincoli",
+   "name": "Provincia di Brescia – Carta dei vincoli (PTCP)",
+   "type": "arcgis",
+   "provider": "Provincia di Brescia",
+   "url": "https://sit.provincia.brescia.it/arcgis/rest/services/ambiente/carta_vincoli_2/MapServer",
+   "bbox": [
+    9.75,
+    45.2,
+    10.95,
+    46.4
+   ],
+   "theme": "ambientale",
+   "legal_ref": "PTCP Brescia – carta dei vincoli",
+   "value_note": "Dato ricognitivo: verificare l'atto originario e lo strumento vigente.",
+   "applies_if": {
+    "provincia": [
+     "Brescia"
+    ]
+   },
+   "layers": [
+    {
+     "id": 0,
+     "name": "PERIMETRI ATE",
+     "geometry": "polygon",
+     "display_fields": [
+      "ATE",
+      "Coltivaz",
+      "Comune",
+      "area_m2"
+     ],
+     "info": true
+    },
+    {
+     "id": 2,
+     "name": "Rete viaria",
+     "geometry": "polyline",
+     "display_fields": [
+      "tipologia",
+      "istat",
+      "com",
+      "strad_inte"
+     ],
+     "proximity_m": 25,
+     "info": true
+    },
+    {
+     "id": 3,
+     "name": "Metropolitana",
+     "geometry": "polyline",
+     "display_fields": [
+      "tipo",
+      "stato"
+     ],
+     "proximity_m": 25,
+     "info": true
+    },
+    {
+     "id": 4,
+     "name": "Ferrovia Alta velocità/Alta capacità (AV/AC)",
+     "geometry": "polyline",
+     "display_fields": [
+      "tipo"
+     ],
+     "proximity_m": 25,
+     "info": true
+    },
+    {
+     "id": 5,
+     "name": "Linee ferroviarie metropolitane",
+     "geometry": "polyline",
+     "display_fields": [
+      "tipologia2"
+     ],
+     "proximity_m": 25,
+     "info": true
+    },
+    {
+     "id": 6,
+     "name": "Linee ferroviarie storiche (Linee S)",
+     "geometry": "polyline",
+     "display_fields": [
+      "tipo",
+      "stato"
+     ],
+     "proximity_m": 25,
+     "info": true
+    },
+    {
+     "id": 7,
+     "name": "Rete della viabilità locale",
+     "geometry": "polyline",
+     "display_fields": [
+      "istat",
+      "com",
+      "strad_inte"
+     ],
+     "proximity_m": 25,
+     "info": true
+    },
+    {
+     "id": 8,
+     "name": "Aree problematiche all'interno dei corridoi ecologici",
+     "geometry": "point",
+     "display_fields": [
+      "descri",
+      "normativa"
+     ],
+     "proximity_m": 25,
+     "info": true
+    },
+    {
+     "id": 9,
+     "name": "Principali punti di conflitto della rete con le infrastrutture prioritarie",
+     "geometry": "point",
+     "display_fields": [
+      "descri",
+      "normativa"
+     ],
+     "proximity_m": 25,
+     "info": true
+    },
+    {
+     "id": 10,
+     "name": "Direttrici di collegamento esterno",
+     "geometry": "polyline",
+     "display_fields": [
+      "descri",
+      "normativa"
+     ],
+     "proximity_m": 25,
+     "info": true
+    },
+    {
+     "id": 11,
+     "name": "Fronti problematici all'interno dei corridoi ecologici",
+     "geometry": "polyline",
+     "display_fields": [
+      "descri",
+      "normativa"
+     ],
+     "proximity_m": 25,
+     "info": true
+    },
+    {
+     "id": 12,
+     "name": "Varchi REP",
+     "geometry": "polyline",
+     "display_fields": [
+      "normativa",
+      "comune",
+      "istat",
+      "specifica",
+      "des_tav4"
+     ],
+     "proximity_m": 25,
+     "info": true
+    },
+    {
+     "id": 13,
+     "name": "Varchi RER",
+     "geometry": "polyline",
+     "display_fields": [
+      "tipo",
+      "descri",
+      "normativa"
+     ],
+     "proximity_m": 25,
+     "info": true
+    },
+    {
+     "id": 14,
+     "name": "Corridoi ecologici",
+     "geometry": "polyline",
+     "display_fields": [
+      "descri",
+      "normativa"
+     ],
+     "proximity_m": 25,
+     "info": true
+    },
+    {
+     "id": 15,
+     "name": "Reticolo idrico principale",
+     "geometry": "polyline",
+     "display_fields": [
+      "legenda",
+      "foce"
+     ],
+     "proximity_m": 25,
+     "info": true
+    },
+    {
+     "id": 16,
+     "name": "Rete Natura 2000 (ZPS)",
+     "geometry": "polygon",
+     "display_fields": [
+      "nome_zps",
+      "cod_zps",
+      "scheda_zps"
+     ],
+     "link_fields": [
+      "scheda_zps"
+     ],
+     "info": true
+    },
+    {
+     "id": 17,
+     "name": "Rete Natura 2000 (SIC)",
+     "geometry": "polygon",
+     "display_fields": [
+      "nome_sic",
+      "cod_sic",
+      "scheda_sic"
+     ],
+     "link_fields": [
+      "scheda_sic"
+     ],
+     "info": true
+    },
+    {
+     "id": 18,
+     "name": "Elementi di primo livello della RER",
+     "geometry": "polygon",
+     "display_fields": [
+      "ecoregione"
+     ],
+     "info": true
+    },
+    {
+     "id": 19,
+     "name": "Corridoi ecologici primari",
+     "geometry": "polygon",
+     "display_fields": [
+      "descri",
+      "normativa"
+     ],
+     "info": true
+    },
+    {
+     "id": 20,
+     "name": "Parchi regionali nazionali",
+     "geometry": "polygon",
+     "display_fields": [
+      "nome_pa"
+     ],
+     "info": true
+    },
+    {
+     "id": 21,
+     "name": "Ambiti dei fontanili",
+     "geometry": "polygon",
+     "display_fields": [
+      "descri",
+      "normativa"
+     ],
+     "info": true
+    },
+    {
+     "id": 22,
+     "name": "Ambiti urbani e periurbani preferenziali per la ricostruzione ecologica diffusa",
+     "geometry": "polygon",
+     "display_fields": [
+      "descri",
+      "normativa"
+     ],
+     "info": true
+    },
+    {
+     "id": 23,
+     "name": "Aree naturali di completamento",
+     "geometry": "polygon",
+     "display_fields": [
+      "descri",
+      "normativa"
+     ],
+     "info": true
+    },
+    {
+     "id": 24,
+     "name": "Principali ecosistemi lacustri",
+     "geometry": "polygon",
+     "display_fields": [
+      "descrizion",
+      "descri",
+      "normativa"
+     ],
+     "info": true
+    },
+    {
+     "id": 25,
+     "name": "Zone umide",
+     "geometry": "polygon",
+     "display_fields": [
+      "tipo",
+      "ambito",
+      "sistema",
+      "elemento"
+     ],
+     "info": true
+    },
+    {
+     "id": 26,
+     "name": "Aree ad elevato valore naturalistico",
+     "geometry": "polygon",
+     "display_fields": [
+      "descri",
+      "normativa"
+     ],
+     "info": true
+    },
+    {
+     "id": 27,
+     "name": "Ambiti di consolidamento ecologico delle colline moreniche del Garda",
+     "geometry": "polygon",
+     "display_fields": [
+      "descri",
+      "normativa"
+     ],
+     "info": true
+    },
+    {
+     "id": 28,
+     "name": "Aree per la ricostruzione polivalente dell'agroecosistema",
+     "geometry": "polygon",
+     "display_fields": [
+      "descri",
+      "normativa"
+     ],
+     "info": true
+    }
+   ]
+  },
+  {
+   "id": "bs_pgra",
+   "name": "Provincia di Brescia – PGRA aree allagabili (PTCP, agg. 2025)",
+   "type": "arcgis",
+   "provider": "Provincia di Brescia",
+   "url": "https://sit.provincia.brescia.it/arcgis/rest/services/ptcp_adeguamento_ptr/tav_3_4_PGRA/MapServer",
+   "bbox": [
+    9.75,
+    45.2,
+    10.95,
+    46.4
+   ],
+   "theme": "idraulico",
+   "legal_ref": "Dir. 2007/60/CE; D.Lgs. 49/2010; PGRA",
+   "value_note": "Campo 'aggiorna' = data di aggiornamento del dato.",
+   "applies_if": {
+    "provincia": [
+     "Brescia"
+    ]
+   },
+   "layers": [
+    {
+     "id": 1,
+     "name": "Aree Allagabili Tergo Bpr 2020",
+     "geometry": "polygon",
+     "display_fields": [
+      "fonte",
+      "aggiornamento",
+      "FIUME"
+     ]
+    },
+    {
+     "id": 3,
+     "name": "PGRA Aree allagabili – Scenario di pericolosità frequente (H)",
+     "geometry": "polygon",
+     "display_fields": [
+      "classe",
+      "fonte",
+      "aggiorna"
+     ]
+    },
+    {
+     "id": 4,
+     "name": "PGRA Aree allagabili – Scenario di pericolosità Poco frequente (M)",
+     "geometry": "polygon",
+     "display_fields": [
+      "classe",
+      "fonte",
+      "aggiorna"
+     ]
+    },
+    {
+     "id": 5,
+     "name": "PGRA Aree allagabili – Scenario di pericolosità raro (L)",
+     "geometry": "polygon",
+     "display_fields": [
+      "classe",
+      "fonte",
+      "aggiorna"
+     ]
+    },
+    {
+     "id": 7,
+     "name": "PGRA Aree allagabili – Scenario di pericolosità frequente (H)",
+     "geometry": "polygon",
+     "display_fields": [
+      "classe",
+      "fonte",
+      "aggiorna"
+     ]
+    },
+    {
+     "id": 8,
+     "name": "PGRA Aree allagabili – Scenario di pericolosità Poco frequente (M)",
+     "geometry": "polygon",
+     "display_fields": [
+      "classe",
+      "fonte",
+      "aggiorna"
+     ]
+    },
+    {
+     "id": 9,
+     "name": "PGRA Aree allagabili – Scenario di pericolosità raro (L)",
+     "geometry": "polygon",
+     "display_fields": [
+      "classe",
+      "fonte",
+      "aggiorna"
+     ]
+    },
+    {
+     "id": 11,
+     "name": "PGRA Aree allagabili – Scenario di pericolosità frequente (H)",
+     "geometry": "polygon",
+     "display_fields": [
+      "classe",
+      "fonte",
+      "aggiorna"
+     ]
+    },
+    {
+     "id": 12,
+     "name": "PGRA Aree allagabili – Scenario di pericolosità Poco frequente (M)",
+     "geometry": "polygon",
+     "display_fields": [
+      "classe",
+      "fonte",
+      "aggiorna"
+     ]
+    },
+    {
+     "id": 14,
+     "name": "PGRA Aree allagabili – Scenario di pericolosità frequente (H)",
+     "geometry": "polygon",
+     "display_fields": [
+      "classe",
+      "fonte",
+      "aggiorna"
+     ]
+    },
+    {
+     "id": 15,
+     "name": "PGRA Aree allagabili – Scenario di pericolosità Poco frequente (M)",
+     "geometry": "polygon",
+     "display_fields": [
+      "classe",
+      "fonte",
+      "aggiorna"
+     ]
+    },
+    {
+     "id": 16,
+     "name": "PGRA Aree allagabili – Scenario di pericolosità raro (L)",
+     "geometry": "polygon",
+     "display_fields": [
+      "classe",
+      "fonte",
+      "aggiorna"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "bs_difesa_suolo",
+   "name": "Provincia di Brescia – Difesa del suolo",
+   "type": "arcgis",
+   "provider": "Provincia di Brescia",
+   "url": "https://sit.provincia.brescia.it/arcgis/rest/services/urbanistica/difesa_suolo/MapServer",
+   "bbox": [
+    9.75,
+    45.2,
+    10.95,
+    46.4
+   ],
+   "theme": "idrogeologico",
+   "legal_ref": "L.R. 12/2005 art. 57; PAI/PGRA",
+   "value_note": "Dato ricognitivo: verificare l'atto originario e lo strumento vigente.",
+   "applies_if": {
+    "provincia": [
+     "Brescia"
+    ]
+   },
+   "layers": [
+    {
+     "id": 0,
+     "name": "Pozzi",
+     "geometry": "point",
+     "display_fields": [
+      "nome",
+      "stato",
+      "fonte",
+      "aggiornamento",
+      "gestore",
+      "comune"
+     ],
+     "proximity_m": 25
+    },
+    {
+     "id": 1,
+     "name": "Sorgenti",
+     "geometry": "point",
+     "display_fields": [
+      "nome",
+      "stato",
+      "fonte",
+      "aggiornamento",
+      "gestore",
+      "comune"
+     ],
+     "proximity_m": 25
+    },
+    {
+     "id": 2,
+     "name": "Sito contaminato",
+     "geometry": "point",
+     "display_fields": [
+      "DENOMSITO",
+      "TIPOLOGIA",
+      "fonte",
+      "data_aggior",
+      "CODICE",
+      "PRATICAREG"
+     ],
+     "proximity_m": 25
+    },
+    {
+     "id": 3,
+     "name": "pai_dissesti",
+     "geometry": "point",
+     "display_fields": [
+      "NOME",
+      "LEGENDA_PA",
+      "DESCRIZION",
+      "fonte",
+      "aggiornamento",
+      "ISTAT"
+     ],
+     "proximity_m": 25
+    },
+    {
+     "id": 4,
+     "name": "dissesti_lineari",
+     "geometry": "polyline",
+     "display_fields": [
+      "NOME",
+      "LEGENDA_PA",
+      "DESCRIZION",
+      "fonte",
+      "aggiornamento",
+      "ISTAT"
+     ],
+     "proximity_m": 25
+    },
+    {
+     "id": 5,
+     "name": "Fattibilità classe 4",
+     "geometry": "polygon",
+     "display_fields": [
+      "CLASSE_FAT",
+      "fonte",
+      "aggiornamento",
+      "ISTAT_COMU",
+      "COMUNE",
+      "INFO_CLASS"
+     ]
+    },
+    {
+     "id": 7,
+     "name": "PAI – Fascia fluviale A",
+     "geometry": "polyline",
+     "display_fields": [
+      "FASCIA",
+      "fonte",
+      "aggiornamento"
+     ],
+     "proximity_m": 25
+    },
+    {
+     "id": 8,
+     "name": "PAI – Fascia fluviale B",
+     "geometry": "polyline",
+     "display_fields": [
+      "FASCIA",
+      "fonte",
+      "aggiornamento"
+     ],
+     "proximity_m": 25
+    },
+    {
+     "id": 9,
+     "name": "PAI – Fascia fluviale C",
+     "geometry": "polyline",
+     "display_fields": [
+      "FASCIA",
+      "fonte",
+      "aggiornamento"
+     ],
+     "proximity_m": 25
+    },
+    {
+     "id": 10,
+     "name": "Valanghe",
+     "geometry": "polygon",
+     "display_fields": [
+      "NOME",
+      "LEGENDA_PA",
+      "DESCRIZION",
+      "fonte",
+      "aggiornamento",
+      "ISTAT"
+     ]
+    },
+    {
+     "id": 11,
+     "name": "Frane",
+     "geometry": "polygon",
+     "display_fields": [
+      "NOME",
+      "LEGENDA_PA",
+      "DESCRIZION",
+      "fonte",
+      "aggiornamento",
+      "ISTAT"
+     ]
+    },
+    {
+     "id": 12,
+     "name": "Esondazioni e dissesti morfologici di carattere torrentizio lungo le aste dei corsi d'acqua",
+     "geometry": "polygon",
+     "display_fields": [
+      "NOME",
+      "LEGENDA_PA",
+      "DESCRIZION",
+      "fonte",
+      "aggiornamento",
+      "ISTAT"
+     ]
+    },
+    {
+     "id": 13,
+     "name": "Trasporti in massa sui conoidi",
+     "geometry": "polygon",
+     "display_fields": [
+      "NOME",
+      "LEGENDA_PA",
+      "DESCRIZION",
+      "fonte",
+      "aggiornamento",
+      "ISTAT"
+     ]
+    },
+    {
+     "id": 14,
+     "name": "Aree a rischio idrogeologico molto elevato",
+     "geometry": "polygon",
+     "display_fields": [
+      "NOME",
+      "LEGENDA_PA",
+      "DESCRIZION",
+      "fonte",
+      "aggiornamento",
+      "ISTAT"
+     ]
+    },
+    {
+     "id": 15,
+     "name": "Concessioni Acque Minerali Termali",
+     "geometry": "polygon",
+     "display_fields": [
+      "Nome",
+      "Codice_BS",
+      "AreaQGIS",
+      "Comune",
+      "Scadenza"
+     ],
+     "date_fields": [
+      "Scadenza"
+     ]
+    },
+    {
+     "id": 17,
+     "name": "PGRA Aree allagabili – Scenario di pericolosità frequente (H)",
+     "geometry": "polygon",
+     "display_fields": [
+      "classe",
+      "fonte",
+      "aggiorna"
+     ]
+    },
+    {
+     "id": 18,
+     "name": "PGRA Aree allagabili – Scenario di pericolosità Poco frequente (M)",
+     "geometry": "polygon",
+     "display_fields": [
+      "classe",
+      "fonte",
+      "aggiorna"
+     ]
+    },
+    {
+     "id": 19,
+     "name": "PGRA Aree allagabili – Scenario di pericolosità raro (L)",
+     "geometry": "polygon",
+     "display_fields": [
+      "classe",
+      "fonte",
+      "aggiorna"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "bs_dlgs42",
+   "name": "Provincia di Brescia – Beni paesaggistici D.Lgs. 42/2004",
+   "type": "arcgis",
+   "provider": "Provincia di Brescia",
+   "url": "https://sit.provincia.brescia.it/arcgis/rest/services/urbanistica/dlgs42_2004/MapServer",
+   "bbox": [
+    9.75,
+    45.2,
+    10.95,
+    46.4
+   ],
+   "theme": "paesaggistico",
+   "legal_ref": "D.Lgs. 42/2004 artt. 136 e 142",
+   "value_note": "Dato ricognitivo: verificare l'atto originario e lo strumento vigente.",
+   "applies_if": {
+    "provincia": [
+     "Brescia"
+    ]
+   },
+   "layers": [
+    {
+     "id": 0,
+     "name": "Beni di interesse storico-architettonico (D.Lgs. 42/2004 art. 10 e 116)",
+     "geometry": "point",
+     "display_fields": [
+      "nome",
+      "fonte",
+      "data_aggior",
+      "provincia",
+      "comune",
+      "vincolato"
+     ],
+     "proximity_m": 25
+    },
+    {
+     "id": 1,
+     "name": "Beni di interesse archeologico (D.Lgs. 42/2004 art. 10)",
+     "geometry": "point",
+     "display_fields": [
+      "datazione",
+      "classe",
+      "ambito",
+      "vincolo",
+      "fonte",
+      "data_aggior"
+     ],
+     "proximity_m": 25
+    },
+    {
+     "id": 2,
+     "name": "Parchi archeologici (D.Lgs. 42/2004 art. 142, comma 1, lettera m)",
+     "geometry": "multipoint",
+     "display_fields": [
+      "denominaz",
+      "anno_ist",
+      "normativa",
+      "ambito",
+      "fonte",
+      "data_aggior"
+     ],
+     "proximity_m": 25
+    },
+    {
+     "id": 3,
+     "name": "Fiumi torrenti e corsi acqua pubblici e relative sponde (D.Lgs. 42/2004 art. 142, comma 1, lettera c)",
+     "geometry": "polyline",
+     "display_fields": [
+      "NOME_PRO",
+      "DESCRIZION",
+      "NCOD_FI",
+      "DEN_FI",
+      "TR_VINC",
+      "AMB_A"
+     ],
+     "proximity_m": 25
+    },
+    {
+     "id": 4,
+     "name": "Perimetro e Aree di notevole interesse pubblico (D.Lgs. 42/2004 art. 136, comma 1, lettere c e d, e art. 157)",
+     "geometry": "polygon",
+     "display_fields": [
+      "DATA_DEC",
+      "DATA_COM",
+      "FONTE_BA",
+      "DFONTE_BA",
+      "TIPO_CA",
+      "DTIPO_CA"
+     ],
+     "link_fields": [
+      "DECRETI_IM",
+      "GAZZETTA_U"
+     ]
+    },
+    {
+     "id": 5,
+     "name": "Territori coperti da foreste e da boschi (D.Lgs. 42/2004 art. 142, comma 1, lettera g)",
+     "geometry": "polygon",
+     "display_fields": [
+      "DESCRIZION",
+      "CODICE"
+     ]
+    },
+    {
+     "id": 6,
+     "name": "Territori contermini ai laghi (D.Lgs. 42/2004 art. 142, comma 1, lettera b)",
+     "geometry": "polygon",
+     "display_fields": [
+      "NOME_LG",
+      "COD_LG"
+     ]
+    },
+    {
+     "id": 7,
+     "name": "Riserve regionali nazionali (D.Lgs. 42/2004 art. 142, comma 1, lettera f)",
+     "geometry": "polygon",
+     "display_fields": [
+      "DATA_I",
+      "NOME_RS",
+      "NOME_ENTE",
+      "TIPO_CA",
+      "DTIPO_CA",
+      "TIPO_RS"
+     ],
+     "date_fields": [
+      "DATA_I"
+     ],
+     "link_fields": [
+      "BURL"
+     ]
+    },
+    {
+     "id": 8,
+     "name": "Beni e immobili di notevole interesse pubblico (D.Lgs. 42/2004 art. 136, comma 1, lettere a e b, e art. 157)",
+     "geometry": "polygon",
+     "display_fields": [
+      "NOME_COM",
+      "DATA_DEC",
+      "DESCR_DEC",
+      "FONTE_BI",
+      "DFONTE_BI",
+      "TIPO_CA"
+     ],
+     "link_fields": [
+      "DECRETI_IM"
+     ]
+    },
+    {
+     "id": 9,
+     "name": "Ghiacciai e circhi glaciali (D.Lgs. 42/2004 art. 142, comma 1, lettera e)",
+     "geometry": "polygon",
+     "display_fields": [
+      "NOME",
+      "COD_GH"
+     ]
+    },
+    {
+     "id": 10,
+     "name": "Sponde Fiumi torrenti e corsi acqua pubblici (D.Lgs. 42/2004 art. 142, comma 1, lettera c)",
+     "geometry": "polygon",
+     "display_fields": [
+      "NOME_PRO",
+      "DESCRIZION",
+      "NCOD_FI",
+      "DEN_FI",
+      "TR_VINC",
+      "AMB_A"
+     ]
+    },
+    {
+     "id": 11,
+     "name": "Sponde Fiumi torrenti e corsi acqua pubblici (D.Lgs. 42/2004 art. 142, comma 1, lettera c)",
+     "geometry": "polygon",
+     "display_fields": [
+      "NOME_PRO",
+      "NCOD_FI",
+      "DEN_FI",
+      "TR_VINC"
+     ]
+    },
+    {
+     "id": 12,
+     "name": "Parchi regionali nazionali (D.Lgs. 42/2004 art. 142, comma 1 lettera f)",
+     "geometry": "polygon",
+     "display_fields": [
+      "TIPO_IDE",
+      "DTIPO_IDE",
+      "DATA_I",
+      "NOME_PA",
+      "NOME_ENTE",
+      "COD_PA"
+     ],
+     "date_fields": [
+      "DATA_I"
+     ]
+    },
+    {
+     "id": 13,
+     "name": "Territori alpini e appenninici (D.Lgs. 42/2004 art. 142, comma 1, lettera d)",
+     "geometry": "polygon",
+     "display_fields": [
+      "QUOTA",
+      "DES_QUOTA"
+     ]
+    },
+    {
+     "id": 14,
+     "name": "Zone umide (D.Lgs. 42/2004 art. 142, comma 1, lettera i)",
+     "geometry": "polygon",
+     "display_fields": [
+      "NOME_ZU",
+      "COD_ZU",
+      "COD_RS",
+      "IDENT"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "bs_vincolo_idrogeologico",
+   "name": "Provincia di Brescia – Vincolo idrogeologico",
+   "type": "arcgis",
+   "provider": "Provincia di Brescia",
+   "url": "https://sit.provincia.brescia.it/arcgis/rest/services/vincoli/idro_civ/MapServer",
+   "bbox": [
+    9.75,
+    45.2,
+    10.95,
+    46.4
+   ],
+   "theme": "idrogeologico",
+   "legal_ref": "R.D. 3267/1923; L.R. 31/2008",
+   "value_note": "Dato ricognitivo: verificare l'atto originario e lo strumento vigente.",
+   "applies_if": {
+    "provincia": [
+     "Brescia"
+    ]
+   },
+   "layers": [
+    {
+     "id": 0,
+     "name": "Vincolo idrogeologico",
+     "geometry": "polygon",
+     "display_fields": [
+      "vincolo"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "bs_aree_percorse_fuoco",
+   "name": "Provincia di Brescia – Aree percorse dal fuoco",
+   "type": "arcgis",
+   "provider": "Provincia di Brescia",
+   "url": "https://sit.provincia.brescia.it/arcgis/rest/services/urbanistica/aree_percorse_97_2021/MapServer",
+   "bbox": [
+    9.75,
+    45.2,
+    10.95,
+    46.4
+   ],
+   "theme": "forestale",
+   "legal_ref": "L. 353/2000 art. 10 (divieti su aree percorse dal fuoco)",
+   "value_note": "Dato ricognitivo: verificare l'atto originario e lo strumento vigente.",
+   "applies_if": {
+    "provincia": [
+     "Brescia"
+    ]
+   },
+   "layers": [
+    {
+     "id": 0,
+     "name": "Aree percorse 1997-2021",
+     "geometry": "polygon",
+     "display_fields": [
+      "ANNO",
+      "DATA_I",
+      "FONTE_DATI",
+      "Comune",
+      "Localita",
+      "area_mq"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "bs_pif",
+   "name": "Provincia di Brescia – PIF: trasformabilità del bosco",
+   "type": "arcgis",
+   "provider": "Provincia di Brescia",
+   "url": "https://sit.provincia.brescia.it/arcgis/rest/services/pif/09_trasformabilita/MapServer",
+   "bbox": [
+    9.75,
+    45.2,
+    10.95,
+    46.4
+   ],
+   "theme": "forestale",
+   "legal_ref": "L.R. 31/2008 art. 47 (PIF – trasformabilità)",
+   "value_note": "Dato ricognitivo: verificare l'atto originario e lo strumento vigente.",
+   "applies_if": {
+    "provincia": [
+     "Brescia"
+    ]
+   },
+   "layers": [
+    {
+     "id": 0,
+     "name": "Vincoli",
+     "geometry": "polygon",
+     "display_fields": []
+    },
+    {
+     "id": 1,
+     "name": "Boschi NON TRASFORMABILI",
+     "geometry": "polygon",
+     "display_fields": [
+      "forma_gove",
+      "formazione"
+     ]
+    },
+    {
+     "id": 2,
+     "name": "Boschi trasformabili per PUBBLICA UTILITA'",
+     "geometry": "polygon",
+     "display_fields": [
+      "forma_gove",
+      "formazione"
+     ]
+    },
+    {
+     "id": 3,
+     "name": "Rapporto di compensazione",
+     "geometry": "polygon",
+     "display_fields": [
+      "rapporto"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "bs_cave",
+   "name": "Provincia di Brescia – Ambiti territoriali estrattivi (ATE)",
+   "type": "arcgis",
+   "provider": "Provincia di Brescia",
+   "url": "https://sit.provincia.brescia.it/arcgis/rest/services/ambiente/ate_cave/MapServer",
+   "bbox": [
+    9.75,
+    45.2,
+    10.95,
+    46.4
+   ],
+   "theme": "suolo e rifiuti",
+   "legal_ref": "L.R. 14/1998 (piano cave)",
+   "value_note": "Dato ricognitivo: verificare l'atto originario e lo strumento vigente.",
+   "applies_if": {
+    "provincia": [
+     "Brescia"
+    ]
+   },
+   "layers": [
+    {
+     "id": 0,
+     "name": "ATE calcari versione precedente",
+     "geometry": "polygon",
+     "display_fields": [
+      "tipo",
+      "data_atto",
+      "data_ries",
+      "ate",
+      "materiale",
+      "giacitura"
+     ]
+    },
+    {
+     "id": 1,
+     "name": "Settore Sabbia-Ghiaia e Argilla (vigente)",
+     "geometry": "polygon",
+     "display_fields": [
+      "tipologia",
+      "ate",
+      "cava",
+      "comune",
+      "localita",
+      "scheda"
+     ],
+     "link_fields": [
+      "scheda"
+     ]
+    },
+    {
+     "id": 2,
+     "name": "Settore Pietre Ornamentali e Pietrischi (vigente)",
+     "geometry": "polygon",
+     "display_fields": [
+      "tipo",
+      "data_atto",
+      "data_ries",
+      "ate",
+      "materiale",
+      "giacitura"
+     ]
+    },
+    {
+     "id": 3,
+     "name": "Settore Calcari (vigente)",
+     "geometry": "polygon",
+     "display_fields": [
+      "TIPOLOGIA",
+      "ATE",
+      "materia",
+      "giaci",
+      "Accessi",
+      "Quotamin"
+     ]
+    },
+    {
+     "id": 4,
+     "name": "Settore Argilla (2000-2013)",
+     "geometry": "polygon",
+     "display_fields": [
+      "tipologia",
+      "ate",
+      "cava_inter",
+      "comuni",
+      "foglio_ctr",
+      "quota_pian"
+     ],
+     "link_fields": [
+      "hyperlink"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "bs_pozzi",
+   "name": "Provincia di Brescia – Pozzi e aree di rispetto",
+   "type": "arcgis",
+   "provider": "Provincia di Brescia",
+   "url": "https://sit.provincia.brescia.it/arcgis/rest/services/ambiente/pozzi/MapServer",
+   "bbox": [
+    9.75,
+    45.2,
+    10.95,
+    46.4
+   ],
+   "theme": "acque",
+   "legal_ref": "",
+   "value_note": "Cerchi di 1000 m attorno ai pozzi (livello '_#Raggio del pozzo'): il significato normativo non è documentato nel servizio; non equivale alla zona di rispetto ex art. 94 D.Lgs. 152/2006.",
+   "applies_if": {
+    "provincia": [
+     "Brescia"
+    ]
+   },
+   "layers": [
+    {
+     "id": 0,
+     "name": "_#pozzi",
+     "geometry": "point",
+     "display_fields": [
+      "Data_di_pe",
+      "Data_attiv",
+      "Data_cemen",
+      "Stato",
+      "cod_pozzo",
+      "id_pratica"
+     ],
+     "proximity_m": 25,
+     "info": true
+    },
+    {
+     "id": 1,
+     "name": "Pozzi",
+     "geometry": "point",
+     "display_fields": [
+      "Data_di_pe",
+      "Data_attiv",
+      "Data_cemen",
+      "Stato",
+      "cod_pozzo",
+      "id_pratica"
+     ],
+     "proximity_m": 25,
+     "info": true
+    },
+    {
+     "id": 2,
+     "name": "_#Raggio del pozzo",
+     "geometry": "polygon",
+     "display_fields": [
+      "cod_pozzo"
+     ],
+     "info": true
+    }
+   ]
+  },
+  {
+   "id": "bs_rifiuti_vincoli",
+   "name": "Provincia di Brescia – Piano rifiuti: vincoli localizzativi aggregati",
+   "type": "arcgis",
+   "provider": "Provincia di Brescia",
+   "url": "https://sit.provincia.brescia.it/arcgis/rest/services/rifiuti/R_12_carta_vincoli_aggregati_per_grado_prescrizione/MapServer",
+   "bbox": [
+    9.75,
+    45.2,
+    10.95,
+    46.4
+   ],
+   "theme": "suolo e rifiuti",
+   "legal_ref": "Piano provinciale rifiuti – criteri localizzativi impianti",
+   "value_note": "Vale per la localizzazione di impianti di gestione rifiuti, non come vincolo edilizio generale.",
+   "applies_if": {
+    "provincia": [
+     "Brescia"
+    ]
+   },
+   "layers": [
+    {
+     "id": 3,
+     "name": "Vincoli aggregati",
+     "geometry": "polygon",
+     "display_fields": [
+      "tipo"
+     ],
+     "info": true
+    }
+   ]
+  },
+  {
+   "id": "bs_aree_pee",
+   "name": "Provincia di Brescia – Aree di piani di emergenza (dighe)",
+   "type": "arcgis",
+   "provider": "Provincia di Brescia",
+   "url": "https://sit.provincia.brescia.it/arcgis/rest/services/protezione_civile/aree_pee/MapServer",
+   "bbox": [
+    9.75,
+    45.2,
+    10.95,
+    46.4
+   ],
+   "theme": "protezione civile",
+   "legal_ref": "Piani di emergenza esterna (PEE)",
+   "value_note": "Dato ricognitivo: verificare l'atto originario e lo strumento vigente.",
+   "applies_if": {
+    "provincia": [
+     "Brescia"
+    ]
+   },
+   "layers": [
+    {
+     "id": 1,
+     "name": "Impianti rifiuti : in aggiornamento",
+     "geometry": "polygon",
+     "display_fields": [
+      "nome",
+      "codice_fis",
+      "comune",
+      "via",
+      "civico",
+      "nota"
+     ],
+     "info": true
+    },
+    {
+     "id": 2,
+     "name": "Limiti comunali",
+     "geometry": "polygon",
+     "display_fields": [
+      "comune"
+     ],
+     "info": true
+    },
+    {
+     "id": 3,
+     "name": "Cippi stradali svincoli",
+     "geometry": "point",
+     "display_fields": [
+      "tipo_cippo",
+      "sigla_stra",
+      "data_vista",
+      "codice",
+      "etich",
+      "itinerari"
+     ],
+     "date_fields": [
+      "data_vista"
+     ],
+     "proximity_m": 25,
+     "info": true
+    },
+    {
+     "id": 4,
+     "name": "Cippi stradali Chilometrici",
+     "geometry": "point",
+     "display_fields": [
+      "tipo_cippo",
+      "sigla_stra",
+      "data_vista",
+      "codice",
+      "etich",
+      "itinerari"
+     ],
+     "date_fields": [
+      "data_vista"
+     ],
+     "proximity_m": 25,
+     "info": true
+    },
+    {
+     "id": 5,
+     "name": "Cippi stradali Ettometrici",
+     "geometry": "point",
+     "display_fields": [
+      "tipo_cippo",
+      "sigla_stra",
+      "data_vista",
+      "codice",
+      "etich",
+      "itinerari"
+     ],
+     "date_fields": [
+      "data_vista"
+     ],
+     "proximity_m": 25,
+     "info": true
+    },
+    {
+     "id": 6,
+     "name": "Cippi stradali Virtuali",
+     "geometry": "point",
+     "display_fields": [
+      "tipo_cippo",
+      "sigla_stra",
+      "data_vista",
+      "codice",
+      "etich",
+      "itinerari"
+     ],
+     "date_fields": [
+      "data_vista"
+     ],
+     "proximity_m": 25,
+     "info": true
+    },
+    {
+     "id": 7,
+     "name": "Manufatti ponti",
+     "geometry": "point",
+     "display_fields": [
+      "sigla",
+      "tipo_strut",
+      "nome_str",
+      "tipo_trave",
+      "numero",
+      "note"
+     ],
+     "link_fields": [
+      "url_33",
+      "url_40",
+      "url_56",
+      "url_72",
+      "url_108T",
+      "url_pali",
+      "url_carri",
+      "url_coils",
+      "url_pre2575",
+      "url_pre25108",
+      "url_pre35108",
+      "url_agricoli",
+      "url_sagoma_M",
+      "url_sagoma_N",
+      "url"
+     ],
+     "proximity_m": 25,
+     "info": true
+    },
+    {
+     "id": 8,
+     "name": "Rete stradale",
+     "geometry": "polyline",
+     "display_fields": [
+      "sigla_stra",
+      "nome_stra",
+      "comune",
+      "gestore"
+     ],
+     "proximity_m": 25,
+     "info": true
+    },
+    {
+     "id": 9,
+     "name": "Aree attenzione PEE approvati",
+     "geometry": "polygon",
+     "display_fields": [
+      "nome"
+     ],
+     "info": true
+    },
+    {
+     "id": 10,
+     "name": "PEE Ditte Rifiuti",
+     "geometry": "point",
+     "display_fields": [
+      "nome",
+      "data",
+      "anno",
+      "annott",
+      "tipo",
+      "descr"
+     ],
+     "date_fields": [
+      "data"
+     ],
+     "proximity_m": 25,
+     "info": true
+    },
+    {
+     "id": 11,
+     "name": "Perimetri PEE approvati",
+     "geometry": "polygon",
+     "display_fields": [
+      "Perimetri_PEE_approvati.nome",
+      "PEE_Ditte_Rifiuti.nome",
+      "PEE_Ditte_Rifiuti.data",
+      "PEE_Ditte_Rifiuti.anno",
+      "PEE_Ditte_Rifiuti.annott",
+      "PEE_Ditte_Rifiuti.tipo"
+     ],
+     "date_fields": [
+      "PEE_Ditte_Rifiuti.data"
+     ],
+     "info": true
+    }
+   ]
+  },
+  {
+   "id": "bs_mosaico_ptcp",
+   "name": "Provincia di Brescia – Mosaico PGT (ATO e destinazioni)",
+   "type": "arcgis",
+   "provider": "Provincia di Brescia",
+   "url": "https://sit.provincia.brescia.it/arcgis/rest/services/urbanistica/mosaico_PTCP_2014/MapServer",
+   "bbox": [
+    9.75,
+    45.2,
+    10.95,
+    46.4
+   ],
+   "theme": "urbanistico",
+   "legal_ref": "PTCP Brescia – mosaico dei PGT",
+   "value_note": "Dato ricognitivo: verificare l'atto originario e lo strumento vigente.",
+   "applies_if": {
+    "provincia": [
+     "Brescia"
+    ]
+   },
+   "layers": [
+    {
+     "id": 2,
+     "name": "mosaico PTCP 2014",
+     "geometry": "polygon",
+     "display_fields": [
+      "stato",
+      "fonte",
+      "istat",
+      "comune",
+      "sus",
+      "cod_dest"
+     ],
+     "info": true
+    }
+   ]
+  }
+ ]
+}

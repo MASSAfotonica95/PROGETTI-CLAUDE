@@ -72,6 +72,60 @@ class Connectors(unittest.TestCase):
         self.assertIn("SRID=4326;POINT(8.9 44.4)", s.calls[0][1]["CQL_FILTER"])
 
 
+class Nuovi(unittest.TestCase):
+    def test_date_formattate_e_attributi_vuoti(self):
+        lay = {**LAYER, "display_fields": ["D", "A"], "date_fields": ["D"]}
+        s = FakeSession({"features": [{"attributes": {"D": 1647388800000, "A": " x "}}]})
+        f = connectors.query_arcgis(s, SRC, lay, Point(45, 10))
+        self.assertEqual(f.summary, ["D=2022-03-16; A=x"])
+        f = connectors.query_arcgis(FakeSession({"features": [{"attributes": {"Z": 1}}]}), SRC, {**LAYER, "display_fields": []}, Point(45, 10))
+        self.assertEqual(f.summary, ["(nessun attributo descrittivo)"])
+
+    def test_prossimita_linee_e_stato_entro_raggio(self):
+        s = FakeSession({"features": [{"attributes": {"A": "x"}}]})
+        f = connectors.query_arcgis(s, SRC, {**LAYER, "proximity_m": 25}, Point(45, 10))
+        self.assertEqual(f.status, Status.NEARBY)
+        self.assertEqual(s.calls[0][1]["distance"], 25)
+        self.assertIn("non 'sul' punto", f.detail)
+
+    def test_sr_nativo_utm(self):
+        s = FakeSession({"features": []})
+        connectors.query_arcgis(s, SRC, {**LAYER, "native_sr": 32632}, Point(45.546677946, 10.227873543))
+        p = s.calls[0][1]
+        self.assertEqual(p["inSR"], 32632)
+        self.assertTrue(p["geometry"].startswith("595850.4"))
+
+    def test_info_layers_solo_con_flag(self):
+        fake = FakeSession({"features": []})
+        with mock.patch.object(engine, "make_session", return_value=fake):
+            base = engine.run(Point(45.5467, 10.2279), only=["lom_attestato_info"], geocode=False)
+            full = engine.run(Point(45.5467, 10.2279), only=["lom_attestato_info"], geocode=False, include_info=True)
+        self.assertEqual(base["queried_layers"], 0)
+        self.assertGreater(full["queried_layers"], 0)
+
+    def test_registro_lombardia_brescia_coerente(self):
+        ids = {s["id"] for s in load_sources()}
+        self.assertTrue({"lom_siba_paesaggio", "lom_pai", "bs_pgra", "lom_zone_sismiche"} <= ids)
+        for s in load_sources():
+            if s["type"] == "arcgis":
+                for l in s["layers"]:
+                    self.assertIn("id", l)
+                    if l.get("geometry") in ("polyline", "point", "multipoint"):
+                        self.assertTrue(l.get("proximity_m"), f"{s['id']}/{l['id']} lineare/puntuale senza prossimità")
+        bs = next(s for s in load_sources() if s["id"] == "bs_pgra")
+        self.assertFalse(applies(bs, 45.5, 10.2, {"provincia": "Bergamo"}))
+        self.assertTrue(applies(bs, 45.5, 10.2, {"provincia": "Brescia"}))
+        lom = next(s for s in load_sources() if s["id"] == "lom_pai")
+        self.assertFalse(applies(lom, 45.6, 9.7, {"regione": "Piemonte"}))
+
+    def test_selftest_punto_interno(self):
+        from vincoli.selftest import interior_candidates, _inside
+        ring = [[0, 0], [10, 0], [10, 10], [6, 10], [6, 2], [4, 2], [4, 10], [0, 10], [0, 0]]  # forma a U
+        for pt in interior_candidates({"rings": [ring]}):
+            self.assertTrue(_inside(pt, ring))
+        self.assertTrue(interior_candidates({"rings": [ring]}))
+
+
 class Registry(unittest.TestCase):
     def test_default_sources_valid(self):
         for s in load_sources():
@@ -81,7 +135,7 @@ class Registry(unittest.TestCase):
         brescia = next(s for s in load_sources() if s["id"] == "doc_brescia")
         self.assertTrue(applies(brescia, 45.5, 10.2, {"comune": "Brescia"}))
         self.assertFalse(applies(brescia, 45.5, 10.2, {"comune": "Milano"}))
-        lomb = next(s for s in load_sources() if s["id"] == "lombardia_siba_paesaggio")
+        lomb = next(s for s in load_sources() if s["id"] == "lom_siba_paesaggio")
         self.assertFalse(applies(lomb, 41.9, 12.5, {}))  # Roma: fuori Lombardia
 
 
@@ -90,7 +144,7 @@ class Engine(unittest.TestCase):
         fake = FakeSession({"features": [{"attributes": {"DESC_DECR2": "Zona X"}}]})
         with mock.patch.object(engine, "make_session", return_value=fake), \
              mock.patch.object(engine, "reverse_geocode", return_value={"ok": True, "comune": "Brescia"}):
-            res = engine.run(Point(45.5467, 10.2279), only=["lombardia_siba_paesaggio", "doc_brescia"])
+            res = engine.run(Point(45.5467, 10.2279), only=["lom_siba_paesaggio", "doc_brescia"])
         st = {f.status for f in res["findings"]}
         self.assertIn(Status.HIT, st)
         self.assertIn(Status.MANUAL, st)
@@ -110,7 +164,7 @@ if __name__ == "__main__":
 class Web(unittest.TestCase):
     def test_html_embeds_registry_and_is_stdlib_only(self):
         import subprocess, sys
-        code = "import sys; sys.modules['requests']=None; from vincoli import webapp; h=webapp.render_html(); print('lombardia_siba_paesaggio' in h, '/*REGISTRY*/' in h)"
+        code = "import sys; sys.modules['requests']=None; from vincoli import webapp; h=webapp.render_html(); print('lom_siba_paesaggio' in h, '/*REGISTRY*/' in h)"
         out = subprocess.run([sys.executable, "-c", code], capture_output=True, text=True)
         self.assertEqual(out.stdout.split(), ["True", "False"], out.stderr)
 

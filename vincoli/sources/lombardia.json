@@ -1,0 +1,2687 @@
+{
+ "sources": [
+  {
+   "id": "lom_siba_paesaggio",
+   "name": "Regione Lombardia – Vincoli paesaggistici (SIBA)",
+   "type": "arcgis",
+   "provider": "Regione Lombardia",
+   "url": "https://www.cartografia.servizirl.it/arcgis2/rest/services/sistemiverdi/vincoli_paesaggistici/MapServer",
+   "bbox": [
+    8.4,
+    44.6,
+    11.5,
+    46.7
+   ],
+   "theme": "paesaggistico",
+   "legal_ref": "D.Lgs. 42/2004 artt. 136 e 142",
+   "value_note": "Ricognitivo: verificare decreto/GU e cartografia originale.",
+   "applies_if": {
+    "regione": [
+     "Lombardia"
+    ]
+   },
+   "layers": [
+    {
+     "id": 14,
+     "name": "Aree di notevole interesse pubblico",
+     "geometry": "polygon",
+     "display_fields": [
+      "DATA_DEC",
+      "DATA_COM",
+      "ART136_C1_LETT",
+      "DFONTE_BA",
+      "DORIG_DEC",
+      "COD_DEC"
+     ],
+     "link_fields": [
+      "DECRETI_IMMAGINI",
+      "GAZZETTA_UFF"
+     ]
+    },
+    {
+     "id": 3,
+     "name": "Perimetro delle Aree di notevole interesse pubblico",
+     "geometry": "polygon",
+     "display_fields": [
+      "DATA_DEC",
+      "DATA_COM",
+      "ART136_C1_LETT",
+      "DFONTE_BA",
+      "DORIG_DEC",
+      "COD_DEC"
+     ],
+     "link_fields": [
+      "DECRETI_IMMAGINI",
+      "GAZZETTA_UFF"
+     ]
+    },
+    {
+     "id": 0,
+     "name": "Beni e immobili di notevole interesse pubblico",
+     "geometry": "polygon",
+     "display_fields": [
+      "DATA_DEC",
+      "DESCR_DEC",
+      "DFONTE_BI",
+      "NOME_COM",
+      "DORIG_DESC",
+      "COD_DEC"
+     ],
+     "link_fields": [
+      "DECRETI_IMMAGINI"
+     ]
+    },
+    {
+     "id": 13,
+     "name": "Aree di interesse pubblico di difficile cartografazione",
+     "geometry": "polyline",
+     "display_fields": [
+      "DATA_DEC",
+      "DATA_COM",
+      "ART136_C1_LETT",
+      "DFONTE_BA",
+      "DORIG_DEC",
+      "COD_DEC"
+     ],
+     "date_fields": [
+      "DATA_DEC",
+      "DATA_COM"
+     ],
+     "link_fields": [
+      "DECRETI_IMMAGINI",
+      "GAZZETTA_UFF"
+     ],
+     "proximity_m": 25
+    },
+    {
+     "id": 2,
+     "name": "Fiumi, torrenti e corsi d'acqua pubblici e relative sponde",
+     "geometry": "polyline",
+     "display_fields": [
+      "NOME_PRO",
+      "DESCRIZIONE",
+      "NCOD_FI",
+      "DEN_FI",
+      "TR_VINC",
+      "AMB_A"
+     ],
+     "proximity_m": 25
+    },
+    {
+     "id": 4,
+     "name": "Area argini maestri fiume Po",
+     "geometry": "polygon",
+     "display_fields": [
+      "DEN_FI",
+      "TR_VIN"
+     ]
+    },
+    {
+     "id": 5,
+     "name": "Alvei fluviali tutelati",
+     "geometry": "polygon",
+     "display_fields": [
+      "NOME_PRO",
+      "DESCRIZIONE",
+      "NCOD_FI",
+      "DEN_FI",
+      "TR_VINC",
+      "AMB_A"
+     ]
+    },
+    {
+     "id": 6,
+     "name": "Aree rispetto corsi d’acqua tutelati",
+     "geometry": "polygon",
+     "display_fields": [
+      "NOME_PRO",
+      "NCOD_FI",
+      "DEN_FI",
+      "TR_VINC"
+     ]
+    },
+    {
+     "id": 7,
+     "name": "Territori contermini a i laghi",
+     "geometry": "polygon",
+     "display_fields": [
+      "NOME_LG",
+      "COD_LG"
+     ]
+    },
+    {
+     "id": 1,
+     "name": "Zone umide",
+     "geometry": "polygon",
+     "display_fields": [
+      "NOME_ZU",
+      "COD_ZU",
+      "COD_RS",
+      "IDENT"
+     ]
+    },
+    {
+     "id": 10,
+     "name": "Terreni alpini e appenninici",
+     "geometry": "polygon",
+     "display_fields": [
+      "QUOTA",
+      "DES_QUOTA"
+     ]
+    },
+    {
+     "id": 11,
+     "name": "Ghiacciai e circhi glaciali",
+     "geometry": "polygon",
+     "display_fields": [
+      "NOME",
+      "COD_GH"
+     ]
+    },
+    {
+     "id": 8,
+     "name": "Parchi nazionali e regionali",
+     "geometry": "polygon",
+     "display_fields": [
+      "DTIPO_IDE",
+      "NOME_PA",
+      "NOME_ENTE",
+      "COD_PA",
+      "DATTUA_PA",
+      "DLIV_AP"
+     ]
+    },
+    {
+     "id": 9,
+     "name": "Riserve nazionali e regionali",
+     "geometry": "polygon",
+     "display_fields": [
+      "DATA_I",
+      "NOME_RS",
+      "NOME_ENTE",
+      "TIPO_CA",
+      "DTIPO_CA",
+      "TIPO_RS"
+     ],
+     "link_fields": [
+      "BURL"
+     ]
+    },
+    {
+     "id": 12,
+     "name": "Territori coperti da foreste e da boschi",
+     "geometry": "polygon",
+     "display_fields": [
+      "DESCRIZIONE",
+      "CODICE"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "lom_ppr",
+   "name": "Regione Lombardia – Piano Paesaggistico Regionale (PPR)",
+   "type": "arcgis",
+   "provider": "Regione Lombardia",
+   "url": "https://www.cartografia.servizirl.it/arcgis2/rest/services/sistemiverdi/piano_paesaggistico/MapServer",
+   "bbox": [
+    8.4,
+    44.6,
+    11.5,
+    46.7
+   ],
+   "theme": "paesaggistico",
+   "legal_ref": "PPR Lombardia (norme di attuazione)",
+   "value_note": "Cartografia del PPR: prescrizioni da verificare nelle NdA.",
+   "applies_if": {
+    "regione": [
+     "Lombardia"
+    ]
+   },
+   "layers": [
+    {
+     "id": 1,
+     "name": "Ambiti di elevata naturalita' della montagna - [art. 17]",
+     "geometry": "polygon",
+     "display_fields": [
+      "COD_ART",
+      "DES_ART",
+      "NOME_COM",
+      "TIPO_AMT",
+      "DESC_TIPO",
+      "DESCRIZ"
+     ]
+    },
+    {
+     "id": 2,
+     "name": "Ambiti di specifico valore storico ambietale Barco della Certosa - [art. 18]",
+     "geometry": "polygon",
+     "display_fields": [
+      "COD_ART",
+      "DES_ART",
+      "NOME_COM",
+      "TIPO_AMT",
+      "DESC_TIPO",
+      "DESCRIZ"
+     ]
+    },
+    {
+     "id": 4,
+     "name": "Ambito di salvaguardia dello scenario lacuale- art. 19-c4",
+     "geometry": "polygon",
+     "display_fields": [
+      "NOME"
+     ]
+    },
+    {
+     "id": 5,
+     "name": "Ambito di specifica tutela  dei laghi insubrici - art. 19-c5",
+     "geometry": "polygon",
+     "display_fields": [
+      "NOME_LG",
+      "COD_LG"
+     ]
+    },
+    {
+     "id": 6,
+     "name": "Ambito di specifica tutela  dei laghi di Mantova  - art. 19-c2",
+     "geometry": "polygon",
+     "display_fields": [
+      "COMUNI_INT",
+      "NOTE",
+      "AREE"
+     ]
+    },
+    {
+     "id": 8,
+     "name": "Il Naviglio Grande e il Naviglio di Pavia - [art. 21, comma 3]",
+     "geometry": "polyline",
+     "display_fields": [
+      "DESCRIZION",
+      "COD_NORMA",
+      "SPEC_NORMA",
+      "PRO",
+      "NUM_TAV",
+      "PROV_INT"
+     ],
+     "proximity_m": 25
+    },
+    {
+     "id": 9,
+     "name": "Naviglio Martesana - [art. 21, comma 4]",
+     "geometry": "polyline",
+     "display_fields": [
+      "DESCRIZION",
+      "COD_NORMA",
+      "SPEC_NORMA",
+      "PRO",
+      "NUM_TAV",
+      "PROV_INT"
+     ],
+     "proximity_m": 25
+    },
+    {
+     "id": 10,
+     "name": "Principali Navigli storici e canali art.21-c5",
+     "geometry": "polyline",
+     "display_fields": [
+      "DESCRIZION",
+      "COD_NORMA",
+      "SPEC_NORMA",
+      "PRO",
+      "NUM_TAV",
+      "PROV_INT"
+     ],
+     "proximity_m": 25
+    },
+    {
+     "id": 11,
+     "name": "Ambito di specifica tutela paesaggistica del fiume Po - [art. 20, comma 8]",
+     "geometry": "polygon",
+     "display_fields": [
+      "NOMEFILE",
+      "PO_",
+      "INSERTDATE"
+     ]
+    },
+    {
+     "id": 12,
+     "name": "Ambito di tutela paesaggistica del sistema vallivo del fiume Po - [art.20, comma 9]",
+     "geometry": "polygon",
+     "display_fields": [
+      "FASCIA",
+      "NOMEIDRO",
+      "DATAAPP",
+      "CODIDRO",
+      "PIANO"
+     ]
+    },
+    {
+     "id": 15,
+     "name": "Arte rupestre della Valle Camonica",
+     "geometry": "polygon",
+     "display_fields": [
+      "TIPO_AREA",
+      "COD_UNESCO",
+      "SITO",
+      "COMPONENTE",
+      "COD_COMPONENTE"
+     ]
+    },
+    {
+     "id": 16,
+     "name": "Crespi d'Adda",
+     "geometry": "polygon",
+     "display_fields": [
+      "TIPO_AREA",
+      "COD_UNESCO",
+      "SITO",
+      "COMPONENTE",
+      "COD_COMPONENTE"
+     ]
+    },
+    {
+     "id": 17,
+     "name": "I Longobardi in Italia. I luoghi del potere (568-774 d.C.)",
+     "geometry": "polygon",
+     "display_fields": [
+      "TIPO_AREA",
+      "COD_UNESCO",
+      "SITO",
+      "COMPONENTE",
+      "COD_COMPONENTE"
+     ]
+    },
+    {
+     "id": 18,
+     "name": "La Chiesa e il Convento Domenicano di Santa Maria Delle Grazie e il 'Cenacolo' di Leonardo Da Vinci",
+     "geometry": "polygon",
+     "display_fields": [
+      "TIPO_AREA",
+      "COD_UNESCO",
+      "SITO",
+      "COMPONENTE",
+      "COD_COMPONENTE"
+     ]
+    },
+    {
+     "id": 19,
+     "name": "La ferrovia retica nel paesaggio dell'Albula e del Bernina",
+     "geometry": "polygon",
+     "display_fields": [
+      "TIPO_AREA",
+      "COD_UNESCO",
+      "SITO",
+      "COMPONENTE",
+      "COD_COMPONENTE"
+     ]
+    },
+    {
+     "id": 20,
+     "name": "Le opere di difesa veneziane tra il XVI e XVII secolo: Stato da Terra – Stato da Mar Occidentale",
+     "geometry": "polygon",
+     "display_fields": [
+      "TIPO_AREA",
+      "COD_UNESCO",
+      "SITO",
+      "COMPONENTE",
+      "COD_COMPONENTE"
+     ]
+    },
+    {
+     "id": 21,
+     "name": "Mantova e Sabbioneta",
+     "geometry": "polygon",
+     "display_fields": [
+      "TIPO_AREA",
+      "COD_UNESCO",
+      "SITO",
+      "COMPONENTE",
+      "COD_COMPONENTE"
+     ]
+    },
+    {
+     "id": 22,
+     "name": "Monte San Giorgio",
+     "geometry": "polygon",
+     "display_fields": [
+      "TIPO_AREA",
+      "COD_UNESCO",
+      "SITO",
+      "COMPONENTE",
+      "COD_COMPONENTE"
+     ]
+    },
+    {
+     "id": 23,
+     "name": "Sacri Monti di Piemonte e Lombardia",
+     "geometry": "polygon",
+     "display_fields": [
+      "TIPO_AREA",
+      "COD_UNESCO",
+      "SITO",
+      "COMPONENTE",
+      "COD_COMPONENTE"
+     ]
+    },
+    {
+     "id": 24,
+     "name": "Siti palafitticoli preistorici dell'arco alpino",
+     "geometry": "polygon",
+     "display_fields": [
+      "TIPO_AREA",
+      "COD_UNESCO",
+      "SITO",
+      "COMPONENTE",
+      "COD_COMPONENTE"
+     ]
+    },
+    {
+     "id": 25,
+     "name": "Geositi di interesse geologico-stratigrafico/strutturale, geominerario-art.22-c3",
+     "geometry": "point",
+     "display_fields": [
+      "NOME",
+      "COM",
+      "VAL_PREV",
+      "ISTAT"
+     ],
+     "proximity_m": 25
+    },
+    {
+     "id": 26,
+     "name": "Geositi di interesse geografico, geomorfologico, paesistico, naturalistico-art.22-c4",
+     "geometry": "point",
+     "display_fields": [
+      "NOME",
+      "COM",
+      "VAL_PREV",
+      "ISTAT"
+     ],
+     "proximity_m": 25
+    },
+    {
+     "id": 27,
+     "name": "Geositi di interesse paleontologico, paleoantropologico e mineralogico-art.22-c5",
+     "geometry": "point",
+     "display_fields": [
+      "NOME",
+      "COM",
+      "VAL_PREV",
+      "ISTAT"
+     ],
+     "proximity_m": 25
+    },
+    {
+     "id": 28,
+     "name": "Oltrepo Pavese –art. 22-c7",
+     "geometry": "polygon",
+     "display_fields": [
+      "NOME",
+      "TIP"
+     ]
+    },
+    {
+     "id": 30,
+     "name": "Strade Panoramiche",
+     "geometry": "polyline",
+     "display_fields": [
+      "DESCR_TP",
+      "DESCR_N",
+      "DESCRIZION",
+      "NUM_ORIG",
+      "PRO_ORIG",
+      "PRO"
+     ],
+     "proximity_m": 25
+    },
+    {
+     "id": 31,
+     "name": "Tracciati guida paesaggistici",
+     "geometry": "polyline",
+     "display_fields": [
+      "TIPO_TRACC",
+      "SIGLA",
+      "NOME_SENTI",
+      "NOMETNUOVO",
+      "PRO",
+      "NUM_TAV"
+     ],
+     "proximity_m": 25
+    },
+    {
+     "id": 33,
+     "name": "Belvedere - [art. 27, comma2]",
+     "geometry": "point",
+     "display_fields": [
+      "DESCRIZION",
+      "PRO",
+      "NOTE"
+     ],
+     "proximity_m": 25
+    },
+    {
+     "id": 34,
+     "name": "Visuali sensibili - [art. 27, comma3]",
+     "geometry": "point",
+     "display_fields": [
+      "DESCRIZION",
+      "PRO",
+      "NOTE"
+     ],
+     "proximity_m": 25
+    },
+    {
+     "id": 35,
+     "name": "Punti di osservazione del paesaggio lombardo - [art. 27, comma4]",
+     "geometry": "point",
+     "display_fields": [
+      "DESCRIZION",
+      "PRO",
+      "NOTE"
+     ],
+     "proximity_m": 25
+    }
+   ]
+  },
+  {
+   "id": "lom_ppr_indirizzi",
+   "name": "Regione Lombardia – Paesaggio: unità tipologiche",
+   "type": "arcgis",
+   "provider": "Regione Lombardia",
+   "url": "https://www.cartografia.servizirl.it/arcgis2/rest/services/sistemiverdi/paesaggio_indirizzi/MapServer",
+   "bbox": [
+    8.4,
+    44.6,
+    11.5,
+    46.7
+   ],
+   "theme": "paesaggistico",
+   "legal_ref": "PPR Lombardia",
+   "value_note": "Dato ricognitivo: verificare l'atto originario e lo strumento vigente.",
+   "applies_if": {
+    "regione": [
+     "Lombardia"
+    ]
+   },
+   "layers": [
+    {
+     "id": 7,
+     "name": "Fasce di paesaggio",
+     "geometry": "polygon",
+     "display_fields": [
+      "FASCIA",
+      "UNIT_PAES"
+     ],
+     "info": true
+    },
+    {
+     "id": 8,
+     "name": "Unità tipologiche di paesaggio",
+     "geometry": "polygon",
+     "display_fields": [
+      "FASCIA",
+      "UNIT_PAES"
+     ],
+     "info": true
+    }
+   ]
+  },
+  {
+   "id": "lom_aree_protette",
+   "name": "Regione Lombardia – Aree protette",
+   "type": "arcgis",
+   "provider": "Regione Lombardia",
+   "url": "https://www.cartografia.servizirl.it/arcgis2/rest/services/ambiente/AreeProtette/MapServer",
+   "bbox": [
+    8.4,
+    44.6,
+    11.5,
+    46.7
+   ],
+   "theme": "ambientale",
+   "legal_ref": "L. 394/1991; L.R. 86/1983; PLIS: L.R. 86/1983 art. 34",
+   "value_note": "Dato regionale; verificare l'atto istitutivo.",
+   "applies_if": {
+    "regione": [
+     "Lombardia"
+    ]
+   },
+   "layers": [
+    {
+     "id": 1,
+     "name": "Monumenti naturali - puntuali",
+     "geometry": "point",
+     "display_fields": [
+      "NOME_MN",
+      "NOME_ENTE",
+      "COD_MN",
+      "IDENT",
+      "SEDE_ENTE",
+      "NOTE_MN"
+     ],
+     "proximity_m": 25
+    },
+    {
+     "id": 2,
+     "name": "Monumenti naturali - poligonali",
+     "geometry": "polygon",
+     "display_fields": [
+      "NOME_MN",
+      "NOME_ENTE",
+      "COD_MN",
+      "IND_MN",
+      "IDENT",
+      "SEDE_ENTE"
+     ]
+    },
+    {
+     "id": 4,
+     "name": "Riserve naturali regionali",
+     "geometry": "polygon",
+     "display_fields": [
+      "DATA_I",
+      "NOME_RS",
+      "NOME_ENTE",
+      "DTIPO_RS",
+      "COD_RS",
+      "IDENT"
+     ],
+     "date_fields": [
+      "DATA_I"
+     ]
+    },
+    {
+     "id": 5,
+     "name": "Riserve naturali nazionali",
+     "geometry": "polygon",
+     "display_fields": [
+      "NOME_RS",
+      "NOME_ENTE",
+      "DTIPO_RS",
+      "COD_RS",
+      "IDENT",
+      "SEDE_ENTE"
+     ],
+     "link_fields": [
+      "BURL"
+     ]
+    },
+    {
+     "id": 6,
+     "name": "Aree a convenzione Ramsar",
+     "geometry": "polygon",
+     "display_fields": [
+      "NOME_ZU",
+      "COD_ZU",
+      "COD_RS",
+      "IDENT"
+     ]
+    },
+    {
+     "id": 8,
+     "name": "Parchi naturali",
+     "geometry": "polygon",
+     "display_fields": [
+      "NOME_PAN",
+      "IDENT"
+     ]
+    },
+    {
+     "id": 9,
+     "name": "Parchi regionali",
+     "geometry": "polygon",
+     "display_fields": [
+      "DTIPO_IDE",
+      "NOME_PA",
+      "NOME_ENTE",
+      "SEDE_ENTE",
+      "DATTUA_PA"
+     ]
+    },
+    {
+     "id": 10,
+     "name": "Parchi nazionali",
+     "geometry": "polygon",
+     "display_fields": [
+      "DTIPO_IDE",
+      "DATA_I",
+      "NOME_PA",
+      "NOME_ENTE",
+      "SEDE_ENTE",
+      "DATTUA_PA"
+     ],
+     "date_fields": [
+      "DATA_I"
+     ]
+    },
+    {
+     "id": 11,
+     "name": "Parchi locali di interesse sovracomunale",
+     "geometry": "polygon",
+     "display_fields": [
+      "DATA_RIC",
+      "DATA_ULTIM",
+      "DTIPO_PLIS",
+      "NOME_PLIS",
+      "ATTO_RIC",
+      "ENTE_PLIS"
+     ],
+     "date_fields": [
+      "DATA_RIC",
+      "DATA_ULTIM"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "lom_natura2000",
+   "name": "Regione Lombardia – Rete Natura 2000",
+   "type": "arcgis",
+   "provider": "Regione Lombardia",
+   "url": "https://www.cartografia.servizirl.it/arcgis2/rest/services/ambiente/Rete_Natura_2000/MapServer",
+   "bbox": [
+    8.4,
+    44.6,
+    11.5,
+    46.7
+   ],
+   "theme": "ambientale",
+   "legal_ref": "Dir. 92/43/CEE; Dir. 2009/147/CE; DPR 357/1997 (Valutazione di Incidenza)",
+   "value_note": "Dato ricognitivo: verificare l'atto originario e lo strumento vigente.",
+   "applies_if": {
+    "regione": [
+     "Lombardia"
+    ]
+   },
+   "layers": [
+    {
+     "id": 0,
+     "name": "Zone speciali di conservazione e Siti di Importanza Comunitaria (ZSC e SIC)",
+     "geometry": "polygon",
+     "display_fields": [
+      "NOME_SITO",
+      "COD_SITO"
+     ]
+    },
+    {
+     "id": 1,
+     "name": "Zone di protezione speciale (ZPS)",
+     "geometry": "polygon",
+     "display_fields": [
+      "NOME_ZPS",
+      "COD_ZPS"
+     ]
+    },
+    {
+     "id": 2,
+     "name": "Habitat Natura 2000",
+     "geometry": "polygon",
+     "display_fields": [
+      "COD_HABITA",
+      "DES_HABITA"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "lom_rer",
+   "name": "Regione Lombardia – Rete Ecologica Regionale",
+   "type": "arcgis",
+   "provider": "Regione Lombardia",
+   "url": "https://www.cartografia.servizirl.it/arcgis2/rest/services/sistemiverdi/rete_ecologica_regionale/MapServer",
+   "bbox": [
+    8.4,
+    44.6,
+    11.5,
+    46.7
+   ],
+   "theme": "ambientale",
+   "legal_ref": "DGR 8/10962/2009 (RER)",
+   "value_note": "Dato ricognitivo: verificare l'atto originario e lo strumento vigente.",
+   "applies_if": {
+    "regione": [
+     "Lombardia"
+    ]
+   },
+   "layers": [
+    {
+     "id": 2,
+     "name": "ELEMENTI DI PRIMO LIVELLO DELLA RER",
+     "geometry": "polygon",
+     "display_fields": [
+      "ECOREGIONE",
+      "CARATTERIS"
+     ],
+     "info": true
+    },
+    {
+     "id": 3,
+     "name": "ELEMENTI DI SECONDO LIVELLO DELLA RER",
+     "geometry": "polygon",
+     "display_fields": [],
+     "info": true
+    }
+   ]
+  },
+  {
+   "id": "lom_pai",
+   "name": "Regione Lombardia – PAI vigente (dissesti e fasce fluviali)",
+   "type": "arcgis",
+   "provider": "Regione Lombardia",
+   "url": "https://www.cartografia.servizirl.it/arcgis1/rest/services/territorio/pai_vigente/MapServer",
+   "bbox": [
+    8.4,
+    44.6,
+    11.5,
+    46.7
+   ],
+   "theme": "idrogeologico",
+   "legal_ref": "PAI – L. 183/1989; Norme di Attuazione PAI (artt. 9, 29, 30, 31, 39)",
+   "value_note": "Per le fasce fluviali fa fede il PAI vigente dell'Autorità di bacino.",
+   "applies_if": {
+    "regione": [
+     "Lombardia"
+    ]
+   },
+   "layers": [
+    {
+     "id": 1,
+     "name": "Dissesti puntuali",
+     "geometry": "point",
+     "display_fields": [
+      "NOME",
+      "DESCRIZIONE_LEGENDA",
+      "ISTAT"
+     ],
+     "proximity_m": 25
+    },
+    {
+     "id": 2,
+     "name": "Dissesti lineari",
+     "geometry": "polyline",
+     "display_fields": [
+      "NOME",
+      "LEGENDA_PAI",
+      "DESCRIZIONE_LEGENDA",
+      "ISTAT"
+     ],
+     "proximity_m": 25
+    },
+    {
+     "id": 3,
+     "name": "Dissesti poligonali",
+     "geometry": "polygon",
+     "display_fields": [
+      "NOME",
+      "LEGENDA_PAI",
+      "DESCRIZIONE_LEGENDA",
+      "ISTAT"
+     ]
+    },
+    {
+     "id": 4,
+     "name": "Aree RME vigenti",
+     "geometry": "polygon",
+     "display_fields": [
+      "LEGENDAPAI",
+      "TIPOLOGIA",
+      "COD_RISC_IDRO_MOLTO_ELEVAT"
+     ]
+    },
+    {
+     "id": 6,
+     "name": "Limite Fascia A",
+     "geometry": "polyline",
+     "display_fields": [
+      "FASCIA"
+     ],
+     "proximity_m": 25
+    },
+    {
+     "id": 7,
+     "name": "Limite Fascia B",
+     "geometry": "polyline",
+     "display_fields": [
+      "FASCIA"
+     ],
+     "proximity_m": 25
+    },
+    {
+     "id": 8,
+     "name": "Limite Fascia B di progetto",
+     "geometry": "polyline",
+     "display_fields": [
+      "FASCIA"
+     ],
+     "proximity_m": 25
+    },
+    {
+     "id": 9,
+     "name": "Limite Fascia C",
+     "geometry": "polyline",
+     "display_fields": [
+      "FASCIA"
+     ],
+     "proximity_m": 25
+    },
+    {
+     "id": 10,
+     "name": "Aree Allagabili tergo B di progetto",
+     "geometry": "polygon",
+     "display_fields": [
+      "FIUME"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "lom_iffi",
+   "name": "Regione Lombardia – Inventario fenomeni franosi (IFFI)",
+   "type": "arcgis",
+   "provider": "Regione Lombardia",
+   "url": "https://www.cartografia.servizirl.it/arcgis1/rest/services/protciv/iffi/MapServer",
+   "bbox": [
+    8.4,
+    44.6,
+    11.5,
+    46.7
+   ],
+   "theme": "idrogeologico",
+   "legal_ref": "Progetto IFFI (ISPRA/Regioni)",
+   "value_note": "Dato ricognitivo: verificare l'atto originario e lo strumento vigente.",
+   "applies_if": {
+    "regione": [
+     "Lombardia"
+    ]
+   },
+   "layers": [
+    {
+     "id": 0,
+     "name": "Punti storici",
+     "geometry": "point",
+     "display_fields": [
+      "COD_TIPOMOVIMENTO",
+      "TIPOMOVIMENTO",
+      "COD_TIPOFENOMENO",
+      "TIPOFENOMENO",
+      "COD_STATO",
+      "STATO"
+     ],
+     "link_fields": [
+      "URLSCHEDAPDF",
+      "URLREPORTPDF",
+      "URLALLEGATI"
+     ],
+     "proximity_m": 25
+    },
+    {
+     "id": 1,
+     "name": "Frane lineari",
+     "geometry": "polyline",
+     "display_fields": [
+      "COD_TIPOMOVIMENTO",
+      "TIPOMOVIMENTO",
+      "COD_TIPOFENOMENO",
+      "TIPOFENOMENO",
+      "COD_STATO",
+      "STATO"
+     ],
+     "link_fields": [
+      "URLSCHEDAPDF",
+      "URLREPORTPDF",
+      "URLALLEGATI"
+     ],
+     "proximity_m": 25
+    },
+    {
+     "id": 2,
+     "name": "Aree a franosità diffusa",
+     "geometry": "polygon",
+     "display_fields": [
+      "COD_TIPOMOVIMENTO",
+      "TIPOMOVIMENTO",
+      "COD_TIPOFENOMENO",
+      "TIPOFENOMENO",
+      "COD_STATO",
+      "STATO"
+     ],
+     "link_fields": [
+      "URLSCHEDAPDF",
+      "URLREPORTPDF",
+      "URLALLEGATI"
+     ]
+    },
+    {
+     "id": 3,
+     "name": "Frane poligonali",
+     "geometry": "polygon",
+     "display_fields": [
+      "COD_TIPOMOVIMENTO",
+      "TIPOMOVIMENTO",
+      "COD_TIPOFENOMENO",
+      "TIPOFENOMENO",
+      "COD_STATO",
+      "STATO"
+     ],
+     "link_fields": [
+      "URLSCHEDAPDF",
+      "URLREPORTPDF",
+      "URLALLEGATI"
+     ]
+    },
+    {
+     "id": 4,
+     "name": "Conoidi detritico-alluvionali",
+     "geometry": "polygon",
+     "display_fields": [
+      "COD_TIPOMOVIMENTO",
+      "TIPOMOVIMENTO",
+      "COD_TIPOFENOMENO",
+      "TIPOFENOMENO",
+      "COD_STATO",
+      "STATO"
+     ],
+     "link_fields": [
+      "URLSCHEDAPDF",
+      "URLREPORTPDF",
+      "URLALLEGATI"
+     ]
+    },
+    {
+     "id": 5,
+     "name": "DGPV - Deformazioni Gravitative Profonde di Versante",
+     "geometry": "polygon",
+     "display_fields": [
+      "COD_TIPOMOVIMENTO",
+      "TIPOMOVIMENTO",
+      "COD_TIPOFENOMENO",
+      "TIPOFENOMENO",
+      "COD_STATO",
+      "STATO"
+     ],
+     "link_fields": [
+      "URLSCHEDAPDF",
+      "URLREPORTPDF",
+      "URLALLEGATI"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "lom_pgra",
+   "name": "Regione Lombardia – PGRA aree allagabili (attestato del territorio)",
+   "type": "arcgis",
+   "provider": "Regione Lombardia",
+   "url": "https://www.cartografia.servizirl.it/arcgis2/rest/services/protciv/attestato_territorio_master/MapServer",
+   "bbox": [
+    8.4,
+    44.6,
+    11.5,
+    46.7
+   ],
+   "theme": "idraulico",
+   "legal_ref": "Dir. 2007/60/CE; D.Lgs. 49/2010 (PGRA)",
+   "value_note": "Verificare l'ultima versione del PGRA (AdBPo).",
+   "applies_if": {
+    "regione": [
+     "Lombardia"
+    ]
+   },
+   "layers": [
+    {
+     "id": 4,
+     "name": "Dir. alluvioni - Aree allagabili sul reticolo principale",
+     "geometry": "polygon",
+     "display_fields": [
+      "CODSCENAR"
+     ]
+    },
+    {
+     "id": 5,
+     "name": "Dir. alluvioni - Aree allagabili sul ret. sec. collinare e mont.",
+     "geometry": "polygon",
+     "display_fields": [
+      "CODSCENAR"
+     ]
+    },
+    {
+     "id": 6,
+     "name": "Dir. alluvioni - Aree allagabili sul ret. secondario di pianura",
+     "geometry": "polygon",
+     "display_fields": [
+      "CODSCENAR"
+     ]
+    },
+    {
+     "id": 7,
+     "name": "Dir. alluvioni - Aree allagabili aree costiere lacuali",
+     "geometry": "polygon",
+     "display_fields": [
+      "CODSCENAR"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "lom_attestato",
+   "name": "Regione Lombardia – Attestato del territorio (vincolo idrogeologico, difesa del suolo)",
+   "type": "arcgis",
+   "provider": "Regione Lombardia",
+   "url": "https://www.cartografia.servizirl.it/arcgis2/rest/services/protciv/attestato_territorio_master/MapServer",
+   "bbox": [
+    8.4,
+    44.6,
+    11.5,
+    46.7
+   ],
+   "theme": "idrogeologico",
+   "legal_ref": "R.D. 3267/1923 e L.R. 31/2008 (vincolo idrogeologico); DGR 3723/2015 (ambiti)",
+   "value_note": "Dato ricognitivo: verificare l'atto originario e lo strumento vigente.",
+   "applies_if": {
+    "regione": [
+     "Lombardia"
+    ]
+   },
+   "layers": [
+    {
+     "id": 29,
+     "name": "Vincolo idrogeologico",
+     "geometry": "polygon",
+     "display_fields": [
+      "vincolo"
+     ]
+    },
+    {
+     "id": 26,
+     "name": "Ambito Servizio di piena (dgr 3723 del 19/06/2015)",
+     "geometry": "polygon",
+     "display_fields": [
+      "NOTE"
+     ]
+    },
+    {
+     "id": 27,
+     "name": "Ambito presidio idraulico (dgr 3723 del 19/06/2015)",
+     "geometry": "polygon",
+     "display_fields": [
+      "NOTE"
+     ]
+    },
+    {
+     "id": 28,
+     "name": "Ambito presidio idrogeol. (dgr 3723 del 19/06/2015)",
+     "geometry": "polygon",
+     "display_fields": [
+      "NOTE"
+     ]
+    },
+    {
+     "id": 37,
+     "name": "Valanghe da rilevamento",
+     "geometry": "polygon",
+     "display_fields": [
+      "D_TIPO_EL"
+     ]
+    },
+    {
+     "id": 38,
+     "name": "Valanghe da fotointerpretazione",
+     "geometry": "polygon",
+     "display_fields": [
+      "D_TIPO_EL"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "lom_acquiferi",
+   "name": "Regione Lombardia – Vulnerabilità intrinseca degli acquiferi",
+   "type": "arcgis",
+   "provider": "Regione Lombardia",
+   "url": "https://www.cartografia.servizirl.it/arcgis2/rest/services/protciv/attestato_territorio_master/MapServer",
+   "bbox": [
+    8.4,
+    44.6,
+    11.5,
+    46.7
+   ],
+   "theme": "acque",
+   "legal_ref": "D.Lgs. 152/2006 (tutela acque sotterranee)",
+   "value_note": "Dato ricognitivo: verificare l'atto originario e lo strumento vigente.",
+   "applies_if": {
+    "regione": [
+     "Lombardia"
+    ]
+   },
+   "layers": [
+    {
+     "id": 63,
+     "name": "Grado di vulnerabilità intrinseca degli acquiferi lombardi",
+     "geometry": "polygon",
+     "display_fields": [
+      "VULN_INTEG"
+     ],
+     "info": true
+    }
+   ]
+  },
+  {
+   "id": "lom_attestato_info",
+   "name": "Regione Lombardia – Attestato del territorio (contesto)",
+   "type": "arcgis",
+   "provider": "Regione Lombardia",
+   "url": "https://www.cartografia.servizirl.it/arcgis2/rest/services/protciv/attestato_territorio_master/MapServer",
+   "bbox": [
+    8.4,
+    44.6,
+    11.5,
+    46.7
+   ],
+   "theme": "contesto",
+   "legal_ref": "",
+   "value_note": "Dato ricognitivo: verificare l'atto originario e lo strumento vigente.",
+   "applies_if": {
+    "regione": [
+     "Lombardia"
+    ]
+   },
+   "layers": [
+    {
+     "id": 3,
+     "name": "Classificazione acustica comunale - piani acustici",
+     "geometry": "polygon",
+     "display_fields": [
+      "CLASSE_ACU"
+     ],
+     "info": true
+    },
+    {
+     "id": 71,
+     "name": "Piano Emergenza Comunale",
+     "geometry": "polygon",
+     "display_fields": [
+      "PEC"
+     ],
+     "info": true
+    },
+    {
+     "id": 67,
+     "name": "Zona omogenea allerta idro-meteo",
+     "geometry": "polygon",
+     "display_fields": [
+      "NOME_IM",
+      "CODICE_IM"
+     ],
+     "info": true
+    },
+    {
+     "id": 68,
+     "name": "Zona omogenea allerta neve",
+     "geometry": "polygon",
+     "display_fields": [
+      "Cod_Zona",
+      "Descr_Zona"
+     ],
+     "info": true
+    },
+    {
+     "id": 69,
+     "name": "Zona omogenea allerta valanghe",
+     "geometry": "polygon",
+     "display_fields": [
+      "NOME_VAL",
+      "CODICE_ZON"
+     ],
+     "info": true
+    },
+    {
+     "id": 70,
+     "name": "Zona omogenea allerta incendi boschivi",
+     "geometry": "polygon",
+     "display_fields": [
+      "NOME_AREA",
+      "COD_AREA"
+     ],
+     "info": true
+    },
+    {
+     "id": 57,
+     "name": "DUSAF - Uso del suolo",
+     "geometry": "polygon",
+     "display_fields": [
+      "descrizione"
+     ],
+     "info": true
+    }
+   ]
+  },
+  {
+   "id": "lom_zone_sismiche",
+   "name": "Regione Lombardia – Classificazione sismica dei comuni",
+   "type": "arcgis",
+   "provider": "Regione Lombardia",
+   "url": "https://www.cartografia.servizirl.it/arcgis1/rest/services/protciv/classificazione_sismica/MapServer",
+   "bbox": [
+    8.4,
+    44.6,
+    11.5,
+    46.7
+   ],
+   "theme": "sismico",
+   "legal_ref": "OPCM 3274/2003; D.G.R. Lombardia X/2129/2014",
+   "value_note": "Classificazione vigente: fa fede l'ultimo atto regionale.",
+   "applies_if": {
+    "regione": [
+     "Lombardia"
+    ]
+   },
+   "layers": [
+    {
+     "id": 0,
+     "name": "Zone sismiche",
+     "geometry": "polygon",
+     "display_fields": [
+      "NOME_COM",
+      "NOME_PRO",
+      "ZONA"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "lom_psl",
+   "name": "Regione Lombardia – Pericolosità sismica locale (studi comunali)",
+   "type": "arcgis",
+   "provider": "Regione Lombardia",
+   "url": "https://www.cartografia.servizirl.it/arcgis1/rest/services/territorio/pericolosita_sismica_locale/MapServer",
+   "bbox": [
+    8.4,
+    44.6,
+    11.5,
+    46.7
+   ],
+   "theme": "sismico",
+   "legal_ref": "D.G.R. Lombardia IX/2616/2011 (componente sismica PGT)",
+   "value_note": "Dato ricognitivo: verificare l'atto originario e lo strumento vigente.",
+   "applies_if": {
+    "regione": [
+     "Lombardia"
+    ]
+   },
+   "layers": [
+    {
+     "id": 88,
+     "name": "Z3a - Zona di ciglio H>10m",
+     "geometry": "polyline",
+     "display_fields": [
+      "SIGLA",
+      "DESCRIZIONE",
+      "EFFETTI"
+     ],
+     "proximity_m": 25
+    },
+    {
+     "id": 89,
+     "name": "Z3b - Zona di cresta rocciosa e/o cocuzzolo",
+     "geometry": "polyline",
+     "display_fields": [
+      "SIGLA",
+      "DESCRIZIONE",
+      "EFFETTI"
+     ],
+     "proximity_m": 25
+    },
+    {
+     "id": 91,
+     "name": "Z5 - Zona di contatto stratigrafico e/o tettonico tra litotipi con caratteristiche fisico-meccaniche molto diverse",
+     "geometry": "polyline",
+     "display_fields": [
+      "SIGLA",
+      "DESCRIZIONE",
+      "EFFETTI"
+     ],
+     "proximity_m": 25
+    },
+    {
+     "id": 93,
+     "name": "NV",
+     "geometry": "polyline",
+     "display_fields": [
+      "SIGLA",
+      "DESCRIZIONE",
+      "EFFETTI"
+     ],
+     "proximity_m": 25
+    },
+    {
+     "id": 95,
+     "name": "Z1a - Zona caratterizzata da movimenti franosi attivi",
+     "geometry": "polygon",
+     "display_fields": [
+      "SIGLA",
+      "DESCRIZIONE",
+      "EFFETTI"
+     ]
+    },
+    {
+     "id": 96,
+     "name": "Z1b - Zona caratterizzata da movimenti franosi quiescenti",
+     "geometry": "polygon",
+     "display_fields": [
+      "SIGLA",
+      "DESCRIZIONE",
+      "EFFETTI"
+     ]
+    },
+    {
+     "id": 97,
+     "name": "Z1c - Zona potenzialmente franosa o esposta a rischio di frana",
+     "geometry": "polygon",
+     "display_fields": [
+      "SIGLA",
+      "DESCRIZIONE",
+      "EFFETTI"
+     ]
+    },
+    {
+     "id": 99,
+     "name": "Z2a - Zone con terreni di fondazione saturi particolarmente scadenti",
+     "geometry": "polygon",
+     "display_fields": [
+      "SIGLA",
+      "DESCRIZIONE",
+      "EFFETTI"
+     ]
+    },
+    {
+     "id": 100,
+     "name": "Z2b - Zona con terreni di fondazione particolarmente scadenti",
+     "geometry": "polygon",
+     "display_fields": [
+      "SIGLA",
+      "DESCRIZIONE",
+      "EFFETTI"
+     ]
+    },
+    {
+     "id": 102,
+     "name": "Z3a - Zona di ciglio H>10m",
+     "geometry": "polygon",
+     "display_fields": [
+      "SIGLA",
+      "DESCRIZIONE",
+      "EFFETTI"
+     ]
+    },
+    {
+     "id": 103,
+     "name": "Z3b - Zona di cresta rocciosa e/o cocuzzolo",
+     "geometry": "polygon",
+     "display_fields": [
+      "SIGLA",
+      "DESCRIZIONE",
+      "EFFETTI"
+     ]
+    },
+    {
+     "id": 105,
+     "name": "Z4a - Zona di fondovalle con presenza di depositi alluvionali e/o fluvioglaciali granulari e/o coesivi",
+     "geometry": "polygon",
+     "display_fields": [
+      "SIGLA",
+      "DESCRIZIONE",
+      "EFFETTI"
+     ]
+    },
+    {
+     "id": 106,
+     "name": "Z4b - Zona pedemontana di falda di detrito, conoide alluvionale e conoide deltizio-lacustre",
+     "geometry": "polygon",
+     "display_fields": [
+      "SIGLA",
+      "DESCRIZIONE",
+      "EFFETTI"
+     ]
+    },
+    {
+     "id": 107,
+     "name": "Z4c - Zona morenica con presenza di depositi granulari e/o coesivi",
+     "geometry": "polygon",
+     "display_fields": [
+      "SIGLA",
+      "DESCRIZIONE",
+      "EFFETTI"
+     ]
+    },
+    {
+     "id": 108,
+     "name": "Z4d - Zona con presenza di argille residuali e terre rosse di origine pluvio-colluviale",
+     "geometry": "polygon",
+     "display_fields": [
+      "SIGLA",
+      "DESCRIZIONE",
+      "EFFETTI"
+     ]
+    },
+    {
+     "id": 110,
+     "name": "Z5 - Zona di contatto stratigrafico e/o tettonico tra litotipi con caratteristiche fisico-meccaniche molto diverse",
+     "geometry": "polygon",
+     "display_fields": [
+      "SIGLA",
+      "DESCRIZIONE",
+      "EFFETTI"
+     ]
+    },
+    {
+     "id": 112,
+     "name": "NV",
+     "geometry": "polygon",
+     "display_fields": [
+      "SIGLA",
+      "DESCRIZIONE",
+      "EFFETTI"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "lom_ms",
+   "name": "Regione Lombardia – Microzonazione sismica",
+   "type": "arcgis",
+   "provider": "Regione Lombardia",
+   "url": "https://www.cartografia.servizirl.it/arcgis1/rest/services/territorio/Microzonazione_sismica/MapServer",
+   "bbox": [
+    8.4,
+    44.6,
+    11.5,
+    46.7
+   ],
+   "theme": "sismico",
+   "legal_ref": "OPCM 4007/2012; studi di microzonazione (livello 1)",
+   "value_note": "Dato ricognitivo: verificare l'atto originario e lo strumento vigente.",
+   "applies_if": {
+    "regione": [
+     "Lombardia"
+    ]
+   },
+   "layers": [
+    {
+     "id": 12,
+     "name": "Terreni di copertura e substrato geologico",
+     "geometry": "polygon",
+     "display_fields": [
+      "Tipo_gt",
+      "Stato",
+      "DESCR",
+      "ID_gt",
+      "Gen",
+      "Comune"
+     ],
+     "info": true
+    },
+    {
+     "id": 20,
+     "name": "Aree stabili e aree stabili suscettibili di amplificazioni locali",
+     "geometry": "polygon",
+     "display_fields": [
+      "Tipo_z",
+      "ID_z",
+      "URL",
+      "Comune"
+     ],
+     "link_fields": [
+      "URL"
+     ],
+     "info": true
+    }
+   ]
+  },
+  {
+   "id": "lom_fattibilita",
+   "name": "Regione Lombardia – Mosaico della fattibilità geologica",
+   "type": "arcgis",
+   "provider": "Regione Lombardia",
+   "url": "https://www.cartografia.servizirl.it/arcgis1/rest/services/territorio/fattibilita_geologica/MapServer",
+   "bbox": [
+    8.4,
+    44.6,
+    11.5,
+    46.7
+   ],
+   "theme": "geologico",
+   "legal_ref": "D.G.R. Lombardia IX/2616/2011 (classi di fattibilità 1-4)",
+   "value_note": "Mosaico regionale degli studi comunali; fa fede il PGT vigente.",
+   "applies_if": {
+    "regione": [
+     "Lombardia"
+    ]
+   },
+   "layers": [
+    {
+     "id": 88,
+     "name": "Mosaico della fattibilità",
+     "geometry": "polygon",
+     "display_fields": [
+      "CLASSE_FATTIBILITA",
+      "INFO_CLASSE_FATTIB",
+      "ISTAT_COMUNE",
+      "COMUNE",
+      "BASE_RILIEVO",
+      "SCALA_RILIEVO"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "lom_pgt_mosaico",
+   "name": "Regione Lombardia – Mosaico PGT (tavola delle previsioni)",
+   "type": "arcgis",
+   "provider": "Regione Lombardia",
+   "url": "https://www.cartografia.servizirl.it/arcgis1/rest/services/territorio/tav_previsioni_b/MapServer",
+   "bbox": [
+    8.4,
+    44.6,
+    11.5,
+    46.7
+   ],
+   "theme": "urbanistico",
+   "legal_ref": "L.R. 12/2005 (PGT)",
+   "value_note": "Mosaico regionale dei PGT: dato trasmesso dai Comuni, può non riflettere l'ultima variante.",
+   "applies_if": {
+    "regione": [
+     "Lombardia"
+    ]
+   },
+   "layers": [
+    {
+     "id": 1,
+     "name": "Pericolosità sismica lineare",
+     "geometry": "polyline",
+     "display_fields": [
+      "TIPOLOGIA",
+      "DESCR_TIPOLOGIA",
+      "NOME",
+      "DATA_INIZIO",
+      "DATA_FINE"
+     ],
+     "date_fields": [
+      "DATA_INIZIO",
+      "DATA_FINE"
+     ],
+     "proximity_m": 25
+    },
+    {
+     "id": 2,
+     "name": "Pericolosità sismica poligonale",
+     "geometry": "polygon",
+     "display_fields": [
+      "NOME",
+      "TIPOLOGIA",
+      "DESCR_TIPOLOGIA",
+      "NOME_COMUNE",
+      "DATA_INIZIO",
+      "DATA_FINE"
+     ],
+     "date_fields": [
+      "DATA_INIZIO",
+      "DATA_FINE"
+     ]
+    },
+    {
+     "id": 3,
+     "name": "Fattibilità geologica",
+     "geometry": "polygon",
+     "display_fields": [
+      "NOME",
+      "DESCRIZ_0",
+      "DESCRIZ_1",
+      "DESCR_FATTIBILITA",
+      "NOME_COMUNE",
+      "DATA_FINE"
+     ],
+     "date_fields": [
+      "DATA_FINE"
+     ]
+    },
+    {
+     "id": 6,
+     "name": "Aree critiche rete ecologica comunale",
+     "geometry": "polygon",
+     "display_fields": [
+      "DESCR_CRITICITA",
+      "NOME_COMUNE",
+      "DATA_INIZIO",
+      "DATA_FINE",
+      "COD_CRITICITA",
+      "NOTE"
+     ],
+     "date_fields": [
+      "DATA_INIZIO",
+      "DATA_FINE"
+     ]
+    },
+    {
+     "id": 7,
+     "name": "Aree supporto rete ecologica comunale",
+     "geometry": "polygon",
+     "display_fields": [
+      "NOME_COMUNE",
+      "DATA_INIZIO",
+      "DATA_FINE",
+      "COD_SUPPORTO",
+      "NOTE"
+     ],
+     "date_fields": [
+      "DATA_INIZIO",
+      "DATA_FINE"
+     ]
+    },
+    {
+     "id": 8,
+     "name": "Nodi rete ecologica comunale",
+     "geometry": "polygon",
+     "display_fields": [
+      "TIPO_TUTELA",
+      "NOME_COMUNE",
+      "DATA_INIZIO",
+      "DATA_FINE",
+      "COD_NODO",
+      "TUTELATO"
+     ],
+     "date_fields": [
+      "DATA_INIZIO",
+      "DATA_FINE"
+     ]
+    },
+    {
+     "id": 9,
+     "name": "Varchi rete ecologica comunale",
+     "geometry": "polygon",
+     "display_fields": [
+      "DESCR_VARCO",
+      "NOME_COMUNE",
+      "DATA_INIZIO",
+      "DATA_FINE",
+      "COD_VARCO",
+      "NOTE"
+     ],
+     "date_fields": [
+      "DATA_INIZIO",
+      "DATA_FINE"
+     ]
+    },
+    {
+     "id": 12,
+     "name": "Nuclei di antica formazione",
+     "geometry": "polygon",
+     "display_fields": [
+      "NOME_COM",
+      "COD_NUC"
+     ]
+    },
+    {
+     "id": 13,
+     "name": "Ambiti di trasformazione",
+     "geometry": "polygon",
+     "display_fields": [
+      "NOME_COM",
+      "NOME_AMB",
+      "AMB_TRAS",
+      "FUN_PREV1",
+      "DFUN_PREV1",
+      "SPEC_DEST"
+     ],
+     "link_fields": [
+      "SCHEDA",
+      "SCHEDA_NEW"
+     ]
+    },
+    {
+     "id": 14,
+     "name": "Ambiti di rigenerazione urbana e territoriale",
+     "geometry": "polygon",
+     "display_fields": [
+      "NOME_COM",
+      "NOME_AMB",
+      "CATEGORIA",
+      "DCATEGORIA",
+      "TIPO_INT",
+      "DTIPO_INT"
+     ],
+     "link_fields": [
+      "SCHEDA",
+      "SCHEDA_NEW"
+     ]
+    },
+    {
+     "id": 15,
+     "name": "Aree dismesse, abbandonate, degradate",
+     "geometry": "polygon",
+     "display_fields": [
+      "NOME_COM",
+      "TIPO",
+      "DTIPO",
+      "CONTAMINAZ",
+      "DCONTAMINAZ",
+      "BONIFICA"
+     ],
+     "link_fields": [
+      "SCHEDA",
+      "SCHEDA_NEW"
+     ]
+    },
+    {
+     "id": 17,
+     "name": "Aree di valore paesaggistico-ambientale ed ecologico puntuali",
+     "geometry": "point",
+     "display_fields": [
+      "NOME_COM",
+      "TIPO_AMB",
+      "DESCRIZION",
+      "COD_PAES",
+      "SCHEDA",
+      "NOTE"
+     ],
+     "link_fields": [
+      "SCHEDA"
+     ],
+     "proximity_m": 25
+    },
+    {
+     "id": 19,
+     "name": "Aree agricole",
+     "geometry": "polygon",
+     "display_fields": [
+      "NOME_COM",
+      "LEGENDA",
+      "COD_AGR",
+      "SPEC_AGR",
+      "SPEC_AGRD",
+      "SCHEDA"
+     ],
+     "link_fields": [
+      "SCHEDA",
+      "SCHEDA_NEW"
+     ]
+    },
+    {
+     "id": 20,
+     "name": "Ambiti del tessuto urbano consolidato",
+     "geometry": "polygon",
+     "display_fields": [
+      "NOME_COM",
+      "LEGENDA",
+      "AMB_URB",
+      "COD_DEST1",
+      "DCOD_DEST1",
+      "SPEC_DEST"
+     ],
+     "link_fields": [
+      "SCHEDA",
+      "SCHEDA_NEW"
+     ]
+    },
+    {
+     "id": 21,
+     "name": "Aree di valore paesaggistico-ambientale ed ecologico",
+     "geometry": "polygon",
+     "display_fields": [
+      "NOME_COM",
+      "TIPO_AMB",
+      "DESCRIZION",
+      "DATA_BURL",
+      "COD_PAES",
+      "SCHEDA"
+     ],
+     "date_fields": [
+      "DATA_BURL"
+     ],
+     "link_fields": [
+      "SCHEDA"
+     ]
+    },
+    {
+     "id": 22,
+     "name": "Classi di sensibilità paesistica",
+     "geometry": "polygon",
+     "display_fields": [
+      "NOME_COM",
+      "CLASSE",
+      "DESCRIZION",
+      "COD_SEN",
+      "SCHEDA",
+      "NOTE"
+     ],
+     "link_fields": [
+      "SCHEDA"
+     ]
+    },
+    {
+     "id": 27,
+     "name": "Fasce di rispetto stradale",
+     "geometry": "polygon",
+     "display_fields": [
+      "NOME_COM",
+      "STATO",
+      "DSTATO",
+      "DATA_BURL",
+      "N_VSTRAD",
+      "POSIZION"
+     ],
+     "date_fields": [
+      "DATA_BURL"
+     ]
+    },
+    {
+     "id": 28,
+     "name": "Fasce di rispetto ferroviario",
+     "geometry": "polygon",
+     "display_fields": [
+      "NOME_COM",
+      "TIPO",
+      "DTIPO",
+      "STATO",
+      "DSTATO",
+      "DATA_BURL"
+     ],
+     "date_fields": [
+      "DATA_BURL"
+     ]
+    },
+    {
+     "id": 29,
+     "name": "Fasce di rispetto cimiteriali",
+     "geometry": "polygon",
+     "display_fields": [
+      "NOME",
+      "NOME_COM",
+      "DATA_BURL",
+      "N_CIMITE",
+      "RIDUZION",
+      "DRIDUZION"
+     ],
+     "date_fields": [
+      "DATA_BURL"
+     ]
+    },
+    {
+     "id": 30,
+     "name": "Fasce di rispetto da impianti di depurazione",
+     "geometry": "polygon",
+     "display_fields": [
+      "NOME_COM",
+      "DATA_BURL",
+      "N_DEPURA",
+      "AMPIEZZA",
+      "NOTE"
+     ],
+     "date_fields": [
+      "DATA_BURL"
+     ]
+    },
+    {
+     "id": 31,
+     "name": "Fasce di rispetto da pozzi e sorgenti",
+     "geometry": "polygon",
+     "display_fields": [
+      "NOME_COM",
+      "TIPO",
+      "DTIPO",
+      "N_ACQUE",
+      "NOTE"
+     ],
+     "native_sr": 32632
+    },
+    {
+     "id": 32,
+     "name": "Limitazioni per servitù militari",
+     "geometry": "polygon",
+     "display_fields": [
+      "NOME_COM",
+      "DATA_BURL",
+      "N_MILITA",
+      "NOTE"
+     ],
+     "date_fields": [
+      "DATA_BURL"
+     ]
+    },
+    {
+     "id": 33,
+     "name": "Limitazioni in aree limitrofe ad aeroporti",
+     "geometry": "polygon",
+     "display_fields": [
+      "NOME_COM",
+      "ZONA",
+      "DZONA",
+      "DATA_BURL",
+      "N_AEROPO",
+      "NOTE"
+     ],
+     "date_fields": [
+      "DATA_BURL"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "lom_pgt_vincoli",
+   "name": "Regione Lombardia – Mosaico PGT/PRG (tavola dei vincoli)",
+   "type": "arcgis",
+   "provider": "Regione Lombardia",
+   "url": "https://www.cartografia.servizirl.it/arcgis1/rest/services/territorio/mos_tav_b/MapServer",
+   "bbox": [
+    8.4,
+    44.6,
+    11.5,
+    46.7
+   ],
+   "theme": "urbanistico",
+   "legal_ref": "L.R. 12/2005; vincoli da PRG/PGT",
+   "value_note": "Mosaico storico PRG/PGT: verificare sul PGT vigente del Comune.",
+   "applies_if": {
+    "regione": [
+     "Lombardia"
+    ]
+   },
+   "layers": [
+    {
+     "id": 3,
+     "name": "Parchi locali istituiti",
+     "geometry": "polygon",
+     "display_fields": [
+      "NOME_CO",
+      "NOME_ITER_PAL",
+      "DENOM_PAL",
+      "ITER_PAL"
+     ]
+    },
+    {
+     "id": 4,
+     "name": "Parchi locali riconosciuti",
+     "geometry": "polygon",
+     "display_fields": [
+      "NOME_CO",
+      "NOME_ITER_PAL",
+      "DENOM_PAL",
+      "ITER_PAL"
+     ]
+    },
+    {
+     "id": 5,
+     "name": "Parchi locali - Dettaglio",
+     "geometry": "polygon",
+     "display_fields": [
+      "NOME_CO",
+      "NOME_ITER_PAL",
+      "DENOM_PAL",
+      "ITER_PAL"
+     ]
+    },
+    {
+     "id": 11,
+     "name": "Vincoli di P.R.G. - Nuclei storici",
+     "geometry": "polygon",
+     "display_fields": [
+      "NOME_CO",
+      "NOME_COD_VINC",
+      "NOME_VINC_PRINC",
+      "COD_VINC"
+     ]
+    },
+    {
+     "id": 12,
+     "name": "Vincoli di P.R.G. - Aree di rispetto",
+     "geometry": "polygon",
+     "display_fields": []
+    },
+    {
+     "id": 13,
+     "name": "Vincoli di P.R.G. - Specifica di P.R.G",
+     "geometry": "polygon",
+     "display_fields": [
+      "NOME_CO",
+      "NOME_COD_VINC",
+      "NOME_VINC_PRINC",
+      "COD_VINC"
+     ]
+    },
+    {
+     "id": 14,
+     "name": "Vincoli di P.R.G. - Dettaglio",
+     "geometry": "polygon",
+     "display_fields": [
+      "NOME_CO",
+      "NOME_COD_VINC",
+      "NOME_VINC_PRINC",
+      "COD_VINC"
+     ]
+    },
+    {
+     "id": 17,
+     "name": "Vincoli legge 431/85",
+     "geometry": "polygon",
+     "display_fields": [
+      "NOME_CO",
+      "NOME_COD_VINC",
+      "NOME_VINC_PRINC",
+      "COD_VINC"
+     ]
+    },
+    {
+     "id": 18,
+     "name": "Vincoli paesaggistici",
+     "geometry": "polygon",
+     "display_fields": [
+      "NOME_CO",
+      "NOME_COD_VINC",
+      "NOME_VINC_PRINC",
+      "COD_VINC"
+     ]
+    },
+    {
+     "id": 19,
+     "name": "Vincolo L. 1089/39",
+     "geometry": "polygon",
+     "display_fields": [
+      "NOME_CO",
+      "NOME_COD_VINC",
+      "NOME_VINC_PRINC",
+      "COD_VINC"
+     ]
+    },
+    {
+     "id": 20,
+     "name": "Vincoli - Aree a servitu' speciali",
+     "geometry": "polygon",
+     "display_fields": [
+      "NOME_CO",
+      "NOME_COD_VINC",
+      "NOME_VINC_PRINC",
+      "COD_VINC"
+     ]
+    },
+    {
+     "id": 21,
+     "name": "Vincolo idreogeologico",
+     "geometry": "polygon",
+     "display_fields": [
+      "NOME_CO",
+      "NOME_COD_VINC",
+      "NOME_VINC_PRINC",
+      "COD_VINC"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "lom_azzonamenti",
+   "name": "Regione Lombardia – Azzonamenti comunali",
+   "type": "arcgis",
+   "provider": "Regione Lombardia",
+   "url": "https://www.cartografia.servizirl.it/arcgis1/rest/services/territorio/Azzonamenti_comunali/MapServer",
+   "bbox": [
+    8.4,
+    44.6,
+    11.5,
+    46.7
+   ],
+   "theme": "urbanistico",
+   "legal_ref": "Strumento urbanistico comunale",
+   "value_note": "Zonizzazione di sintesi: può riferirsi a PRG/PGT non aggiornato; verificare il PGT vigente.",
+   "applies_if": {
+    "regione": [
+     "Lombardia"
+    ]
+   },
+   "layers": [
+    {
+     "id": 0,
+     "name": "Azzonamenti comunali",
+     "geometry": "polygon",
+     "display_fields": [
+      "ARTICOLO",
+      "DESCRI_PRG",
+      "COMUNE",
+      "PRG"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "lom_stato_pgt",
+   "name": "Regione Lombardia – Stato di avanzamento dei PGT",
+   "type": "arcgis",
+   "provider": "Regione Lombardia",
+   "url": "https://www.cartografia.servizirl.it/arcgis1/rest/services/territorio/stato_pgt/MapServer",
+   "bbox": [
+    8.4,
+    44.6,
+    11.5,
+    46.7
+   ],
+   "theme": "urbanistico",
+   "legal_ref": "L.R. 12/2005",
+   "value_note": "Dato ricognitivo: verificare l'atto originario e lo strumento vigente.",
+   "applies_if": {
+    "regione": [
+     "Lombardia"
+    ]
+   },
+   "layers": [
+    {
+     "id": 1,
+     "name": "Stato",
+     "geometry": "polygon",
+     "display_fields": [
+      "NOME_COM",
+      "FASE"
+     ],
+     "info": true
+    }
+   ]
+  },
+  {
+   "id": "lom_foreste",
+   "name": "Regione Lombardia – Foreste (governo, destinazioni, piani di assestamento)",
+   "type": "arcgis",
+   "provider": "Regione Lombardia",
+   "url": "https://www.cartografia.servizirl.it/arcgis2/rest/services/agricoltura/governo_bosco/MapServer",
+   "bbox": [
+    8.4,
+    44.6,
+    11.5,
+    46.7
+   ],
+   "theme": "forestale",
+   "legal_ref": "L.R. 31/2008; D.Lgs. 34/2018",
+   "value_note": "Dato ricognitivo: verificare l'atto originario e lo strumento vigente.",
+   "applies_if": {
+    "regione": [
+     "Lombardia"
+    ]
+   },
+   "layers": [
+    {
+     "id": 0,
+     "name": "Carta di governo del bosco",
+     "geometry": "polygon",
+     "display_fields": [
+      "ANNO",
+      "GOVERNO"
+     ],
+     "info": true
+    }
+   ]
+  },
+  {
+   "id": "lom_foreste_dest",
+   "name": "Regione Lombardia – Destinazioni selvicolturali",
+   "type": "arcgis",
+   "provider": "Regione Lombardia",
+   "url": "https://www.cartografia.servizirl.it/arcgis2/rest/services/agricoltura/destinazioni_selvicolturali/MapServer",
+   "bbox": [
+    8.4,
+    44.6,
+    11.5,
+    46.7
+   ],
+   "theme": "forestale",
+   "legal_ref": "L.R. 31/2008",
+   "value_note": "Dato ricognitivo: verificare l'atto originario e lo strumento vigente.",
+   "applies_if": {
+    "regione": [
+     "Lombardia"
+    ]
+   },
+   "layers": [
+    {
+     "id": 0,
+     "name": "Destinazioni selvicolturali",
+     "geometry": "polygon",
+     "display_fields": [
+      "DEST_SELV"
+     ],
+     "info": true
+    }
+   ]
+  },
+  {
+   "id": "lom_boschi_protezione",
+   "name": "Regione Lombardia – Boschi di protezione",
+   "type": "arcgis",
+   "provider": "Regione Lombardia",
+   "url": "https://www.cartografia.servizirl.it/arcgis2/rest/services/sistemiverdi/boschi_protezione/MapServer",
+   "bbox": [
+    8.4,
+    44.6,
+    11.5,
+    46.7
+   ],
+   "theme": "forestale",
+   "legal_ref": "L.R. 31/2008",
+   "value_note": "Dato ricognitivo: verificare l'atto originario e lo strumento vigente.",
+   "applies_if": {
+    "regione": [
+     "Lombardia"
+    ]
+   },
+   "layers": [
+    {
+     "id": 0,
+     "name": "Boschi di protezione",
+     "geometry": "polygon",
+     "display_fields": [
+      "FONTE"
+     ],
+     "info": true
+    }
+   ]
+  },
+  {
+   "id": "lom_paf",
+   "name": "Regione Lombardia – Piani di assestamento forestale",
+   "type": "arcgis",
+   "provider": "Regione Lombardia",
+   "url": "https://www.cartografia.servizirl.it/arcgis2/rest/services/agricoltura/PAF/MapServer",
+   "bbox": [
+    8.4,
+    44.6,
+    11.5,
+    46.7
+   ],
+   "theme": "forestale",
+   "legal_ref": "L.R. 31/2008",
+   "value_note": "Dato ricognitivo: verificare l'atto originario e lo strumento vigente.",
+   "applies_if": {
+    "regione": [
+     "Lombardia"
+    ]
+   },
+   "layers": [
+    {
+     "id": 0,
+     "name": "Perimetro esterno del Piano di Assestamento Forestale (PAF) 2025",
+     "geometry": "polygon",
+     "display_fields": [
+      "ANNO_INI",
+      "ANNO_SCAD",
+      "NOME",
+      "ASSESTATOR",
+      "N_part_bo",
+      "N_part_pa"
+     ],
+     "info": true
+    }
+   ]
+  },
+  {
+   "id": "lom_beni_culturali",
+   "name": "Regione Lombardia – Beni culturali vincolati (SIRBeC)",
+   "type": "arcgis",
+   "provider": "Regione Lombardia",
+   "url": "https://www.cartografia.servizirl.it/arcgis/rest/services/sirbec/BeniCulturaliVincolati/MapServer",
+   "bbox": [
+    8.4,
+    44.6,
+    11.5,
+    46.7
+   ],
+   "theme": "culturale",
+   "legal_ref": "D.Lgs. 42/2004 Parte II",
+   "value_note": "Edifici: per il vincolo diretto servono foglio/mappale (Vincoli in Rete).",
+   "applies_if": {
+    "regione": [
+     "Lombardia"
+    ]
+   },
+   "layers": [
+    {
+     "id": 2,
+     "name": "Edificio vincolato",
+     "geometry": "point",
+     "display_fields": [
+      "NOME",
+      "PROVINCIA",
+      "COMUNE",
+      "VINCOLATO",
+      "TCI"
+     ],
+     "proximity_m": 30
+    },
+    {
+     "id": 1,
+     "name": "Edificio vincolato e segnalato TCI",
+     "geometry": "point",
+     "display_fields": [
+      "NOME",
+      "PROVINCIA",
+      "COMUNE",
+      "VINCOLATO",
+      "TCI"
+     ],
+     "proximity_m": 30
+    },
+    {
+     "id": 3,
+     "name": "Edificio segnalato TCI",
+     "geometry": "point",
+     "display_fields": [
+      "NOME",
+      "PROVINCIA",
+      "COMUNE",
+      "VINCOLATO",
+      "TCI"
+     ],
+     "proximity_m": 30
+    }
+   ]
+  },
+  {
+   "id": "lom_reticolo",
+   "name": "Regione Lombardia – Reticolo idrico (RIP, RIB, RIM)",
+   "type": "arcgis",
+   "provider": "Regione Lombardia",
+   "url": "https://www.cartografia.servizirl.it/arcgis1/rest/services/territorio/ReticoloIdrografico_RIRU/MapServer",
+   "bbox": [
+    8.4,
+    44.6,
+    11.5,
+    46.7
+   ],
+   "theme": "idraulico",
+   "legal_ref": "R.D. 523/1904; D.G.R. XII/3668/2024 (reticolo idrico)",
+   "value_note": "Polizia idraulica: le fasce (di norma 10 m) si misurano dal ciglio/piede arginale, non dall'asse.",
+   "applies_if": {
+    "regione": [
+     "Lombardia"
+    ]
+   },
+   "layers": [
+    {
+     "id": 3,
+     "name": "Reticolo Idrico Principale RIP - Allegato A alla D.g.r. 16 dicembre 2024 n. XII/3668",
+     "geometry": "polyline",
+     "display_fields": [
+      "TIPOLOGIA_CORSO_ACQUA",
+      "NOME_PRINCIPALE_CORSO_ACQUA",
+      "DESCRIZIONE_CORSO_ACQUA",
+      "IDT_N",
+      "N_ACQUE_PUBBLICHE_STORICO"
+     ],
+     "proximity_m": 15
+    },
+    {
+     "id": 2,
+     "name": "Reticolo Idrico Principale di competenza AIPO Allegato B alla D.g.r. 16 dicembre 2024 n. XII/3668",
+     "geometry": "polyline",
+     "display_fields": [
+      "DESCRIZIONE",
+      "NOME",
+      "COD_AIPO",
+      "NOTE"
+     ],
+     "proximity_m": 15
+    },
+    {
+     "id": 8,
+     "name": "Reticolo Idrico di Bonifica – RIB Allegato C alla D.g.r. 16 dicembre 2024 n. XII/3668",
+     "geometry": "polyline",
+     "display_fields": [
+      "NOME_C_ACQ",
+      "TIPO_RETIC",
+      "COD_RIB",
+      "COMUNI",
+      "FUNZIONE",
+      "GESTIONE"
+     ],
+     "proximity_m": 15
+    },
+    {
+     "id": 7,
+     "name": "Corsi d’acqua del Reticolo Idrico Minore – RIM",
+     "geometry": "polyline",
+     "display_fields": [
+      "NOME_RIM",
+      "COD_RIM",
+      "F_RISPETTO"
+     ],
+     "proximity_m": 15
+    }
+   ]
+  },
+  {
+   "id": "lom_nitrati",
+   "name": "Regione Lombardia – Zone vulnerabili da nitrati",
+   "type": "arcgis",
+   "provider": "Regione Lombardia",
+   "url": "https://www.cartografia.servizirl.it/arcgis2/rest/services/ambiente/Zone_vulnerabili_nitrati/MapServer",
+   "bbox": [
+    8.4,
+    44.6,
+    11.5,
+    46.7
+   ],
+   "theme": "acque",
+   "legal_ref": "Dir. 91/676/CEE; D.Lgs. 152/2006 art. 92; Reg. reg. nitrati",
+   "value_note": "Zona vulnerabile da nitrati di origine agricola (il dato non porta attributi descrittivi utili).",
+   "applies_if": {
+    "regione": [
+     "Lombardia"
+    ]
+   },
+   "layers": [
+    {
+     "id": 1,
+     "name": "Zone vulnerabili da nitrati di origine agricola",
+     "geometry": "polygon",
+     "display_fields": []
+    }
+   ]
+  },
+  {
+   "id": "lom_siti_contaminati",
+   "name": "Regione Lombardia – Siti contaminati e bonificati",
+   "type": "arcgis",
+   "provider": "Regione Lombardia",
+   "url": "https://www.cartografia.servizirl.it/arcgis4/rest/services/SISU/SitiContaminatiBonificati/MapServer",
+   "bbox": [
+    8.4,
+    44.6,
+    11.5,
+    46.7
+   ],
+   "theme": "suolo e rifiuti",
+   "legal_ref": "D.Lgs. 152/2006 Parte IV Titolo V",
+   "value_note": "Dato ricognitivo: verificare l'atto originario e lo strumento vigente.",
+   "applies_if": {
+    "regione": [
+     "Lombardia"
+    ]
+   },
+   "layers": [
+    {
+     "id": 2,
+     "name": "Siti Contaminati in Lombardia",
+     "geometry": "point",
+     "display_fields": [
+      "DENOMINAZIONE",
+      "TIPOLOGIA_SITO_ATTIVITA",
+      "DEN_PROVINCIA",
+      "ID_AGISCO",
+      "INDIRIZZO",
+      "PRECISIONE_LOCATION"
+     ],
+     "proximity_m": 50
+    },
+    {
+     "id": 1,
+     "name": "Siti Bonificati in Lombardia",
+     "geometry": "point",
+     "display_fields": [
+      "DENOMINAZIONE",
+      "TIPOLOGIA_SITO_ATTIVITA",
+      "DEN_PROVINCIA",
+      "DEN_COMUNE",
+      "ID_AGISCO",
+      "INDIRIZZO"
+     ],
+     "proximity_m": 50
+    },
+    {
+     "id": 3,
+     "name": "Siti Contaminati e Bonificati",
+     "geometry": "point",
+     "display_fields": [
+      "DENOMINAZIONE",
+      "TIPOLOGIA_SITO_ATTIVITA",
+      "CATEGORIA",
+      "ID_CATEGORIA",
+      "NOME_CALC",
+      "DEN_PROVINCIA"
+     ],
+     "proximity_m": 50
+    }
+   ]
+  },
+  {
+   "id": "lom_demanio",
+   "name": "Regione Lombardia – Particelle demaniali",
+   "type": "arcgis",
+   "provider": "Regione Lombardia",
+   "url": "https://www.cartografia.servizirl.it/arcgis1/rest/services/territorio/catasto_demanio/MapServer",
+   "bbox": [
+    8.4,
+    44.6,
+    11.5,
+    46.7
+   ],
+   "theme": "proprietà",
+   "legal_ref": "Catasto – demanio",
+   "value_note": "Dato ricognitivo: verificare l'atto originario e lo strumento vigente.",
+   "applies_if": {
+    "regione": [
+     "Lombardia"
+    ]
+   },
+   "layers": [
+    {
+     "id": 10,
+     "name": "particelle demanio",
+     "geometry": "polygon",
+     "display_fields": [
+      "NOME_COMUN",
+      "ID_PART",
+      "DATA_ESTRA",
+      "DENOMINAZI",
+      "PART_IVA",
+      "PROVINCIA"
+     ],
+     "info": true
+    }
+   ]
+  }
+ ]
+}

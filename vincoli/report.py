@@ -32,6 +32,8 @@ def to_markdown(result: dict) -> str:
         L.append(f"- Località: **non determinata** ({ctx.get('detail')})")
     if result["radius_m"]:
         L.append(f"- Raggio di ricerca aggiuntivo: {result['radius_m']:g} m")
+    if result.get("queried_layers") is not None:
+        L.append(f"- Livelli interrogati: {result['queried_layers']}" + (f" (+{result['skipped_info_layers']} informativi non interrogati: opzione --all)" if result.get("skipped_info_layers") else ""))
     c = Counter(f.status for f in fs)
     L += ["", "**Riepilogo:** " + " · ".join(f"{ICON[s]} {s.value}: {c[s]}" for s in ICON if c[s]), "", f"> {CAVEAT}", ""]
 
@@ -40,7 +42,11 @@ def to_markdown(result: dict) -> str:
         if not rows:
             return
         L.append(f"## {title}")
-        for f in rows:
+        last_theme = None
+        for f in sorted(rows, key=lambda x: (x.theme, x.layer)):
+            if f.theme != last_theme:
+                L.append(f"#### Tema: {f.theme or '—'}")
+                last_theme = f.theme
             L.append(f"### {ICON[f.status]} {f.layer}")
             L.append(f"- Stato: **{f.status.value}** · Tema: {f.theme}" + (f" · Norma: {f.legal_ref}" if f.legal_ref else ""))
             L.append(f"- Fonte: {f.source_name} ({f.provider})")

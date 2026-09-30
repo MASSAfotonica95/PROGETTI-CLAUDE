@@ -13,13 +13,13 @@ def _key(attrs: dict) -> str:
 
 
 def run(pt: Point, radius_m: float = 0, extra_dirs: list[str] | None = None,
-        only: list[str] | None = None, workers: int = 6, timeout: int = 30,
-        geocode: bool = True) -> dict:
+        only: list[str] | None = None, workers: int = 8, timeout: int = 30,
+        geocode: bool = True, include_info: bool = False) -> dict:
     session = make_session()
     context = reverse_geocode(session, pt, timeout) if geocode else {"ok": False, "detail": "disattivata"}
     sources = [s for s in load_sources(extra_dirs) if not only or s["id"] in only]
 
-    tasks, findings = [], []
+    tasks, findings, skipped_info = [], [], 0
     for s in sources:
         if not applies(s, pt.lat, pt.lon, context):
             # Se il comune non è noto (geocodifica fallita) le fonti condizionate al comune restano da verificare.
@@ -32,6 +32,9 @@ def run(pt: Point, radius_m: float = 0, extra_dirs: list[str] | None = None,
             continue
         fn = CONNECTORS[s["type"]]
         for layer in s["layers"]:
+            if layer.get("info") and not include_info:
+                skipped_info += 1
+                continue
             tasks.append((fn, s, layer))
 
     def job(t):
@@ -60,4 +63,4 @@ def run(pt: Point, radius_m: float = 0, extra_dirs: list[str] | None = None,
     order = {Status.HIT: 0, Status.NEARBY: 1, Status.UNVERIFIED: 2, Status.MANUAL: 3, Status.NO_HIT: 4, Status.NOT_APPLICABLE: 5}
     findings.sort(key=lambda f: (order[f.status], f.theme, f.layer))
     return {"point": {"lat": pt.lat, "lon": pt.lon}, "radius_m": radius_m, "context": context,
-            "findings": findings}
+            "findings": findings, "queried_layers": len(tasks), "skipped_info_layers": skipped_info}
