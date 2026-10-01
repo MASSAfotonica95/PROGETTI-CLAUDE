@@ -1,0 +1,7 @@
+__pycache__/
+*.pyc
+config.json
+report_preventivi.csv
+report_preventivi.json
+*.sqlite
+archivio_di_prova/

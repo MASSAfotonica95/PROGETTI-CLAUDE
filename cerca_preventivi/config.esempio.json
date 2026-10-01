@@ -1,0 +1,25 @@
+{
+  "_nota": "Copiare in config.json e compilare. Le chiavi che iniziano con _ sono commenti. Campi vuoti = non usati.",
+  "nome": "Angelo",
+  "cognome": "Chiminelli",
+  "identificativi": {
+    "partita_iva": "",
+    "codice_fiscale": "",
+    "email": "",
+    "pec": "",
+    "telefono": "",
+    "iscrizione_collegio": ""
+  },
+  "_nota_intestazione": "Diciture esatte della carta intestata, es. 'Studio Tecnico Chiminelli' (indicata nel file trova_preventivi.py fornito: da verificare).",
+  "intestazione_esatta": [],
+  "_nota_localita": "Localita'/indirizzo dello studio (indizio debole). Il file trova_preventivi.py fornito indica Flero (BS): da verificare prima di inserirla.",
+  "localita": [],
+  "_nota_esclusi": "Ditte/professionisti i cui preventivi finiscono spesso tra i dubbi (minuscolo).",
+  "emittenti_esclusi": [],
+  "impronta": [],
+  "finestra_caratteri": 800,
+  "soglia_confermato": 9,
+  "soglia_probabile": 5,
+  "soglia_scartato": 0,
+  "soglia_preventivo": 3
+}

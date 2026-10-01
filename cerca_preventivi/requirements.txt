@@ -1,0 +1,4 @@
+# Tutti opzionali: lo script funziona con la sola libreria standard di Python 3.9+,
+# ma per leggere i PDF serve almeno uno tra pypdf e pdftotext (poppler).
+pypdf>=4          # testo dei PDF (alternativa: pdftotext di poppler)
+cryptography>=41  # nome leggibile del firmatario dei .p7m (e generazione .p7m nei test)
